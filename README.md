@@ -1,4 +1,5 @@
 # onlineStore
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -46,14 +47,13 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-
-
 npm install @mui/material @emotion/react @emotion/styled - mui
-npm install @mui/icons-material 
+npm install @mui/icons-material
 
 npm i react-router-dom
-
 
 css reset - импорт в любом файле css @import-normalize;
 
 npm install sass --save-dev - sass
+
+remove eslint prettier plugin

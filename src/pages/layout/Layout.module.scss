@@ -1,0 +1,16 @@
+$color-light-l: #e7ebf0;
+
+
+body {
+  background-color: $color-light-l;
+}
+.layout{
+  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.main{
+
+}
