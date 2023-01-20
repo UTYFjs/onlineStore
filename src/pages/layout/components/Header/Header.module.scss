@@ -4,7 +4,8 @@
   min-width: 100vw;
   background-color: #fff;
 }
-.toolbar, .navigation{
+
+.up-navigation, .toolbar, .navigation{
   position: relative;
   display: flex;
   flex-direction: row;
@@ -14,6 +15,17 @@
 
   background-color: #fff;
 }
+.up-navigation{
+
+padding: 1px 50px;
+background-color: #682d2d;
+.info, .contact{
+
+  display:flex;
+  gap: .8rem
+}
+
+}
 .toolbar{
   justify-content: space-between;
   padding: 0 90px;
@@ -21,6 +33,7 @@
 }
 .navigation{
   padding: 10px 30px;
+  font-size: 1.1rem;
   gap: 1rem;
   max-height: 32px;
   min-height: 24px;
@@ -31,4 +44,13 @@
   display: flex;
   flex-direction: row;
   gap: 3rem;
+}
+.icon{
+  color: #fff;
+
+  &:hover{
+    cursor:  pointer;
+    color:#FF5252;
+    trancition: color .2s;
+  }
 }
