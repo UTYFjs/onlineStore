@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './Header.module.scss';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -27,6 +28,13 @@ function Header() {
           ))}
         </div>
         <div className={styles.contact}>
+          <span
+            className={styles.icon}
+            onClick={() => window.open('https://goo.gl/maps/ztXzbkxEoxA7MaM38')}
+          >
+            <LocationOnIcon fontSize="small" />
+            Georgia, Batumi
+          </span>
           <InstagramIcon
             onClick={() => window.open('https://ig.me/m/o.sugakova')}
             className={styles.icon}
