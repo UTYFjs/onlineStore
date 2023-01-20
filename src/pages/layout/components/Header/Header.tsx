@@ -12,6 +12,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 import NavLinkCustom from '../../../../components/NavLink/NavLinkCustom';
 import { routerPagesData, upperNavHeaderData } from '../../../../data/data';
+import LocationTag from '../../../../components/LocationTag/LocationTag';
+import Social from '../../../../components/Social/Social';
 function Header() {
   return (
     <AppBar component="header" position="relative" className={styles.header} color={'transparent'}>
@@ -28,33 +30,8 @@ function Header() {
           ))}
         </div>
         <div className={styles.contact}>
-          <span
-            className={styles.icon}
-            onClick={() => window.open('https://goo.gl/maps/ztXzbkxEoxA7MaM38')}
-          >
-            <LocationOnIcon fontSize="small" />
-            Georgia, Batumi
-          </span>
-          <InstagramIcon
-            onClick={() => window.open('https://ig.me/m/o.sugakova')}
-            className={styles.icon}
-            fontSize="medium"
-          />
-          <TelegramIcon
-            onClick={() => window.open('https://t.me/o_sugakova')}
-            className={styles.icon}
-            fontSize="medium"
-          />
-          <FacebookIcon
-            onClick={() => window.open('https://m.me/olga.sygakova')}
-            className={styles.icon}
-            fontSize="medium"
-          />
-          <WhatsAppIcon
-            onClick={() => window.open('https://wa.me/995511150849')}
-            className={styles.icon}
-            fontSize="medium"
-          />
+          <LocationTag color="#fff" />
+          <Social color="#fff" />
         </div>
       </nav>
       <nav className={styles.toolbar}>

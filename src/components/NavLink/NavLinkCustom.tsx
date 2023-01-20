@@ -8,7 +8,7 @@ interface navLinkProps {
   color: string;
 }
 
-function NavLinkCustom({ url, content, color }: navLinkProps) {
+function NavLinkCustom({ url, content, color = '#000' }: navLinkProps) {
   return (
     <NavLink key={url + content} to={url} className={styles['nav-link']} style={{ color: color }}>
       {content}
