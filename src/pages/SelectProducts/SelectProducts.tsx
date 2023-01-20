@@ -9,7 +9,7 @@ function SelectProducts() {
   /*const categoryText = routerPagesData.find((item)=> {
     const item.url.split('/');
   } )*/
-  return <Typography component={'h2'}> {currentCategory}</Typography>;
+  return <h1> {currentCategory}</h1>;
 }
 
 export default SelectProducts;
