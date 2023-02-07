@@ -1,4 +1,6 @@
 
+@use '../../../../styles/style.scss' as *;
+
 .header{
   position: relative;
   min-width: 100vw;
@@ -13,16 +15,24 @@
   justify-content: space-between;
 
 
-  background-color: #fff;
+  background-color: $backgrount-white;
 }
 .up-navigation{
 
 padding: 1px 50px;
-background-color: #682d2d;
+background-color: $color-burgundy;
+
+@include for-tablet {
+   padding: 1px 10px;
+}
 .info, .contact{
 
   display:flex;
-  gap: .8rem
+  gap: .8rem;
+
+  @include for-phone{
+gap: .5rem;
+  }
 }
 
 }
@@ -30,6 +40,18 @@ background-color: #682d2d;
   justify-content: space-between;
   padding: 0 70px;
   min-height: 100px;
+  @include for-tablet {
+ 
+   padding: 1px 20px;
+  }
+
+  @include for-phone{
+     min-height: 65px;
+  }
+}
+.menu-icon{
+  display: none;
+  
 }
 .navigation{
   padding: 10px 30px;
@@ -38,20 +60,29 @@ background-color: #682d2d;
   max-height: 32px;
   min-height: 24px;
     margin: 0 auto;
+
+    @include for-phone { 
+      display: none;
+      padding: 5px 20px;
+    }
   
 }
 .icons{
   display: flex;
   flex-direction: row;
   gap: 3rem;
+
+  @include for-phone {
+    gap: 1rem;
+  }
 }
 .icon{
-  color: #fff;
+  color: $backgrount-white;
   
 
   &:hover{
     cursor:  pointer;
-    color:#FF5252;
+    color: $color-myred-light;
    
   }
 }

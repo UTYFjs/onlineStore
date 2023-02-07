@@ -5,10 +5,13 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 interface locationTagProps {
   color?: string;
   iconSize?: 'large' | 'medium' | 'small';
+  hide?: boolean;
 }
 
-function LocationTag({ color = '#000', iconSize = 'medium' }: locationTagProps) {
+function LocationTag({ color = '#000', iconSize = 'medium', hide = false }: locationTagProps) {
   const [colorText, setColorText] = useState(color);
+  const [classes, setClasses] = useState('address');
+  if (hide) setClasses(classes + ' ' + 'address-hide');
   return (
     <address
       className={styles.address}
@@ -21,7 +24,7 @@ function LocationTag({ color = '#000', iconSize = 'medium' }: locationTagProps) 
       }}
       style={{ color: colorText }}
     >
-      <LocationOnIcon fontSize={iconSize} />
+      <LocationOnIcon />
       Georgia, Batumi
     </address>
   );

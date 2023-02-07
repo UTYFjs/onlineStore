@@ -1,9 +1,12 @@
+@use '../../../../styles/style.scss' as *;
+
 .footer{
   width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  .divider{
+
+    .divider{
     width: 100vw;
   }
   .contacts{
@@ -11,9 +14,17 @@
     flex-direction: row;
     gap: 1rem;
     padding-top: .5rem;
+    @include for-phone {
+      display: none;
+    }
   }
   p{
-        margin-block-start: 1em;
-    margin-block-end: 1em;
+        margin-block-start: .7em;
+    margin-block-end: .7em;
+    @include for-phone{
+              margin-block-start: 1em;
+              margin-block-end: 1em;
+    }
+
   }
 }

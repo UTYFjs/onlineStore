@@ -1,3 +1,4 @@
+import { userInfo } from 'os';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -7,9 +8,10 @@ import Catalog from './pages/Catalog/Catalog';
 import HowToOrder from './pages/HowToOrder/HowToOrder';
 import Layout from './pages/layout/Layout';
 import MainPage from './pages/MainPage/MainPage';
-import SelectProducts from './pages/SelectProducts/SelectProducts';
+import SelectProducts from './pages/Catalog/SelectProducts/SelectProducts';
 
 function App() {
+  console.log(navigator.userAgent);
   return (
     <>
       <Routes>

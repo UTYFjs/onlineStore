@@ -1,0 +1,9 @@
+@mixin underline-animated{
+	content: '';
+	position: absolute;
+	left: 0; bottom: -2px;
+	width: 0;
+	height: 2px;
+	background-color: red;
+  transition: width .35s;
+}

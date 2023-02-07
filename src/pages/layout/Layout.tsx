@@ -13,7 +13,6 @@ const Layout = () => {
         <Container component="main" className={styles.main}>
           <Outlet />
         </Container>
-
         <Footer />
       </Box>
     </>
