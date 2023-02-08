@@ -3,11 +3,6 @@ import React from 'react';
 import styles from './Header.module.scss';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import TelegramIcon from '@mui/icons-material/Telegram';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import FacebookIcon from '@mui/icons-material/Facebook';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -15,7 +10,11 @@ import NavLinkCustom from '../../../../components/NavLink/NavLinkCustom';
 import { routerPagesData, upperNavHeaderData } from '../../../../data/data';
 import LocationTag from '../../../../components/LocationTag/LocationTag';
 import Social from '../../../../components/Social/Social';
-function Header() {
+interface IHeaderProps {
+  setMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function Header({ setMenu }: IHeaderProps) {
   const consol = () => {
     console.log(window.innerWidth);
   };
@@ -43,6 +42,7 @@ function Header() {
         <MenuIcon
           sx={{ display: { xs: 'block', md: 'none', lg: 'none' }, fontSize: iconsFontSize }}
           color={'action'}
+          onClick={() => setMenu(true)}
         />
         <SearchIcon
           sx={{

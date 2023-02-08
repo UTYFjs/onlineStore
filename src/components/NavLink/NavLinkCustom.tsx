@@ -6,11 +6,18 @@ interface navLinkProps {
   url: string;
   content: string;
   color: string;
+  onClick?: React.MouseEventHandler;
 }
 
-function NavLinkCustom({ url, content, color = '#000' }: navLinkProps) {
+function NavLinkCustom({ url, content, color = '#000', onClick }: navLinkProps) {
   return (
-    <NavLink key={url + content} to={url} className={styles['nav-link']} style={{ color: color }}>
+    <NavLink
+      key={url + content}
+      to={url}
+      className={styles['nav-link']}
+      style={{ color: color }}
+      onClick={onClick}
+    >
       {content}
     </NavLink>
   );

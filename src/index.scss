@@ -6,11 +6,16 @@ $color-myred: #ff4f33;
 $color-myred-light: #FF5252;
 $color-light-l: #e7ebf0;
 $color-burgundy: #682d2d;
+*{
+  box-sizing: border-box;
+}
+
 h1{
   text-align: center;
   font-size: 2rem;
 }
 body {
+  
   margin: 0;
   //font-family: 'Avenir Next Cyr', sans-serif;
   font-family: 'Alegreya Sans SC', sans-serif;
@@ -22,3 +27,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
