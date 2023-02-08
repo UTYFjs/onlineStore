@@ -15,13 +15,10 @@ interface IHeaderProps {
 }
 
 function Header({ setMenu }: IHeaderProps) {
-  const consol = () => {
-    console.log(window.innerWidth);
-  };
   const iconsFontSize = { xs: '33px', sm: '33px', md: '35px', lg: '38px' };
   return (
     <AppBar component="header" position="relative" className={styles.header} color={'transparent'}>
-      <nav className={styles['up-navigation']} onClick={() => consol()}>
+      <nav className={styles['up-navigation']}>
         <div className={styles.info}>
           {' '}
           {upperNavHeaderData.map((item) => (

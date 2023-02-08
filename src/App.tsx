@@ -11,7 +11,6 @@ import MainPage from './pages/MainPage/MainPage';
 import SelectProducts from './pages/Catalog/SelectProducts/SelectProducts';
 
 function App() {
-  console.log(navigator.userAgent);
   return (
     <>
       <Routes>

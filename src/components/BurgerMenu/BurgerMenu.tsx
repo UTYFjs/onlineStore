@@ -4,7 +4,7 @@ import cn from 'classnames';
 import NavLinkCustom from '../NavLink/NavLinkCustom';
 import styles from './BurgerMenu.module.scss';
 import CloseIcon from '@mui/icons-material/Close';
-import { Link, Typography } from '@mui/material';
+import { Link, styled, Typography } from '@mui/material';
 
 interface IBurgerMenuProps {
   data: Array<{ url: string; content: string }>;
@@ -16,6 +16,12 @@ function BurgerMenu({ data, menuActive, setMenu }: IBurgerMenuProps) {
   const stylesMenu = menuActive ? ' active' : '';
   const classesBurger = cn(styles.burger, menuActive && styles.active);
   const classesBackground = cn(styles['burger-background'], menuActive && styles.active);
+  /*const Typography = styled('a')(({ theme }) => ({
+    fontSize: '2rem',
+    fontWeight: 600,
+    color: 'black',
+    textDecoration: 'none',
+  }));*/
   useEffect(() => {
     console.log('mount');
   }, []);
