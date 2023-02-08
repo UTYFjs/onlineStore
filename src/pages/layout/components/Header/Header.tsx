@@ -59,7 +59,7 @@ function Header({ setMenu }: IHeaderProps) {
             color: 'black',
           }}
         >
-          Genoli
+          GENOLI
         </Typography>
         <Box className={styles.icons}>
           <FavoriteIcon sx={{ fontSize: iconsFontSize }} color={'error'} />

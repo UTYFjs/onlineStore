@@ -13,7 +13,6 @@ interface IBurgerMenuProps {
 }
 
 function BurgerMenu({ data, menuActive, setMenu }: IBurgerMenuProps) {
-  const stylesMenu = menuActive ? ' active' : '';
   const classesBurger = cn(styles.burger, menuActive && styles.active);
   const classesBackground = cn(styles['burger-background'], menuActive && styles.active);
   /*const Typography = styled('a')(({ theme }) => ({
@@ -29,7 +28,6 @@ function BurgerMenu({ data, menuActive, setMenu }: IBurgerMenuProps) {
     <div className={classesBurger}>
       <div className={classesBackground} onClick={() => setMenu(!menuActive)} />
       <div className={styles['burger-title']}>
-        <h3 className={styles['burger-title-item']}>GENOLI</h3>{' '}
         <Typography
           className={styles['burger-title-item']}
           component={Link}
