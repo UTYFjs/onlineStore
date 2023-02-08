@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { upperNavHeaderData } from '../../data/data';
+
 import cn from 'classnames';
 import NavLinkCustom from '../NavLink/NavLinkCustom';
 import styles from './BurgerMenu.module.scss';
 import CloseIcon from '@mui/icons-material/Close';
-import { Link, styled, Typography } from '@mui/material';
+import { Link, Typography } from '@mui/material';
 
 interface IBurgerMenuProps {
   data: Array<{ url: string; content: string }>;

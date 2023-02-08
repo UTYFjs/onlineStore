@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Link, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Link, Typography } from '@mui/material';
 import React from 'react';
 import styles from './Header.module.scss';
 import SearchIcon from '@mui/icons-material/Search';
@@ -11,7 +11,7 @@ import { routerPagesData, upperNavHeaderData } from '../../../../data/data';
 import LocationTag from '../../../../components/LocationTag/LocationTag';
 import Social from '../../../../components/Social/Social';
 interface IHeaderProps {
-  setMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  setMenu: () => void;
 }
 
 function Header({ setMenu }: IHeaderProps) {
@@ -39,7 +39,7 @@ function Header({ setMenu }: IHeaderProps) {
         <MenuIcon
           sx={{ display: { xs: 'block', md: 'none', lg: 'none' }, fontSize: iconsFontSize }}
           color={'action'}
-          onClick={() => setMenu(true)}
+          onClick={() => setMenu()}
         />
         <SearchIcon
           sx={{
