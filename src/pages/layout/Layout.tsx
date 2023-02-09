@@ -8,13 +8,21 @@ import BurgerMenu from '../../components/BurgerMenu/BurgerMenu';
 import { routerPagesData } from '../../data/data';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { setBurgerOpen } from '../../store/slices';
+import { useZustandStore } from '../../store/zustandStore';
 
 const Layout = () => {
-  const dispatch = useAppDispatch();
+  // redux state management
+  /*const dispatch = useAppDispatch();
   const isBurgerOpen = useAppSelector((store) => store.formRedux.isBurgerOpen);
+*/
+
+  //zustand state management
+  const isBurgerOpen = useZustandStore((state) => state.isBurgerOpen);
+  const setIsBurgerOpen = useZustandStore((state) => state.setIsBurgerOpen);
 
   const handleBurgerOpen = () => {
-    dispatch(setBurgerOpen(!isBurgerOpen));
+    /*dispatch(setBurgerOpen(!isBurgerOpen));*/
+    setIsBurgerOpen();
   };
 
   return (
