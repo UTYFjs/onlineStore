@@ -60,3 +60,4 @@ remove eslint prettier plugin
 
 TODO before bundle - 1) remove redux toolkit/ react-redux dependencies
 2)try remove mui dependencies 3) try mui icons dependencies
+

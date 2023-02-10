@@ -5,28 +5,32 @@ import NavLinkCustom from '../NavLink/NavLinkCustom';
 import styles from './BurgerMenu.module.scss';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link, Typography } from '@mui/material';
+import { useZustandStore } from '../../store/zustandStore';
 
 interface IBurgerMenuProps {
   data: Array<{ url: string; content: string }>;
-  menuActive: boolean;
-  setMenu: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function BurgerMenu({ data, menuActive, setMenu }: IBurgerMenuProps) {
-  const classesBurger = cn(styles.burger, menuActive && styles.active);
-  const classesBackground = cn(styles['burger-background'], menuActive && styles.active);
+function BurgerMenu({ data }: IBurgerMenuProps) {
+  const isBurgerOpen = useZustandStore((state) => state.isBurgerOpen);
+  const setHandleShaded = useZustandStore((state) => state.setHandleShaded);
+  const handleShaded = useZustandStore((state) => state.handleShaded);
+
+  const classesBurger = cn(styles.burger, isBurgerOpen && styles.active);
+
   /*const Typography = styled('a')(({ theme }) => ({
     fontSize: '2rem',
     fontWeight: 600,
     color: 'black',
     textDecoration: 'none',
   }));*/
-  useEffect(() => {
-    console.log('mount');
-  }, []);
+  const handleCloseBurger = () => {
+    handleShaded();
+    setHandleShaded(() => {});
+  };
+
   return (
     <div className={classesBurger}>
-      <div className={classesBackground} onClick={() => setMenu(!menuActive)} />
       <div className={styles['burger-title']}>
         <Typography
           className={styles['burger-title-item']}
@@ -44,7 +48,7 @@ function BurgerMenu({ data, menuActive, setMenu }: IBurgerMenuProps) {
         <CloseIcon
           className={styles['burger-close']}
           fontSize="large"
-          onClick={() => setMenu(!menuActive)}
+          onClick={() => handleCloseBurger()}
         />
       </div>
       <nav className={styles['menu-content']}>
@@ -54,7 +58,7 @@ function BurgerMenu({ data, menuActive, setMenu }: IBurgerMenuProps) {
             url={item.url}
             content={item.content}
             color={'#000'}
-            onClick={() => setMenu(!menuActive)}
+            onClick={() => handleCloseBurger()}
           />
         ))}
       </nav>

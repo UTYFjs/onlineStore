@@ -3,10 +3,15 @@
   
 }
 
+@mixin font-input-select {
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
 
 
 
-
+/*
 @mixin font-title-xxl {
   font-family: 'Montserrat';
   font-style: normal;
@@ -138,3 +143,4 @@
   line-height: 16px;
   letter-spacing: 0.2px;
 }
+*/

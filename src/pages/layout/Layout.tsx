@@ -7,8 +7,8 @@ import Header from './components/Header/Header';
 import BurgerMenu from '../../components/BurgerMenu/BurgerMenu';
 import { routerPagesData } from '../../data/data';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
-import { setBurgerOpen } from '../../store/slices';
 import { useZustandStore } from '../../store/zustandStore';
+import ShadedBackground from '../../components/ShadedBackground/ShadedBackground';
 
 const Layout = () => {
   // redux state management
@@ -19,18 +19,26 @@ const Layout = () => {
   //zustand state management
   const isBurgerOpen = useZustandStore((state) => state.isBurgerOpen);
   const setIsBurgerOpen = useZustandStore((state) => state.setIsBurgerOpen);
+  const setIsShadedActive = useZustandStore((state) => state.setIsShadedActive);
+  const setHandleShaded = useZustandStore((state) => state.setHandleShaded);
 
   const handleBurgerOpen = () => {
     /*dispatch(setBurgerOpen(!isBurgerOpen));*/
     setIsBurgerOpen();
+    setIsShadedActive();
+    setHandleShaded(() => {
+      setIsBurgerOpen();
+      setIsShadedActive();
+      setHandleShaded(() => {});
+    });
   };
 
   return (
     <>
       <Box className={styles.layout}>
         <Header setMenu={handleBurgerOpen} />
-
-        <BurgerMenu menuActive={isBurgerOpen} setMenu={handleBurgerOpen} data={routerPagesData} />
+        <ShadedBackground />
+        <BurgerMenu data={routerPagesData} />
 
         <Container component="main" className={styles.main}>
           <Outlet />

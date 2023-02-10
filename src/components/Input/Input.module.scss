@@ -1,0 +1,26 @@
+@use '../../styles/style.scss' as *;
+.form-input-text{
+
+  @include font-input-select;
+  width: 400px;
+  padding: 5px 10px;
+  border:  1px solid $color-border-inputs ;
+  outline:none;
+  box-shadow: $shadow;
+
+  &::placeholder{
+  font-family: 'Alegreya Sans SC', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 18px;
+  /* identical to box height, or 129% */
+
+  letter-spacing: 0.1px;
+
+  /* grey/black 40 */
+
+  color: #A7A7A7;
+
+  }
+}
