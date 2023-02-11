@@ -1,7 +1,22 @@
-export const dataProducts = [
+export interface IDataProducts {
+  name: string;
+  img: string;
+  type: string;
+  color: string;
+  price: number;
+  stock: number;
+  description: string;
+  productionTime: string;
+  bestseller: boolean;
+  freeShipping: boolean;
+  manufacturer: string;
+  year: number;
+  countInCart: number;
+}
+export const dataProducts: Array<IDataProducts> = [
   {
     name: 'Ремень "Винтаж"',
-    img: './assets/img/belt_red_vintage.jpg',
+    img: './assets/img/jpg/belt_red_vintage.jpg',
     type: 'belt',
     color: 'red',
     price: 130,
@@ -17,7 +32,7 @@ export const dataProducts = [
   },
   {
     name: 'Сумка "Child"',
-    img: './assets/img/bag-tote-child-orange-small.jpg',
+    img: './assets/img/jpg/bag-tote-child-orange-small.jpg',
     type: 'bag',
     color: 'orange',
     price: 110,
@@ -33,7 +48,7 @@ export const dataProducts = [
   },
   {
     name: 'Сумка',
-    img: './assets/img/bag-tote-orange.jpg',
+    img: './assets/img/jpg/bag-tote-orange.jpg',
     type: 'bag',
     color: 'orange',
     price: 250,
@@ -49,7 +64,7 @@ export const dataProducts = [
   },
   {
     name: 'Ремень "Бизон"',
-    img: './assets/img/belt-bizon-black.jpg',
+    img: './assets/img/jpg/belt-bizon-black.jpg',
     type: 'belt',
     color: 'black',
     price: 130,
@@ -65,7 +80,7 @@ export const dataProducts = [
   },
   {
     name: 'Ремень "Кровавая Мэри"',
-    img: './assets/img/belt-bloody-mary.jpg',
+    img: './assets/img/jpg/belt-bloody-mary.jpg',
     type: 'belt',
     color: 'mix',
     price: 150,
@@ -81,7 +96,7 @@ export const dataProducts = [
   },
   {
     name: 'Ремень "Fireman"',
-    img: './assets/img/belt-fireman-black.jpg',
+    img: './assets/img/jpg/belt-fireman-black.jpg',
     type: 'belt',
     color: 'black',
     price: 170,
@@ -97,7 +112,7 @@ export const dataProducts = [
   },
   {
     name: 'Деревянный блокнот',
-    img: './assets/img/notebook-wooden.jpg',
+    img: './assets/img/jpg/notebook-wooden.jpg',
     type: 'notebook',
     color: 'sand',
     price: 75,
@@ -113,7 +128,7 @@ export const dataProducts = [
   },
   {
     name: 'Монетница',
-    img: './assets/img/coin-box-red.jpg',
+    img: './assets/img/jpg/coin-box-red.jpg',
     type: 'coinBox',
     color: 'red',
     price: 50,
@@ -129,7 +144,7 @@ export const dataProducts = [
   },
   {
     name: 'Докхолдер "Бизон"',
-    img: './assets/img/docholder-bison.jpg',
+    img: './assets/img/jpg/docholder-bison.jpg',
     type: 'forDocuments',
     color: 'brown',
     price: 100,
@@ -145,7 +160,7 @@ export const dataProducts = [
   },
   {
     name: 'Ремень "Gold"',
-    img: './assets/img/belt-gold.jpg',
+    img: './assets/img/jpg/belt-gold.jpg',
     type: 'belt',
     color: 'gold',
     price: 150,
@@ -161,7 +176,7 @@ export const dataProducts = [
   },
   {
     name: 'Ремень "Missouri"',
-    img: './assets/img/belt-missouri-black.jpg',
+    img: './assets/img/jpg/belt-missouri-black.jpg',
     type: 'belt',
     color: 'black',
     price: 160,
@@ -177,7 +192,7 @@ export const dataProducts = [
   },
   {
     name: 'Ремень "Missouri"',
-    img: './assets/img/belt-missouri-burgundy.jpg',
+    img: './assets/img/jpg/belt-missouri-burgundy.jpg',
     type: 'belt',
     color: 'brown',
     price: 160,
@@ -193,7 +208,7 @@ export const dataProducts = [
   },
   {
     name: 'Ремень "Missouri"',
-    img: './assets/img/belt-missouri-lite-brown.jpg',
+    img: './assets/img/jpg/belt-missouri-lite-brown.jpg',
     type: 'belt',
     color: 'brown',
     price: 160,
@@ -209,7 +224,7 @@ export const dataProducts = [
   },
   {
     name: 'Ремень "OnlyBlack"',
-    img: './assets/img/belt-only-black.jpg',
+    img: './assets/img/jpg/belt-only-black.jpg',
     type: 'belt',
     color: 'black',
     price: 180,
@@ -225,7 +240,7 @@ export const dataProducts = [
   },
   {
     name: 'Ремень "Гранат"',
-    img: './assets/img/belt-pomegranate.jpg',
+    img: './assets/img/jpg/belt-pomegranate.jpg',
     type: 'belt',
     color: 'mix',
     price: 150,
@@ -241,7 +256,7 @@ export const dataProducts = [
   },
   {
     name: 'Ремень "Винтаж"',
-    img: './assets/img/belt-vintage-orange.jpg',
+    img: './assets/img/jpg/belt-vintage-orange.jpg',
     type: 'belt',
     color: 'orange',
     price: 130,
@@ -257,7 +272,7 @@ export const dataProducts = [
   },
   {
     name: 'Кошелек',
-    img: './assets/img/wallet-brown.jpg',
+    img: './assets/img/jpg/wallet-brown.jpg',
     type: 'wallet',
     color: 'brown',
     price: 120,
@@ -273,7 +288,7 @@ export const dataProducts = [
   },
   {
     name: 'Кошелек Crazy',
-    img: './assets/img/wallet-brown-crazy.jpg',
+    img: './assets/img/jpg/wallet-brown-crazy.jpg',
     type: 'wallet',
     color: 'brown',
     price: 120,
@@ -289,7 +304,7 @@ export const dataProducts = [
   },
   {
     name: 'Мини-кошелек "Бизон"',
-    img: './assets/img/wallet-mini-bison.jpg',
+    img: './assets/img/jpg/wallet-mini-bison.jpg',
     type: 'wallet',
     color: 'brown',
     price: 70,
@@ -305,7 +320,7 @@ export const dataProducts = [
   },
   {
     name: 'Ремень "Violet"',
-    img: './assets/img/belt-violet.jpg',
+    img: './assets/img/jpg/belt-violet.jpg',
     type: 'belt',
     color: 'mix',
     price: 150,
@@ -321,7 +336,7 @@ export const dataProducts = [
   },
   {
     name: 'Картхолдер',
-    img: './assets/img/cardholder-yellow.jpg',
+    img: './assets/img/jpg/cardholder-yellow.jpg',
     type: 'cardholder',
     color: 'mix',
     price: 35,
@@ -337,7 +352,7 @@ export const dataProducts = [
   },
   {
     name: 'Картхолдер',
-    img: './assets/img/cardholder-brown.jpg',
+    img: './assets/img/jpg/cardholder-brown.jpg',
     type: 'cardholder',
     color: 'brown',
     price: 35,
@@ -353,7 +368,7 @@ export const dataProducts = [
   },
   {
     name: 'Картхолдер сет (4 шт)',
-    img: './assets/img/cardhalder-mix.jpg',
+    img: './assets/img/jpg/cardhalder-mix.jpg',
     type: 'cardholder',
     color: 'mix',
     price: 125,
@@ -369,7 +384,7 @@ export const dataProducts = [
   },
   {
     name: 'Докхолдер',
-    img: './assets/img/dockholder-mix-color.jpg',
+    img: './assets/img/jpg/dockholder-mix-color.jpg',
     type: 'forDocuments',
     color: 'mix',
     price: 100,
@@ -385,7 +400,7 @@ export const dataProducts = [
   },
   {
     name: 'Деревянный блокнот (4 шт)',
-    img: './assets/img/notebook-mix.jpg',
+    img: './assets/img/jpg/notebook-mix.jpg',
     type: 'notebook',
     color: 'sand',
     price: 280,
@@ -401,7 +416,7 @@ export const dataProducts = [
   },
   {
     name: 'Кошелек',
-    img: './assets/img/wallet-orange.jpg',
+    img: './assets/img/jpg/wallet-orange.jpg',
     type: 'wallet',
     color: 'orange',
     price: 120,
@@ -417,7 +432,7 @@ export const dataProducts = [
   },
   {
     name: 'Обложка на паспорт',
-    img: './assets/img/passport-cover-bizon.jpg',
+    img: './assets/img/jpg/passport-cover-bizon.jpg',
     type: 'forDocuments',
     color: 'brown',
     price: 40,
@@ -433,7 +448,7 @@ export const dataProducts = [
   },
   {
     name: 'Обложка на паспорт',
-    img: './assets/img/passport-cover-wood.jpg',
+    img: './assets/img/jpg/passport-cover-wood.jpg',
     type: 'forDocuments',
     color: 'sand',
     price: 50,
@@ -449,7 +464,7 @@ export const dataProducts = [
   },
   {
     name: 'Кошелек с монетницей',
-    img: './assets/img/wallet-brown1.jpg',
+    img: './assets/img/jpg/wallet-brown1.jpg',
     type: 'wallet',
     color: 'brown',
     price: 120,

@@ -40,7 +40,13 @@ const Layout = () => {
         <ShadedBackground />
         <BurgerMenu data={routerPagesData} />
 
-        <Container component="main" className={styles.main}>
+        <Container
+          maxWidth={false}
+          sx={{ paddingLeft: '5px', paddingRight: '5px' }}
+          disableGutters
+          component="main"
+          className={styles.main}
+        >
           <Outlet />
         </Container>
         <Footer />
