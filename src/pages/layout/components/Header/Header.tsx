@@ -10,6 +10,7 @@ import NavLinkCustom from '../../../../components/NavLink/NavLinkCustom';
 import { routerPagesData, upperNavHeaderData } from '../../../../data/data';
 import LocationTag from '../../../../components/LocationTag/LocationTag';
 import Social from '../../../../components/Social/Social';
+import { NavLink } from 'react-router-dom';
 interface IHeaderProps {
   setMenu: () => void;
 }

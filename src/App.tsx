@@ -9,8 +9,17 @@ import HowToOrder from './pages/HowToOrder/HowToOrder';
 import Layout from './pages/layout/Layout';
 import MainPage from './pages/MainPage/MainPage';
 import SelectProducts from './pages/Catalog/SelectProducts/SelectProducts';
+import { useZustandStore } from './store/zustandStore';
 
 function App() {
+  //const root = document.getElementById('root');
+  const isShadedActive = useZustandStore((state) => state.isShadedActive);
+  if (isShadedActive) {
+    document.body.classList.add('lock');
+  } else {
+    document.body.classList.remove('lock');
+  }
+
   return (
     <>
       <Routes>

@@ -1,0 +1,19 @@
+@use '../../styles/style.scss' as *;
+
+.catalog-grid-container{
+  
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  margin-top: 20px;
+  padding: 0 10px;
+  @include for-tablet{
+    grid-template-columns: repeat(3, 1fr);
+  }
+    @include for-phone{
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 5px;
+  }
+
+}

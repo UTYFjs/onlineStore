@@ -1,4 +1,7 @@
-export interface IDataProducts {
+import { nanoid } from 'nanoid';
+
+export interface IDataProduct {
+  id: string;
   name: string;
   img: string;
   type: string;
@@ -13,8 +16,10 @@ export interface IDataProducts {
   year: number;
   countInCart: number;
 }
-export const dataProducts: Array<IDataProducts> = [
-  {
+
+export const dataProducts: Array<IDataProduct> = [
+  /*{
+    id: nanoid(),
     name: 'Ремень "Винтаж"',
     img: './assets/img/jpg/belt_red_vintage.jpg',
     type: 'belt',
@@ -29,8 +34,9 @@ export const dataProducts: Array<IDataProducts> = [
     manufacturer: 'alPaco',
     year: 2021,
     countInCart: 0,
-  },
+  },*/
   {
+    id: nanoid(),
     name: 'Сумка "Child"',
     img: './assets/img/jpg/bag-tote-child-orange-small.jpg',
     type: 'bag',
@@ -47,6 +53,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Сумка',
     img: './assets/img/jpg/bag-tote-orange.jpg',
     type: 'bag',
@@ -63,6 +70,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Ремень "Бизон"',
     img: './assets/img/jpg/belt-bizon-black.jpg',
     type: 'belt',
@@ -79,6 +87,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Ремень "Кровавая Мэри"',
     img: './assets/img/jpg/belt-bloody-mary.jpg',
     type: 'belt',
@@ -95,6 +104,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Ремень "Fireman"',
     img: './assets/img/jpg/belt-fireman-black.jpg',
     type: 'belt',
@@ -111,6 +121,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Деревянный блокнот',
     img: './assets/img/jpg/notebook-wooden.jpg',
     type: 'notebook',
@@ -127,6 +138,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Монетница',
     img: './assets/img/jpg/coin-box-red.jpg',
     type: 'coinBox',
@@ -143,6 +155,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Докхолдер "Бизон"',
     img: './assets/img/jpg/docholder-bison.jpg',
     type: 'forDocuments',
@@ -159,6 +172,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Ремень "Gold"',
     img: './assets/img/jpg/belt-gold.jpg',
     type: 'belt',
@@ -175,6 +189,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Ремень "Missouri"',
     img: './assets/img/jpg/belt-missouri-black.jpg',
     type: 'belt',
@@ -191,6 +206,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Ремень "Missouri"',
     img: './assets/img/jpg/belt-missouri-burgundy.jpg',
     type: 'belt',
@@ -207,6 +223,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Ремень "Missouri"',
     img: './assets/img/jpg/belt-missouri-lite-brown.jpg',
     type: 'belt',
@@ -223,6 +240,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Ремень "OnlyBlack"',
     img: './assets/img/jpg/belt-only-black.jpg',
     type: 'belt',
@@ -239,6 +257,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Ремень "Гранат"',
     img: './assets/img/jpg/belt-pomegranate.jpg',
     type: 'belt',
@@ -255,6 +274,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Ремень "Винтаж"',
     img: './assets/img/jpg/belt-vintage-orange.jpg',
     type: 'belt',
@@ -271,6 +291,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Кошелек',
     img: './assets/img/jpg/wallet-brown.jpg',
     type: 'wallet',
@@ -287,6 +308,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Кошелек Crazy',
     img: './assets/img/jpg/wallet-brown-crazy.jpg',
     type: 'wallet',
@@ -303,6 +325,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Мини-кошелек "Бизон"',
     img: './assets/img/jpg/wallet-mini-bison.jpg',
     type: 'wallet',
@@ -319,6 +342,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Ремень "Violet"',
     img: './assets/img/jpg/belt-violet.jpg',
     type: 'belt',
@@ -335,6 +359,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Картхолдер',
     img: './assets/img/jpg/cardholder-yellow.jpg',
     type: 'cardholder',
@@ -351,6 +376,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Картхолдер',
     img: './assets/img/jpg/cardholder-brown.jpg',
     type: 'cardholder',
@@ -367,6 +393,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Картхолдер сет (4 шт)',
     img: './assets/img/jpg/cardhalder-mix.jpg',
     type: 'cardholder',
@@ -383,6 +410,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Докхолдер',
     img: './assets/img/jpg/dockholder-mix-color.jpg',
     type: 'forDocuments',
@@ -399,6 +427,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Деревянный блокнот (4 шт)',
     img: './assets/img/jpg/notebook-mix.jpg',
     type: 'notebook',
@@ -415,6 +444,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Кошелек',
     img: './assets/img/jpg/wallet-orange.jpg',
     type: 'wallet',
@@ -431,6 +461,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Обложка на паспорт',
     img: './assets/img/jpg/passport-cover-bizon.jpg',
     type: 'forDocuments',
@@ -447,6 +478,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Обложка на паспорт',
     img: './assets/img/jpg/passport-cover-wood.jpg',
     type: 'forDocuments',
@@ -463,6 +495,7 @@ export const dataProducts: Array<IDataProducts> = [
     countInCart: 0,
   },
   {
+    id: nanoid(),
     name: 'Кошелек с монетницей',
     img: './assets/img/jpg/wallet-brown1.jpg',
     type: 'wallet',
