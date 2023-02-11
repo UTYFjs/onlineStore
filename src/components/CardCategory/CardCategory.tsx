@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '../Button/Button';
-import Img from '../Img/Img';
+import ImgLazy from '../ImgLazy/ImgLazy';
 import cn from 'classnames';
 import styles from './CardCategory.module.scss';
 interface ICardCategoryProps {
@@ -17,7 +17,7 @@ function CardCategory({ textContent, buttonContent, srcImg, className, to }: ICa
   return (
     <div className={classNamesCard}>
       <NavLink className={styles['link-ghost']} to={to} />
-      <Img src={srcImg} />
+      <ImgLazy src={srcImg} />
       <div className={styles['grid-content']}>
         <h3 className={styles['content-title']}>{textContent}</h3>
         <Button content={buttonContent} />
