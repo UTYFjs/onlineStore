@@ -109,7 +109,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/belt-fireman-black.jpg',
     type: 'belt',
     color: 'black',
-    price: 170,
+    price: 190,
     stock: 2,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -143,7 +143,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/coin-box-red.jpg',
     type: 'coinBox',
     color: 'red',
-    price: 50,
+    price: 60,
     stock: 1,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -158,9 +158,9 @@ export const dataProducts: Array<IDataProduct> = [
     id: nanoid(),
     name: 'Докхолдер "Бизон"',
     img: './assets/img/jpg/docholder-bison.jpg',
-    type: 'forDocuments',
+    type: 'forDocument',
     color: 'brown',
-    price: 100,
+    price: 120,
     stock: 4,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -194,7 +194,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/belt-missouri-black.jpg',
     type: 'belt',
     color: 'black',
-    price: 160,
+    price: 180,
     stock: 2,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -211,7 +211,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/belt-missouri-burgundy.jpg',
     type: 'belt',
     color: 'brown',
-    price: 160,
+    price: 180,
     stock: 2,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -228,7 +228,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/belt-missouri-lite-brown.jpg',
     type: 'belt',
     color: 'brown',
-    price: 160,
+    price: 180,
     stock: 2,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -245,7 +245,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/belt-only-black.jpg',
     type: 'belt',
     color: 'black',
-    price: 180,
+    price: 195,
     stock: 2,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -296,7 +296,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/wallet-brown.jpg',
     type: 'wallet',
     color: 'brown',
-    price: 120,
+    price: 130,
     stock: 2,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -313,7 +313,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/wallet-brown-crazy.jpg',
     type: 'wallet',
     color: 'brown',
-    price: 120,
+    price: 130,
     stock: 3,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -330,7 +330,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/wallet-mini-bison.jpg',
     type: 'wallet',
     color: 'brown',
-    price: 70,
+    price: 80,
     stock: 2,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -364,7 +364,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/cardholder-yellow.jpg',
     type: 'cardholder',
     color: 'mix',
-    price: 35,
+    price: 40,
     stock: 1,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -381,7 +381,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/cardholder-brown.jpg',
     type: 'cardholder',
     color: 'brown',
-    price: 35,
+    price: 40,
     stock: 2,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -398,7 +398,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/cardhalder-mix.jpg',
     type: 'cardholder',
     color: 'mix',
-    price: 125,
+    price: 150,
     stock: 1,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -413,9 +413,9 @@ export const dataProducts: Array<IDataProduct> = [
     id: nanoid(),
     name: 'Докхолдер',
     img: './assets/img/jpg/dockholder-mix-color.jpg',
-    type: 'forDocuments',
+    type: 'forDocument',
     color: 'mix',
-    price: 100,
+    price: 120,
     stock: 1,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -449,7 +449,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/wallet-orange.jpg',
     type: 'wallet',
     color: 'orange',
-    price: 120,
+    price: 130,
     stock: 1,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -464,9 +464,9 @@ export const dataProducts: Array<IDataProduct> = [
     id: nanoid(),
     name: 'Обложка на паспорт',
     img: './assets/img/jpg/passport-cover-bizon.jpg',
-    type: 'forDocuments',
+    type: 'forDocument',
     color: 'brown',
-    price: 40,
+    price: 50,
     stock: 1,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -481,9 +481,9 @@ export const dataProducts: Array<IDataProduct> = [
     id: nanoid(),
     name: 'Обложка на паспорт',
     img: './assets/img/jpg/passport-cover-wood.jpg',
-    type: 'forDocuments',
+    type: 'forDocument',
     color: 'sand',
-    price: 50,
+    price: 60,
     stock: 1,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
@@ -500,7 +500,7 @@ export const dataProducts: Array<IDataProduct> = [
     img: './assets/img/jpg/wallet-brown1.jpg',
     type: 'wallet',
     color: 'brown',
-    price: 120,
+    price: 130,
     stock: 1,
     description:
       'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',

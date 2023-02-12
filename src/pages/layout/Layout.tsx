@@ -6,7 +6,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import BurgerMenu from '../../components/BurgerMenu/BurgerMenu';
 import { routerPagesData } from '../../data/data';
-import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
+//import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { useZustandStore } from '../../store/zustandStore';
 import ShadedBackground from '../../components/ShadedBackground/ShadedBackground';
 
@@ -17,7 +17,7 @@ const Layout = () => {
 */
 
   //zustand state management
-  const isBurgerOpen = useZustandStore((state) => state.isBurgerOpen);
+
   const setIsBurgerOpen = useZustandStore((state) => state.setIsBurgerOpen);
   const setIsShadedActive = useZustandStore((state) => state.setIsShadedActive);
   const setHandleShaded = useZustandStore((state) => state.setHandleShaded);
@@ -41,8 +41,8 @@ const Layout = () => {
         <BurgerMenu data={routerPagesData} />
 
         <Container
-          maxWidth={false}
-          sx={{ paddingLeft: '5px', paddingRight: '5px' }}
+          maxWidth={'xl'}
+          sx={{ paddingLeft: '5px', paddingRight: '5px', paddingBottom: '5px' }}
           disableGutters
           component="main"
           className={styles.main}

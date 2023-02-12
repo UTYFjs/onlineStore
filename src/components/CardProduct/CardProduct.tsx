@@ -27,19 +27,7 @@ function CardProduct({ data }: ICardProductProps) {
       <div className={styles['img-wrapper']}>
         <ImgLazy src={webpPath} alt={name} />
       </div>
-
-      {false && (
-        <img
-          src={webpPath}
-          alt="img item"
-          /*onMouseOver={(e) =>
-          (e.currentTarget.src = './assets/img/webp/bag-tote-child-orange-small.webp')
-        }
-        onMouseOut={(e) => (e.currentTarget.src = img)}*/
-        />
-      )}
       <h4 className={styles['card-title']}>{name}</h4>
-      <p className={styles['card-price']}>{price}</p>
       <div className={styles.embossing}>
         <label htmlFor={id}>Embossing (price: +10)</label>
         <input
@@ -49,6 +37,8 @@ function CardProduct({ data }: ICardProductProps) {
           onInput={(e) => setEmbossing(e.currentTarget.checked)}
         />
       </div>
+      <p className={styles['card-price']}>{price}</p>
+
       <button className={styles['card-add-cart']}>add Cart</button>
 
       <div

@@ -4,7 +4,7 @@ export const routerPagesData = [
   { url: '/collection/belts', content: 'Ремни' },
   { url: '/collection/bags', content: 'Сумки' },
   { url: '/collection/cardholders', content: 'Лонгеры' },
-  { url: '/collection/for-documents', content: 'Для документов' },
+  { url: '/collection/fordocuments', content: 'Для документов' },
 ];
 
 export const upperNavHeaderData = [
