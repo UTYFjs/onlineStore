@@ -1,16 +1,22 @@
-$color-light-l: #e7ebf0;
+
 
 
 body {
-  background-color: $color-light-l;
+  background-color: white;
+  
 }
 .layout{
+  position: relative;
   display: flex;
   min-height: 100vh;
-  min-width: 100vw;
+  max-width: 100vw;
   flex-direction: column;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .main{
-
+  max-width: 100vw;
+    //min-height: calc(100vh - 275px);
 }

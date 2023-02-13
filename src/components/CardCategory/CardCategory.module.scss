@@ -1,0 +1,51 @@
+@use '../../styles/style.scss' as *;
+
+.category{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+.category-small{
+
+}
+.category-medium{
+  
+}
+.category-big{
+  grid-area: 2 / 1 / 3 / 3;
+  @include for-phone {
+    grid-area: auto;
+  }
+}
+
+.link-ghost{
+  display: block;
+  position: absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
+
+.content-title{
+  font-size: 48px;
+  color: $color-background-white;
+  margin-block-end: 1rem;
+  text-transform: uppercase;
+  -webkit-text-shadow: 1px 1px 48px rgba(0, 0, 0, 1);
+-moz-text-shadow: 1px 1px 48px rgba(0, 0, 0, 1);
+text-shadow: 1px 1px 48px rgba(0, 0, 0, 1);
+}
+.grid-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom:10%;
+ // margin: 0 auto;
+  z-index: 3;
+}

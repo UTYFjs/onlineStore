@@ -1,0 +1,12 @@
+.container-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+
+  .grid-item{
+    width: 100%;
+    min-height: 300px;
+    max-height: 600px;
+    background: #000;
+  }
+}

@@ -1,0 +1,15 @@
+@use '../../styles/style.scss' as *;
+
+.address{
+
+  
+
+  &:hover{
+    cursor:  pointer;
+    color: $color-myred-light;
+
+  }
+}
+.address-hide{
+  display: none;
+}

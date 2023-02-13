@@ -56,4 +56,12 @@ css reset - импорт в любом файле css @import-normalize;
 
 npm install sass --save-dev - sass
 
+npm i react-intersection-observer
+
 remove eslint prettier plugin
+
+TODO before bundle - 1) remove redux toolkit/ react-redux dependencies
+2)try remove mui dependencies 3) try mui icons dependencies
+4) remove mui theme json
+5) remove font from fonts folder
+

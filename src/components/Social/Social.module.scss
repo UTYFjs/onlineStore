@@ -1,0 +1,11 @@
+@use '../../styles/style.scss' as *;
+
+.icon{
+  color: #fff;
+  
+
+  &:hover{
+    cursor:  pointer;
+  
+  }
+}

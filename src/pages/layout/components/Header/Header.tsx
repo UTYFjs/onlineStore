@@ -1,32 +1,82 @@
-import { AppBar, Box, Button, Link, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Link, Typography } from '@mui/material';
 import React from 'react';
 import styles from './Header.module.scss';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import MenuIcon from '@mui/icons-material/Menu';
 
 import NavLinkCustom from '../../../../components/NavLink/NavLinkCustom';
-function Header() {
+import { routerPagesData, upperNavHeaderData } from '../../../../data/data';
+import LocationTag from '../../../../components/LocationTag/LocationTag';
+import Social from '../../../../components/Social/Social';
+import { NavLink } from 'react-router-dom';
+interface IHeaderProps {
+  setMenu: () => void;
+}
+
+function Header({ setMenu }: IHeaderProps) {
+  const iconsFontSize = { xs: '33px', sm: '33px', md: '35px', lg: '38px' };
   return (
-    <AppBar component="header" position="relative" className={styles.header}>
+    <AppBar component="header" position="relative" className={styles.header} color={'transparent'}>
+      <nav className={styles['up-navigation']}>
+        <div className={styles.info}>
+          {' '}
+          {upperNavHeaderData.map((item) => (
+            <NavLinkCustom
+              key={item.url + item.content}
+              url={item.url}
+              content={item.content}
+              color={'#fff'}
+            />
+          ))}
+        </div>
+        <div className={styles.contact}>
+          {window.innerWidth > 600 && <LocationTag color="#fff" />}
+          <Social color="#fff" />
+        </div>
+      </nav>
       <nav className={styles.toolbar}>
-        <SearchIcon fontSize="large" color={'action'} />
+        <MenuIcon
+          sx={{ display: { xs: 'block', md: 'none', lg: 'none' }, fontSize: iconsFontSize }}
+          color={'action'}
+          onClick={() => setMenu()}
+        />
+        <SearchIcon
+          sx={{
+            display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' },
+            fontSize: iconsFontSize,
+          }}
+          color={'action'}
+        />
         <Typography
           className={styles.logo}
           component={Link}
           href={'/'}
           underline={'none'}
-          sx={{ fontSize: '48px', fontWeight: 600, color: 'black' }}
+          sx={{
+            fontSize: { xs: '33px', sm: '38px', md: '38px', lg: '48px' },
+            fontWeight: 600,
+            color: 'black',
+          }}
         >
-          Genoli
+          GENOLI
         </Typography>
         <Box className={styles.icons}>
-          <FavoriteIcon fontSize="large" color={'error'} />
-          <ShoppingCartOutlinedIcon fontSize="large" color={'error'} />
+          <FavoriteIcon sx={{ fontSize: iconsFontSize }} color={'error'} />
+          <ShoppingCartOutlinedIcon sx={{ fontSize: iconsFontSize }} color={'error'} />
         </Box>
       </nav>
       <nav className={styles.navigation}>
-        <NavLinkCustom url="/about" content="О нас"></NavLinkCustom>
+        {routerPagesData.map((item) => (
+          <NavLinkCustom
+            key={item.url + item.content}
+            url={item.url}
+            content={item.content}
+            color={'#000'}
+          />
+        ))}
+
         {/*<NavLink
           to="/collection"
           className={({ isActive }) =>
