@@ -1,3 +1,5 @@
+@use '../../../styles/style.scss' as *;
+
 .flex-container{
 display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -6,5 +8,13 @@ display: grid;
   margin-top: 20px;
   padding: 0 45px 20px;
 
+    @include for-tablet{
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 2vw 1vw;
+  }
+    @include for-phone{
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 5px 10px;
+  }
 
 }
