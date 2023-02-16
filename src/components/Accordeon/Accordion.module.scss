@@ -1,0 +1,45 @@
+@use '../../styles/style.scss' as *;
+
+.accordion{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 100%;
+  overflow: hidden;
+  height: fit-content;
+
+}
+.accordion-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: left;
+  align-self: baseline;
+  justify-content: baseline;
+  min-width: 220px;
+  cursor: pointer;
+}
+.title{
+      margin-block-start: .2em;
+    margin-block-end: .2em;
+}
+.icon{
+
+}
+.content{
+  max-height: 0px;
+  width: 100%;
+  
+  opacity: 0;
+  transition: max-height .4s, opacity .4s, margin .4s;
+}
+.content.active{
+  max-height: 500px;
+  //padding: .5rem 0;
+  opacity: 1;
+  //line-height: 2rem;
+}
+.buttons{
+  display: flex;
+  flex-direction: row;
+}

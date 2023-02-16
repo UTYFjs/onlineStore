@@ -1,7 +1,9 @@
 @use '../../styles/style.scss' as *;
 
 .burger{
-  position: absolute;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
   width: 280px;
   height: 100vh;
   background: #fff;
@@ -12,25 +14,29 @@
 }
 .burger.active{
     left: 0;
+   
   }
 
 
-.burger-title{
-  
+.burger-title{  
   display:flex;
   justify-content: space-between;
   width: 280px;
   height: 60px;
   padding: 15px;
-  position:fixed;
+  
 
       .burger-title-item{
-        padding-left: 5rem;
+    padding-left: 5rem;
     font-size: 1.8rem;
     margin-block-start: 0;
     margin-block-end: 0;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    }
+
+    .burger-title-font{
+      font-size: 2rem;
     }
 
   .burger-close{
@@ -44,17 +50,30 @@
     }
   }
 }
-.menu-content{
-  width: 280px;
-    padding: 20px;
-  display: flex;
-  position: fixed;
-  top:60px;
+.menu-content-wrapper{
+  width: 100%;
+  height: 100%;
+
+  .menu-content{
+  width: 100%;
+  max-height: calc(100% - 150px);
+  padding: 20px;
+  margin-bottom: 20px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+  //overflow-y: scroll;
+
+  .filter-items-wrapper{
+     display: flex;
   flex-direction: column;
   justify-content: space-between;
-  //z-index: 2;
   gap: 1rem;
   align-items: center;
 
+  }
+
 }
+}
+
 

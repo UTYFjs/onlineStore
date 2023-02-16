@@ -17,13 +17,13 @@ const Layout = () => {
 */
 
   //zustand state management
-
+  const burgerType = useZustandStore((state) => state.burgerType);
+  const setBurgerType = useZustandStore((state) => state.setBurgerType);
   const setIsBurgerOpen = useZustandStore((state) => state.setIsBurgerOpen);
   const setIsShadedActive = useZustandStore((state) => state.setIsShadedActive);
   const setHandleShaded = useZustandStore((state) => state.setHandleShaded);
 
-  const handleBurgerOpen = () => {
-    /*dispatch(setBurgerOpen(!isBurgerOpen));*/
+  const burgerOpen = () => {
     setIsBurgerOpen();
     setIsShadedActive();
     setHandleShaded(() => {
@@ -33,12 +33,18 @@ const Layout = () => {
     });
   };
 
+  const handleMenuOpen = () => {
+    /*dispatch(setBurgerOpen(!isBurgerOpen));*/
+    setBurgerType('menu');
+    burgerOpen();
+  };
+
   return (
     <>
       <Box className={styles.layout}>
-        <Header setMenu={handleBurgerOpen} />
+        <Header setMenu={handleMenuOpen} />
         <ShadedBackground />
-        <BurgerMenu data={routerPagesData} />
+        <BurgerMenu type={burgerType} data={routerPagesData} />
 
         <Container
           maxWidth={'xl'}

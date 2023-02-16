@@ -1,15 +1,32 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Button from '../../../components/Button/Button';
 import CardProduct from '../../../components/CardProduct/CardProduct';
 import { dataProducts } from '../../../data/dataProducts';
+import { useZustandStore } from '../../../store/zustandStore';
 import styles from './SelectProducts.module.scss';
 
 function SelectProducts() {
   const currentCategory = useParams().id as string;
+  const BurgerOpen = useZustandStore((state) => state.burgerOpen);
+  const setBurgerType = useZustandStore((state) => state.setBurgerType);
+  const setIsBurgerOpen = useZustandStore((state) => state.setIsBurgerOpen);
+  const setIsShadedActive = useZustandStore((state) => state.setIsShadedActive);
+  const setHandleShaded = useZustandStore((state) => state.setHandleShaded);
 
+  setHandleShaded(() => {
+    setIsBurgerOpen();
+    setIsShadedActive();
+    setHandleShaded(() => {});
+  });
+
+  const handleFilterOpen = () => {
+    setBurgerType('filter');
+    BurgerOpen();
+  };
   return (
     <div className="category">
-      <h1> {currentCategory}</h1>;
+      <h1> {currentCategory}</h1>;<Button content={'Фильтры'} handle={handleFilterOpen}></Button>
       <div className={styles['flex-container']}>
         {dataProducts
           .filter(
