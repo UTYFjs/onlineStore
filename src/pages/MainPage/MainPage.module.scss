@@ -1,11 +1,4 @@
 @use '../../styles/style.scss' as *;
-.temporary{
-   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
 .grid-container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);

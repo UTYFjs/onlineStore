@@ -1,17 +1,22 @@
 import React from 'react';
+import { ISortingRule } from '../../data/data';
 import styles from './Select.module.scss';
 interface ISelectProps {
-  data?: Array<{ id: string; content: string; value: string }>;
-  placeholder?: string;
+  data?: ISortingRule[];
 }
 
-function Select({ data, placeholder }: ISelectProps) {
+function Select({ data }: ISelectProps) {
   return (
-    <select className={styles.select} placeholder={placeholder}>
+    <select
+      className={styles.select}
+      onChange={(e) => {
+        console.log(e.currentTarget.value);
+      }}
+    >
       {data &&
         data.map((item) => (
           <option key={item.id} value={item.value}>
-            {item.content}
+            {item.title}
           </option>
         ))}
     </select>

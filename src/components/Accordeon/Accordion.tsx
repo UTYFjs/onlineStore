@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from './Accordion.module.scss';
-import { set } from 'immer/dist/internal';
 
 interface IAccordionProps {
   title?: string;

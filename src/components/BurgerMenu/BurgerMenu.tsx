@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import cn from 'classnames';
 import NavLinkCustom from '../NavLink/NavLinkCustom';
@@ -10,6 +10,7 @@ import Accordion from '../Accordeon/Accordion';
 import Button from '../Button/Button';
 import { filters } from '../../data/data';
 import { nanoid } from 'nanoid';
+import Checkbox from '../Checkbox/Checkbox';
 
 interface IBurgerMenuProps {
   type: 'menu' | 'filter' | null;
@@ -18,7 +19,6 @@ interface IBurgerMenuProps {
 
 function BurgerMenu({ data, type }: IBurgerMenuProps) {
   const isBurgerOpen = useZustandStore((state) => state.isBurgerOpen);
-  const setHandleShaded = useZustandStore((state) => state.setHandleShaded);
   const handleShaded = useZustandStore((state) => state.handleShaded);
 
   const classesBurger = cn(styles.burger, isBurgerOpen && styles.active);
@@ -83,14 +83,14 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
         <div className={styles['menu-content-wrapper']}>
           <div className={styles['menu-content']}>
             <div className={styles['filter-items-wrapper']}>
-              {filters.map(({ name, values }) => {
+              {filters.map(({ name, options }) => {
                 return (
                   <Accordion key={nanoid()} title={name}>
-                    <>
-                      {values.map((value) => (
-                        <p key={nanoid()}> {value.toString()}</p>
+                    <div className={styles['flex-container']}>
+                      {options.map((value) => (
+                        <Checkbox key={nanoid()} id={name} label={value.toString()} />
                       ))}
-                    </>
+                    </div>
                   </Accordion>
                 );
               })}

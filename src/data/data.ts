@@ -1,3 +1,5 @@
+import { nanoid } from 'nanoid';
+
 export const routerPagesData = [
   { url: '/collection', content: 'Весь каталог' },
   { url: '/collection/wallets', content: 'Кошельки' },
@@ -12,29 +14,55 @@ export const upperNavHeaderData = [
   { url: '/how-to-order', content: 'Как заказать' },
 ];
 
-export const filters = [
+export interface ISortingRule {
+  id: string;
+  title: string;
+  value: string;
+}
+
+export const sortingRules: ISortingRule[] = [
+  { id: nanoid(), title: '', value: 'default' },
+  { id: nanoid(), title: 'Price, low to high', value: 'priceAscending' },
+  { id: nanoid(), title: 'Price, high to low', value: 'priceDescending' },
+  { id: nanoid(), title: 'Alphabetically A to Z', value: 'titleAscending' },
+  { id: nanoid(), title: 'Alphabetically Z to A', value: 'titleDescending' },
+  { id: nanoid(), title: 'BestSelling', value: 'bestselling' },
+];
+
+export interface IFilter {
+  name: string;
+  options: Array<string | number>;
+  selectedOptions: Array<string | number | never>;
+}
+export const filters: IFilter[] = [
   {
     name: 'цвет',
-    values: ['черный', 'рыжий', 'коричневый', 'синий', 'зеленый', 'красный', 'фуксия', 'другой'],
+    options: ['черный', 'рыжий', 'коричневый', 'синий', 'зеленый', 'красный', 'фуксия', 'другой'],
+    selectedOptions: [],
   },
   {
     name: 'количество карт',
-    values: [2, 3, 4, 5, 6, 7, 9, 12],
+    options: [2, 3, 4, 5, 6, 7, 9, 12],
+    selectedOptions: [],
   },
   {
     name: 'зажим для денег',
-    values: [true, false],
+    options: ['yes', 'no'],
+    selectedOptions: [],
   },
   {
     name: 'монетница',
-    values: [true, false],
+    options: ['yes', 'no'],
+    selectedOptions: [],
   },
   {
     name: 'хлястик',
-    values: [true, false],
+    options: ['yes', 'no'],
+    selectedOptions: [],
   },
   {
     name: 'бифолд',
-    values: [true, false],
+    options: ['yes', 'no'],
+    selectedOptions: [],
   },
 ];

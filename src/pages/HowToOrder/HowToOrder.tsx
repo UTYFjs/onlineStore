@@ -1,10 +1,9 @@
 import React from 'react';
 import Accordion from '../../components/Accordeon/Accordion';
-import { dataProducts } from '../../data/dataProducts';
 import styles from './HowToOrder.module.scss';
 function HowToOrder() {
   return (
-    <div>
+    <div className={styles['how-to']}>
       <Accordion title="Как заказать?">
         <p> Напишите нам</p>
       </Accordion>

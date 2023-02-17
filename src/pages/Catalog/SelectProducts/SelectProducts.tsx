@@ -2,6 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
 import CardProduct from '../../../components/CardProduct/CardProduct';
+import Select from '../../../components/Select/Select';
+import { sortingRules } from '../../../data/data';
 import { dataProducts } from '../../../data/dataProducts';
 import { useZustandStore } from '../../../store/zustandStore';
 import styles from './SelectProducts.module.scss';
@@ -26,7 +28,11 @@ function SelectProducts() {
   };
   return (
     <div className="category">
-      <h1> {currentCategory}</h1>;<Button content={'Фильтры'} handle={handleFilterOpen}></Button>
+      <h1> {currentCategory}</h1>
+      <div className={styles.navigation}>
+        <Button content={'Фильтры'} handle={handleFilterOpen}></Button>
+        <Select data={sortingRules} />
+      </div>
       <div className={styles['flex-container']}>
         {dataProducts
           .filter(
