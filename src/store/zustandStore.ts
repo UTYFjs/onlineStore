@@ -1,5 +1,6 @@
 import create from 'zustand';
 import { defaultSelectedFilters, filters, filterType, IFilter } from '../data/data';
+import { IDataProduct } from '../data/dataProducts';
 interface IZustandStore {
   burgerType: 'menu' | 'filter' | null;
   isBurgerOpen: boolean;
@@ -51,4 +52,24 @@ export const useUtilityStore = create<IUtilityStore>((set) => ({
   }*/
   selectedSorting: '',
   setSelectedSorting: (newSelectedSorting) => set(() => ({ selectedSorting: newSelectedSorting })),
+}));
+
+interface IFavoriteStore {
+  favoriteProducts: IDataProduct[];
+  addProduct: (product: IDataProduct) => void;
+  removeProduct: (product: string) => void;
+}
+
+export const useFavoriteStore = create<IFavoriteStore>((set) => ({
+  favoriteProducts: [],
+
+  addProduct: (product: IDataProduct) =>
+    set((state) => ({
+      favoriteProducts: [...state.favoriteProducts, product],
+    })),
+
+  removeProduct: (productId: string) =>
+    set((state) => ({
+      favoriteProducts: state.favoriteProducts.filter((p) => p.id !== productId),
+    })),
 }));

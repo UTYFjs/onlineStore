@@ -75,6 +75,11 @@ gap: .5rem;
   @include for-phone {
     gap: 1rem;
   }
+  .favorite:hover{
+    cursor: pointer;
+    transform: scale(1.25);
+    transition: all .4s;
+  }
 }
 .icon{
   color: $color-background-white;

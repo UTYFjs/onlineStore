@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IDataProduct } from '../../data/dataProducts';
+import { useFavoriteStore } from '../../store/zustandStore';
 import ImgLazy from '../ImgLazy/ImgLazy';
 import styles from './CardProduct.module.scss';
 interface ICardProductProps {
@@ -9,12 +10,15 @@ function CardProduct({ data }: ICardProductProps) {
   const { id, title, thumbnail } = data;
   const [price, setPrice] = useState(data.price);
   const [favorite, setFavorite] = useState(false);
+  const { favoriteProducts, addProduct, removeProduct } = useFavoriteStore((state) => state);
+
+  const isFavorite = favoriteProducts.some((p) => p.id === data.id);
 
   const handleToggleFavorite = () => {
-    setFavorite(!favorite);
+    isFavorite ? removeProduct(data.id) : addProduct(data);
   };
   const getStyleFavorite = () => {
-    return favorite ? { background: '#FF5252' } : { background: '#000000' };
+    return isFavorite ? { background: '#FF5252' } : { background: '#000000' };
   };
   const setEmbossing = (checked: boolean): void => {
     const newPrice = checked ? data.price + 10 : data.price;
