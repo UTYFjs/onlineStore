@@ -21,7 +21,7 @@ export interface ISortingRule {
 }
 
 export const sortingRules: ISortingRule[] = [
-  { id: nanoid(), title: '', value: 'default' },
+  { id: nanoid(), title: '', value: '' },
   { id: nanoid(), title: 'Price, low to high', value: 'priceAscending' },
   { id: nanoid(), title: 'Price, high to low', value: 'priceDescending' },
   { id: nanoid(), title: 'Alphabetically A to Z', value: 'titleAscending' },

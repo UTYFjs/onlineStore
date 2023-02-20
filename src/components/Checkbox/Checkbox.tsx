@@ -14,7 +14,7 @@ function Checkbox({ className, id, label, isChecked, onChange }: ICheckboxProps)
   return (
     <label className={cn(styles.checkbox, className)} htmlFor={label}>
       <input
-        checked={isChecked}
+        defaultChecked={isChecked}
         id={label}
         name={id}
         type={'checkbox'}

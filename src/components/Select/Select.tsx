@@ -2,17 +2,14 @@ import React from 'react';
 import { ISortingRule } from '../../data/data';
 import styles from './Select.module.scss';
 interface ISelectProps {
-  data?: ISortingRule[];
+  data: ISortingRule[];
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  checkedValue: string;
 }
 
-function Select({ data }: ISelectProps) {
+function Select({ data, onChange, checkedValue }: ISelectProps) {
   return (
-    <select
-      className={styles.select}
-      onChange={(e) => {
-        console.log(e.currentTarget.value);
-      }}
-    >
+    <select value={checkedValue} className={styles.select} onChange={onChange}>
       {data &&
         data.map((item) => (
           <option key={item.id} value={item.value}>

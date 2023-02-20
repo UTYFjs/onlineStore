@@ -5,10 +5,9 @@ import NavLinkCustom from '../NavLink/NavLinkCustom';
 import styles from './BurgerMenu.module.scss';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link, Typography } from '@mui/material';
-import { useZustandStore } from '../../store/zustandStore';
+import { useUtilityStore, useZustandStore } from '../../store/zustandStore';
 import Accordion from '../Accordeon/Accordion';
 import Button from '../Button/Button';
-import { filters } from '../../data/data';
 import { nanoid } from 'nanoid';
 import Checkbox from '../Checkbox/Checkbox';
 
@@ -21,6 +20,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
   const isBurgerOpen = useZustandStore((state) => state.isBurgerOpen);
   const handleShaded = useZustandStore((state) => state.handleShaded);
 
+  const filters = useUtilityStore((state) => state.filters);
   const classesBurger = cn(styles.burger, isBurgerOpen && styles.active);
 
   /*const Typography = styled('a')(({ theme }) => ({
@@ -31,6 +31,9 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
   }));*/
   const handleCloseBurger = () => {
     handleShaded();
+  };
+  const handleSetFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('текущие', e.currentTarget.value, e.currentTarget.checked);
   };
   let contentTitle: JSX.Element = <div></div>;
   let content: JSX.Element = <div></div>;
@@ -81,14 +84,20 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
       );
       content = (
         <div className={styles['menu-content-wrapper']}>
-          <div className={styles['menu-content']}>
+          <div className={styles['menu-content-filter']}>
             <div className={styles['filter-items-wrapper']}>
-              {filters.map(({ name, options }) => {
+              {filters.map(({ name, options, selectedOptions }) => {
                 return (
                   <Accordion key={nanoid()} title={name}>
                     <div className={styles['flex-container']}>
                       {options.map((value) => (
-                        <Checkbox key={nanoid()} id={name} label={value.toString()} />
+                        <Checkbox
+                          isChecked={selectedOptions.includes(value) ? true : false}
+                          key={nanoid()}
+                          id={name}
+                          label={value.toString()}
+                          onChange={handleSetFilter}
+                        />
                       ))}
                     </div>
                   </Accordion>

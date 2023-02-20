@@ -21,16 +21,10 @@ const Layout = () => {
   const setBurgerType = useZustandStore((state) => state.setBurgerType);
   const setIsBurgerOpen = useZustandStore((state) => state.setIsBurgerOpen);
   const setIsShadedActive = useZustandStore((state) => state.setIsShadedActive);
-  const setHandleShaded = useZustandStore((state) => state.setHandleShaded);
 
   const burgerOpen = () => {
     setIsBurgerOpen();
     setIsShadedActive();
-    setHandleShaded(() => {
-      setIsBurgerOpen();
-      setIsShadedActive();
-      setHandleShaded(() => {});
-    });
   };
 
   const handleMenuOpen = () => {

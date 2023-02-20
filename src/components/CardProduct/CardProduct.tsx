@@ -6,11 +6,10 @@ interface ICardProductProps {
   data: IDataProduct;
 }
 function CardProduct({ data }: ICardProductProps) {
-  const { id, img, name } = data;
+  const { id, title, thumbnail } = data;
   const [price, setPrice] = useState(data.price);
   const [favorite, setFavorite] = useState(false);
 
-  const webpPath = img.replaceAll('jpg', 'webp');
   const handleToggleFavorite = () => {
     setFavorite(!favorite);
   };
@@ -25,9 +24,9 @@ function CardProduct({ data }: ICardProductProps) {
   return (
     <div className={styles.card}>
       <div className={styles['img-wrapper']}>
-        <ImgLazy src={webpPath} alt={name} />
+        <ImgLazy src={thumbnail.primary} alt={title} />
       </div>
-      <h4 className={styles['card-title']}>{name}</h4>
+      <h4 className={styles['card-title']}>{title}</h4>
       <div className={styles.embossing}>
         <label htmlFor={id}>Embossing (price: +10)</label>
         <input
