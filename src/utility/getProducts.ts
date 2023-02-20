@@ -1,16 +1,11 @@
 import { IFilter } from '../data/data';
 import { IDataProduct } from '../data/dataProducts';
-interface IGetProducts {
-  products: IDataProduct[];
-  category?: string;
-  filters?: IFilter[];
-  selectedSorting?: string;
-  searchText?: string;
-}
+import { SelectedFilters } from '../store/zustandStore';
 
 export function getProducts(
   products: IDataProduct[],
   filters: IFilter[],
+  selectedFilters: SelectedFilters,
   category = '',
   selectedSorting = '',
   searchText = ''
@@ -27,6 +22,10 @@ export function getProducts(
     console.log('заходит в сортировку');
     currentProducts = getSortingProducts(currentProducts, selectedSorting);
   }
+
+  //case filtering
+  currentProducts = getFilteringProducts(currentProducts, filters, selectedFilters);
+
   //case search
   /* if (searchText.trim() !== '') {
     const searchTextLower = searchText.trim().toLowerCase();
@@ -75,3 +74,58 @@ function getSortingProducts(products: IDataProduct[], selectedSorting: string): 
   }
   return products;
 }
+
+function getFilteringProducts(
+  products: IDataProduct[],
+  filters: IFilter[],
+  selectedFilters: SelectedFilters
+): IDataProduct[] {
+  let currentProducts = [...products];
+  filters.forEach((filter) => {
+    const filteredProducts: IDataProduct[] = [];
+
+    if (selectedFilters[filter.name].length > 0) {
+      console.log('selectedFilters[filter.name]', selectedFilters[filter.name]);
+
+      selectedFilters[filter.name].forEach((filterValue) => {
+        currentProducts.forEach((product) => {
+          if (product[filter.name] === filterValue) {
+            filteredProducts.push(product);
+          }
+        });
+      });
+      currentProducts = filteredProducts;
+    }
+
+    /*if (selectedFilters[filter.name].length > 0) {
+      
+      console.log('выбранные фильтры', filter.selectedOptions.length);
+      currentProducts = currentProducts.filter((product) => {
+        if (product[filter.name] === ) {
+          return filter.selectedOptions.includes(product[filter.name] || '');
+        }
+        return false;
+      });
+    }*/
+  });
+  return currentProducts;
+}
+
+/* filters.forEach((filter) => {
+    const filteredProducts: IDataProduct[] = [];
+
+    if (selectedFilters[filter.name].length > 0) {
+      console.log('selectedFilters[filter.name]', selectedFilters[filter.name]);
+
+      selectedFilters[filter.name].forEach((filterValue) => {
+        currentProducts.forEach((product) => {
+          if (product[filter.name] === filterValue) {
+            filteredProducts.push(product);
+          }
+        });
+      });
+      currentProducts = filteredProducts;
+    }
+
+
+  }); */

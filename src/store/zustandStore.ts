@@ -1,5 +1,5 @@
 import create from 'zustand';
-import { filters, IFilter } from '../data/data';
+import { defaultSelectedFilters, filters, filterType, IFilter } from '../data/data';
 interface IZustandStore {
   burgerType: 'menu' | 'filter' | null;
   isBurgerOpen: boolean;
@@ -24,21 +24,31 @@ export const useZustandStore = create<IZustandStore>((set) => ({
   burgerOpen: () => set(() => ({ isShadedActive: true, isBurgerOpen: true })),
 }));
 
+export type SelectedFilters = Record<filterType, (string | number)[]>;
+
 interface IUtilityStore {
   filters: IFilter[];
-  //setFilters: (filter: string, action: 'add' | 'del') => void;
   selectedSorting: string;
+  selectedFilters: SelectedFilters;
+  setAllSelectedFilters: (filters: SelectedFilters) => void;
+  setSelectedFilters: (filters: Partial<SelectedFilters>) => void;
   setSelectedSorting: (newSelectedSorting: string) => void;
 }
 
 export const useUtilityStore = create<IUtilityStore>((set) => ({
   filters: filters,
-  /*setFilters: (filter, action) =>
-    set((state) => {
-      if (action === 'add') {
-        return {filters: state.filters};
-      }
-    }),*/
+  selectedFilters: defaultSelectedFilters,
+  setAllSelectedFilters: (filters) => set((state) => ({ selectedFilters: filters })),
+  setSelectedFilters: (filters) =>
+    set((state) => ({ selectedFilters: { ...state.selectedFilters, ...filters } })),
+  /*{
+    color: [],
+    cardCapacity: [],
+    moneyClip: [],
+    coinbox: [],
+    strap: [],
+    bifold: [],
+  }*/
   selectedSorting: '',
   setSelectedSorting: (newSelectedSorting) => set(() => ({ selectedSorting: newSelectedSorting })),
 }));

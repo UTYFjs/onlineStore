@@ -5,9 +5,9 @@ import { useUtilityStore } from '../../store/zustandStore';
 import { getProducts } from '../../utility/getProducts';
 import styles from './Catalog.module.scss';
 function Catalog() {
-  const { selectedSorting, filters } = useUtilityStore((state) => state);
+  const { selectedFilters, selectedSorting, filters } = useUtilityStore((state) => state);
 
-  const products = getProducts(dataProducts, filters, '', selectedSorting, '');
+  const products = getProducts(dataProducts, filters, selectedFilters, '', selectedSorting, '');
   return (
     <div>
       <div className={styles['catalog-grid-container']}>

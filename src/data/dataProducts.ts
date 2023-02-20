@@ -18,6 +18,13 @@ export interface IDataProduct {
   manufacturer: string;
   year: number;
   countInCart: number;
+  cardCapacity?: number;
+  moneyClip?: 'yes' | 'no';
+  coinbox?: 'yes' | 'no';
+  cards?: 'yes' | 'no';
+  cash?: 'yes' | 'no';
+  strap?: 'yes' | 'no';
+  bifold?: 'yes' | 'no';
 }
 
 export const dataProducts: Array<IDataProduct> = [
@@ -199,6 +206,13 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2022,
     countInCart: 0,
+    cardCapacity: 0,
+    moneyClip: 'no',
+    coinbox: 'yes',
+    cards: 'no',
+    cash: 'no',
+    strap: 'no',
+    bifold: 'no',
   },
   {
     id: nanoid(),
@@ -222,6 +236,13 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2021,
     countInCart: 0,
+    cardCapacity: 3,
+    moneyClip: 'no',
+    coinbox: 'no',
+    cards: 'yes',
+    cash: 'yes',
+    strap: 'no',
+    bifold: 'yes',
   },
   {
     id: nanoid(),
@@ -406,6 +427,13 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2022,
     countInCart: 0,
+    cardCapacity: 3,
+    moneyClip: 'no',
+    coinbox: 'yes',
+    cards: 'yes',
+    cash: 'yes',
+    strap: 'no',
+    bifold: 'yes',
   },
   {
     id: nanoid(),
@@ -429,6 +457,13 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2022,
     countInCart: 0,
+    cardCapacity: 3,
+    moneyClip: 'no',
+    coinbox: 'yes',
+    cards: 'yes',
+    cash: 'yes',
+    strap: 'no',
+    bifold: 'yes',
   },
   {
     id: nanoid(),
@@ -452,6 +487,13 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2022,
     countInCart: 0,
+    cardCapacity: 3,
+    moneyClip: 'no',
+    coinbox: 'no',
+    cards: 'yes',
+    cash: 'yes',
+    strap: 'no',
+    bifold: 'yes',
   },
   {
     id: nanoid(),
@@ -498,6 +540,13 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2022,
     countInCart: 0,
+    cardCapacity: 2,
+    moneyClip: 'no',
+    coinbox: 'no',
+    cards: 'yes',
+    cash: 'yes',
+    strap: 'no',
+    bifold: 'no',
   },
   {
     id: nanoid(),
@@ -521,6 +570,13 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2022,
     countInCart: 0,
+    cardCapacity: 2,
+    moneyClip: 'no',
+    coinbox: 'no',
+    cards: 'yes',
+    cash: 'yes',
+    strap: 'no',
+    bifold: 'no',
   },
   {
     id: nanoid(),
@@ -544,6 +600,13 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2021,
     countInCart: 0,
+    cardCapacity: 2,
+    moneyClip: 'no',
+    coinbox: 'no',
+    cards: 'yes',
+    cash: 'yes',
+    strap: 'no',
+    bifold: 'no',
   },
   {
     id: nanoid(),
@@ -567,6 +630,13 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2021,
     countInCart: 0,
+    cardCapacity: 3,
+    moneyClip: 'no',
+    coinbox: 'no',
+    cards: 'yes',
+    cash: 'yes',
+    strap: 'no',
+    bifold: 'yes',
   },
   {
     id: nanoid(),
@@ -613,6 +683,13 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2022,
     countInCart: 0,
+    cardCapacity: 3,
+    moneyClip: 'no',
+    coinbox: 'yes',
+    cards: 'yes',
+    cash: 'yes',
+    strap: 'no',
+    bifold: 'yes',
   },
   {
     id: nanoid(),
@@ -682,5 +759,12 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'other',
     year: 2022,
     countInCart: 0,
+    cardCapacity: 3,
+    moneyClip: 'no',
+    coinbox: 'yes',
+    cards: 'yes',
+    cash: 'yes',
+    strap: 'no',
+    bifold: 'yes',
   },
 ];

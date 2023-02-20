@@ -10,6 +10,7 @@ import Accordion from '../Accordeon/Accordion';
 import Button from '../Button/Button';
 import { nanoid } from 'nanoid';
 import Checkbox from '../Checkbox/Checkbox';
+import { defaultSelectedFilters, filterType } from '../../data/data';
 
 interface IBurgerMenuProps {
   type: 'menu' | 'filter' | null;
@@ -20,7 +21,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
   const isBurgerOpen = useZustandStore((state) => state.isBurgerOpen);
   const handleShaded = useZustandStore((state) => state.handleShaded);
 
-  const filters = useUtilityStore((state) => state.filters);
+  const { filters, selectedFilters, setAllSelectedFilters } = useUtilityStore((state) => state);
   const classesBurger = cn(styles.burger, isBurgerOpen && styles.active);
 
   /*const Typography = styled('a')(({ theme }) => ({
@@ -29,11 +30,47 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
     color: 'black',
     textDecoration: 'none',
   }));*/
+
+  // сделать чтобы фильтры применялись при клике на тень или не делать
   const handleCloseBurger = () => {
+    setAllSelectedFilters(newSelectedFilters);
     handleShaded();
   };
-  const handleSetFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('текущие', e.currentTarget.value, e.currentTarget.checked);
+
+  const isChecked = (name: filterType, value: string | number) => {
+    if (selectedFilters[name].length > 0 && selectedFilters[name].includes(value) === true) {
+      console.log(' selectedFilters[name]', selectedFilters[name]);
+      return true;
+    }
+    return false;
+  };
+
+  const newSelectedFilters = JSON.parse(JSON.stringify(selectedFilters));
+
+  const handleSetFilter = () => {
+    //console.log('текущие', e.currentTarget.value, e.currentTarget.checked);
+    setAllSelectedFilters(newSelectedFilters);
+    handleCloseBurger();
+    /*setSelectedFilters({ [name]: [value] });*/
+  };
+  const handleDefaultFilters = () => {
+    console.log('defaultFilters', selectedFilters);
+    setAllSelectedFilters(defaultSelectedFilters);
+    handleShaded();
+  };
+
+  const handleOnChangeCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.currentTarget.name;
+    const value = e.currentTarget.value;
+    if (e.currentTarget.checked) {
+      newSelectedFilters[name].push(value);
+    } else {
+      const selectedCapacityIndex = newSelectedFilters[name].indexOf(value);
+      newSelectedFilters[name] = [
+        ...newSelectedFilters[name].slice(0, selectedCapacityIndex),
+        ...newSelectedFilters[name].slice(selectedCapacityIndex + 1),
+      ];
+    }
   };
   let contentTitle: JSX.Element = <div></div>;
   let content: JSX.Element = <div></div>;
@@ -86,17 +123,17 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
         <div className={styles['menu-content-wrapper']}>
           <div className={styles['menu-content-filter']}>
             <div className={styles['filter-items-wrapper']}>
-              {filters.map(({ name, options, selectedOptions }) => {
+              {filters.map(({ name, options }) => {
                 return (
                   <Accordion key={nanoid()} title={name}>
                     <div className={styles['flex-container']}>
                       {options.map((value) => (
                         <Checkbox
-                          isChecked={selectedOptions.includes(value) ? true : false}
+                          isChecked={isChecked(name, value)}
                           key={nanoid()}
-                          id={name}
+                          name={name}
                           label={value.toString()}
-                          onChange={handleSetFilter}
+                          onChange={handleOnChangeCheckbox}
                         />
                       ))}
                     </div>
@@ -107,8 +144,8 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
           </div>
           <div className={styles.buttons}>
             {' '}
-            <Button content="Применить" />
-            <Button content="Сбросить" />
+            <Button content="Применить" onClick={handleSetFilter} />
+            <Button content="Сбросить" onClick={handleDefaultFilters} />
           </div>
         </div>
       );

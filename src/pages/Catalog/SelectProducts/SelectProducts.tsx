@@ -14,7 +14,9 @@ function SelectProducts() {
   const BurgerOpen = useZustandStore((state) => state.burgerOpen);
   const setBurgerType = useZustandStore((state) => state.setBurgerType);
 
-  const { selectedSorting, filters, setSelectedSorting } = useUtilityStore((state) => state);
+  const { selectedSorting, selectedFilters, filters, setSelectedSorting } = useUtilityStore(
+    (state) => state
+  );
 
   const handleOnChangeSorting = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedSorting(e.currentTarget.value);
@@ -22,7 +24,14 @@ function SelectProducts() {
   useEffect(() => {
     setSelectedSorting('');
   }, [currentCategory, setSelectedSorting]);
-  const products = getProducts(dataProducts, filters, currentCategory, selectedSorting, '');
+  const products = getProducts(
+    dataProducts,
+    filters,
+    selectedFilters,
+    currentCategory,
+    selectedSorting,
+    ''
+  );
   const handleFilterOpen = () => {
     setBurgerType('filter');
     BurgerOpen();
@@ -31,7 +40,7 @@ function SelectProducts() {
     <div className="category">
       <h1> {currentCategory}</h1>
       <div className={styles.navigation}>
-        <Button content={'Фильтры'} handle={handleFilterOpen}></Button>
+        <Button content={'Фильтры'} onClick={handleFilterOpen}></Button>
         <Select
           data={sortingRules}
           onChange={handleOnChangeSorting}

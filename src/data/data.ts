@@ -29,40 +29,73 @@ export const sortingRules: ISortingRule[] = [
   { id: nanoid(), title: 'BestSelling', value: 'bestselling' },
 ];
 
+export type filterType =
+  | 'color'
+  | 'cardCapacity'
+  | 'moneyClip'
+  | 'coinbox'
+  | 'cash'
+  | 'cards'
+  | 'strap'
+  | 'bifold';
 export interface IFilter {
-  name: string;
+  name: filterType;
   options: Array<string | number>;
-  selectedOptions: Array<string | number | never>;
 }
 export const filters: IFilter[] = [
   {
-    name: 'цвет',
-    options: ['черный', 'рыжий', 'коричневый', 'синий', 'зеленый', 'красный', 'фуксия', 'другой'],
-    selectedOptions: [],
+    name: 'color',
+    options: [
+      'black',
+      'orange',
+      'brown',
+      'blue',
+      'green',
+      'red',
+      'sand',
+      'gold',
+      'mix',
+      'fucsia',
+      'other',
+    ],
   },
   {
-    name: 'количество карт',
+    name: 'cardCapacity',
     options: [2, 3, 4, 5, 6, 7, 9, 12],
-    selectedOptions: [],
   },
   {
-    name: 'зажим для денег',
+    name: 'moneyClip',
     options: ['yes', 'no'],
-    selectedOptions: [],
   },
   {
-    name: 'монетница',
+    name: 'coinbox',
     options: ['yes', 'no'],
-    selectedOptions: [],
   },
   {
-    name: 'хлястик',
+    name: 'cash',
     options: ['yes', 'no'],
-    selectedOptions: [],
   },
   {
-    name: 'бифолд',
+    name: 'cards',
     options: ['yes', 'no'],
-    selectedOptions: [],
+  },
+  {
+    name: 'strap',
+    options: ['yes', 'no'],
+  },
+  {
+    name: 'bifold',
+    options: ['yes', 'no'],
   },
 ];
+
+export const defaultSelectedFilters = {
+  color: [],
+  cardCapacity: [],
+  moneyClip: [],
+  coinbox: [],
+  cash: [],
+  cards: [],
+  strap: [],
+  bifold: [],
+};
