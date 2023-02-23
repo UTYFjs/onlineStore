@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
-import CardProduct from '../../../components/CardProduct/CardProduct';
+import ListProducts from '../../../components/ListProducts/ListProducts';
 import Select from '../../../components/Select/Select';
 import { sortingRules } from '../../../data/data';
 import { dataProducts } from '../../../data/dataProducts';
@@ -47,13 +47,7 @@ function SelectProducts() {
           checkedValue={selectedSorting}
         />
       </div>
-      <div className={styles['flex-container']}>
-        {products.map((item) => {
-          console.log('заходит в мар');
-          item.thumbnail.primary = './.' + item.thumbnail.primary;
-          return <CardProduct key={item.id} data={item} />;
-        })}
-      </div>
+      <ListProducts customProducts={products} deepPath={'./.'} />
     </div>
   );
 }

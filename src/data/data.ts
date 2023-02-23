@@ -61,7 +61,7 @@ export const filters: IFilter[] = [
   },
   {
     name: 'cardCapacity',
-    options: [2, 3, 4, 5, 6, 7, 9, 12],
+    options: [2, 3, 4, 5],
   },
   {
     name: 'moneyClip',
