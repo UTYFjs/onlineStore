@@ -8,6 +8,7 @@
   grid-row-gap: 25px;
   margin-top: 20px;
   padding: 0 45px 20px;
+  margin-bottom: 80px;
   
   @include for-tablet{
     grid-template-columns: repeat(3, 1fr);
