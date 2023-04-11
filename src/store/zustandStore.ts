@@ -28,6 +28,8 @@ export const useZustandStore = create<IZustandStore>((set) => ({
 export type SelectedFilters = Record<filterType, (string | number)[]>;
 
 interface IUtilityStore {
+  currentProduct: IDataProduct | null;
+  setCurrentProduct: (product: IDataProduct | null) => void;
   filters: IFilter[];
   selectedSorting: string;
   selectedFilters: SelectedFilters;
@@ -37,6 +39,8 @@ interface IUtilityStore {
 }
 
 export const useUtilityStore = create<IUtilityStore>((set) => ({
+  currentProduct: null,
+  setCurrentProduct: (product) => set((state) => ({ currentProduct: product })),
   filters: filters,
   selectedFilters: defaultSelectedFilters,
   setAllSelectedFilters: (filters) => set((state) => ({ selectedFilters: filters })),

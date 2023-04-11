@@ -1,21 +1,32 @@
 import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { IDataProduct } from '../../data/dataProducts';
-import { useFavoriteStore } from '../../store/zustandStore';
+import { useFavoriteStore, useUtilityStore } from '../../store/zustandStore';
 import Button from '../Button/Button';
 import ImgLazy from '../ImgLazy/ImgLazy';
 import styles from './CardProduct.module.scss';
 interface ICardProductProps {
   data: IDataProduct;
+  deepPath?: string;
 }
-function CardProduct({ data }: ICardProductProps) {
-  const { id, title, thumbnail } = data;
+function CardProduct({ data, deepPath }: ICardProductProps) {
+  const { id, title, category, thumbnail } = data;
+  const thumbnailSrc = deepPath ? deepPath + thumbnail.primary : thumbnail.primary;
+  const navigate = useNavigate();
+  const handleToProductPage = () => {
+    setCurrentProduct(data);
+    navigate(`/collection/${category}/${id}`);
+    // navigate('/favorites');
+  };
   const [price, setPrice] = useState(data.price);
-  const [favorite, setFavorite] = useState(false);
+
   const { favoriteProducts, addProduct, removeProduct } = useFavoriteStore((state) => state);
+  const { setCurrentProduct } = useUtilityStore((state) => state);
 
   const isFavorite = favoriteProducts.some((p) => p.id === data.id);
 
-  const handleToggleFavorite = () => {
+  const handleToggleFavorite = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.stopPropagation();
     isFavorite ? removeProduct(data.id) : addProduct(data);
   };
   const getStyleFavorite = () => {
@@ -29,12 +40,14 @@ function CardProduct({ data }: ICardProductProps) {
   return (
     <div className={styles.card}>
       <div className={styles.fake}>
-        <div className={styles['fake-content']}></div>
-        <div className={styles['img-wrapper']}></div>
-        <h4 className={styles['card-title']}>{title}</h4>
-        <p className={styles['card-price']}>{price + ' gel'}</p>
+        <div className={styles['fake-content']}>
+          {' '}
+          <div className={styles['img-wrapper']} onClick={handleToProductPage}></div>
+          <h4 className={styles['card-title']}>{title}</h4>
+          <p className={styles['card-price']}>{price + ' gel'}</p>
+        </div>
 
-        <div className={styles['fake-nav']}>
+        <div className={styles['fake-nav']} onClick={(e) => e.stopPropagation()}>
           <div className={styles.embossing}>
             <label htmlFor={id}>Embossing (price: +10)</label>
             <input
@@ -54,7 +67,7 @@ function CardProduct({ data }: ICardProductProps) {
       </div>
 
       <div className={styles['img-wrapper']}>
-        <ImgLazy src={thumbnail.primary} alt={title} />
+        <ImgLazy src={thumbnailSrc} alt={title} />
       </div>
       <h4 className={styles['card-title']}>{title}</h4>
       <p className={styles['card-price']}>{price + ' gel'}</p>

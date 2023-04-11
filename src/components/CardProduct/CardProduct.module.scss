@@ -30,15 +30,19 @@
       
       transition: all 2s;
 
+
       .fake-content{
         position:relative;
         width: 100%;
         //min-height: 340px;
         background: transparent;
+        pointer-events: all;
+
 
       .img-wrapper{
       width:100%;
       aspect-ratio: 1 / 1;
+        cursor: pointer;
       }
 
       }

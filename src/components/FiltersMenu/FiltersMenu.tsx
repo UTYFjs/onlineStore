@@ -1,14 +1,12 @@
 import React from 'react';
-import Button from '../../components/Button/Button';
-import FiltersMenu from '../../components/FiltersMenu/FiltersMenu';
-import ListProducts from '../../components/ListProducts/ListProducts';
-import Select from '../../components/Select/Select';
 import { sortingRules } from '../../data/data';
 import { useUtilityStore, useZustandStore } from '../../store/zustandStore';
+import Button from '../Button/Button';
+import Select from '../Select/Select';
+import styles from './FiltersMenu.module.scss';
 
-import styles from './Catalog.module.scss';
-function Catalog() {
-  /*const { burgerOpen, setBurgerType } = useZustandStore((state) => state);
+function FiltersMenu() {
+  const { burgerOpen, setBurgerType } = useZustandStore((state) => state);
 
   const { selectedSorting, selectedFilters, filters, setSelectedSorting } = useUtilityStore(
     (state) => state
@@ -19,13 +17,13 @@ function Catalog() {
   const handleFilterOpen = () => {
     setBurgerType('filter');
     burgerOpen();
-  };*/
+  };
   return (
-    <>
-      <FiltersMenu />
-      <ListProducts />;
-    </>
+    <div className={styles.navigation}>
+      <Button content={'Фильтры'} onClick={handleFilterOpen}></Button>
+      <Select data={sortingRules} onChange={handleOnChangeSorting} checkedValue={selectedSorting} />
+    </div>
   );
 }
 
-export default Catalog;
+export default FiltersMenu;

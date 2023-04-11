@@ -23,10 +23,7 @@ function ListProducts({ customProducts, deepPath }: ListProductsProps) {
   return (
     <div className={styles['catalog-grid-container']}>
       {products.map((item) => {
-        if (deepPath) {
-          item.thumbnail.primary = './.' + item.thumbnail.primary;
-        }
-        return <CardProduct key={item.id} data={item} />;
+        return <CardProduct key={item.id} data={item} deepPath={deepPath} />;
       })}
     </div>
   );

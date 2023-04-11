@@ -62,15 +62,20 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
   const handleOnChangeCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.currentTarget.name;
     const value = e.currentTarget.value;
+    let valueNew: string | number = value;
+    if (name === 'cardCapacity') {
+      valueNew = +value;
+    }
     if (e.currentTarget.checked) {
-      newSelectedFilters[name].push(value);
+      newSelectedFilters[name].push(valueNew);
     } else {
-      const selectedCapacityIndex = newSelectedFilters[name].indexOf(value);
+      const selectedCapacityIndex = newSelectedFilters[name].indexOf(valueNew);
       newSelectedFilters[name] = [
         ...newSelectedFilters[name].slice(0, selectedCapacityIndex),
         ...newSelectedFilters[name].slice(selectedCapacityIndex + 1),
       ];
     }
+    console.log('изменились фильтры', selectedFilters, name, typeof valueNew);
   };
   let contentTitle: JSX.Element = <div></div>;
   let content: JSX.Element = <div></div>;
