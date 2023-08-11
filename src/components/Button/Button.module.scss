@@ -20,6 +20,7 @@
     color: #fff;
     background: #ff4f33;
     cursor: pointer;
+    overflow: hidden;
   }
   .button:after{
     content: '';
@@ -43,4 +44,9 @@
   .button:active{
     transform: scale(0.95);
     background: red;
+  }
+
+  .full-width{
+    
+    width: 100%;
   }
