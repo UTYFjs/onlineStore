@@ -80,6 +80,15 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
   let contentTitle: JSX.Element = <div></div>;
   let content: JSX.Element = <div></div>;
 
+  const customCSSStyles: React.CSSProperties = {
+    width: '120px',
+    textAlign: 'center',
+    lineHeight: '1rem',
+    padding: '10px 0.6rem',
+    fontWeight: '600',
+    fontSize: '12px',
+  };
+
   switch (type) {
     case 'menu':
       contentTitle = (
@@ -149,8 +158,12 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
           </div>
           <div className={styles.buttons}>
             {' '}
-            <Button content="Применить" onClick={handleSetFilter} />
-            <Button content="Сбросить" onClick={handleDefaultFilters} />
+            <Button
+              content="Сбросить"
+              onClick={handleDefaultFilters}
+              customStyles={customCSSStyles}
+            />
+            <Button content="Применить" onClick={handleSetFilter} customStyles={customCSSStyles} />
           </div>
         </div>
       );
