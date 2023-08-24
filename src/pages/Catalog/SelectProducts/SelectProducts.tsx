@@ -31,7 +31,6 @@ function SelectProducts() {
 
   return (
     <div>
-      <h1 className={styles.title}> {currentCategory}</h1>
       <FiltersMenu />
 
       <ListProducts customProducts={products} deepPath={'./.'} />
