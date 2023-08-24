@@ -6,13 +6,14 @@ interface ICheckboxProps {
   name: string;
   className?: string;
   label?: string;
+  textLabel?: string;
   isChecked?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 // todo переписать id label логику
-function Checkbox({ className, label, name, isChecked, onChange }: ICheckboxProps) {
+function Checkbox({ className, label, textLabel, name, isChecked, onChange }: ICheckboxProps) {
   return (
-    <label className={cn(styles.checkbox, className)} htmlFor={label}>
+    <label className={cn(styles.checkbox, className)}>
       <input
         defaultChecked={isChecked}
         id={name + label}
@@ -21,7 +22,7 @@ function Checkbox({ className, label, name, isChecked, onChange }: ICheckboxProp
         value={label}
         onChange={onChange}
       />
-      {label && <span> {label} </span>}
+      {label && <span> {textLabel} </span>}
     </label>
   );
 }

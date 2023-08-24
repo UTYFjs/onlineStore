@@ -1,14 +1,15 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React, { CSSProperties, useState } from 'react';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from './Accordion.module.scss';
 
 interface IAccordionProps {
-  title?: string;
+  title: string;
+  customStyles?: CSSProperties;
   children?: JSX.Element | null;
 }
-function Accordion({ title = '', children = null }: IAccordionProps) {
+function Accordion({ title, customStyles, children = null }: IAccordionProps) {
   const [isActive, setIsActive] = useState(false);
   const classActive = classNames(styles.content, isActive && styles.active);
   return (
@@ -19,8 +20,10 @@ function Accordion({ title = '', children = null }: IAccordionProps) {
           setIsActive(!isActive);
         }}
       >
-        <p className={styles.title}>{title}</p>
-        <ExpandMoreIcon className={styles['icon']} />
+        <p className={styles.title} style={customStyles}>
+          {title}
+        </p>
+        <ExpandMoreIcon className={styles['icon']} style={customStyles} />
       </div>
       <div className={classActive}> {children}</div>
     </div>

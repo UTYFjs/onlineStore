@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { sortingRules } from '../../data/data';
 import { useUtilityStore, useZustandStore } from '../../store/zustandStore';
 import Button from '../Button/Button';
@@ -18,9 +18,19 @@ function FiltersMenu() {
     setBurgerType('filter');
     burgerOpen();
   };
+  const countSelectedFilters = Object.values(selectedFilters).reduce((prev, item) => {
+    return prev + item.length;
+  }, 0);
+
+  const contentFiltersButton =
+    'Фильтры' + (countSelectedFilters ? `(${countSelectedFilters})` : '');
   return (
     <div className={styles.navigation}>
-      <Button content={'Фильтры'} onClick={handleFilterOpen}></Button>
+      <Button
+        content={contentFiltersButton}
+        onClick={handleFilterOpen}
+        customStyles={countSelectedFilters ? { background: 'green' } : {}}
+      ></Button>
       <Select data={sortingRules} onChange={handleOnChangeSorting} checkedValue={selectedSorting} />
     </div>
   );

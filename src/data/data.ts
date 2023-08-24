@@ -43,6 +43,7 @@ export interface IFilter {
   textName: { ru: string; en: string };
   options: Array<string | number>;
   textOptions: { ru: Array<string | number>; en: Array<string | number> };
+  isActive: boolean;
 }
 export const filters: IFilter[] = [
   {
@@ -89,6 +90,7 @@ export const filters: IFilter[] = [
         'other',
       ],
     },
+    isActive: false,
   },
   {
     name: 'cardCapacity',
@@ -98,6 +100,7 @@ export const filters: IFilter[] = [
       ru: [2, 3, 4, 5],
       en: [2, 3, 4, 5],
     },
+    isActive: false,
   },
   {
     name: 'moneyClip',
@@ -107,6 +110,7 @@ export const filters: IFilter[] = [
       ru: ['Да', 'Нет'],
       en: ['Yes', 'No'],
     },
+    isActive: false,
   },
   {
     name: 'coinbox',
@@ -116,6 +120,7 @@ export const filters: IFilter[] = [
       ru: ['Да', 'Нет'],
       en: ['Yes', 'No'],
     },
+    isActive: false,
   },
   {
     name: 'cash',
@@ -125,6 +130,7 @@ export const filters: IFilter[] = [
       ru: ['Да', 'Нет'],
       en: ['Yes', 'No'],
     },
+    isActive: false,
   },
   {
     name: 'cards',
@@ -134,6 +140,7 @@ export const filters: IFilter[] = [
       ru: ['Да', 'Нет'],
       en: ['Yes', 'No'],
     },
+    isActive: false,
   },
   {
     name: 'strap',
@@ -143,6 +150,7 @@ export const filters: IFilter[] = [
       ru: ['Да', 'Нет'],
       en: ['Yes', 'No'],
     },
+    isActive: false,
   },
   {
     name: 'bifold',
@@ -152,6 +160,7 @@ export const filters: IFilter[] = [
       ru: ['Да', 'Нет'],
       en: ['Yes', 'No'],
     },
+    isActive: false,
   },
 ];
 

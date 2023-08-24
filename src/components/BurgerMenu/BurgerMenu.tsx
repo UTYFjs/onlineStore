@@ -33,7 +33,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
 
   // сделать чтобы фильтры применялись при клике на тень или не делать
   const handleCloseBurger = () => {
-    setAllSelectedFilters(newSelectedFilters);
+    setAllSelectedFilters(newSelectedFilters, 0);
     handleShaded();
   };
 
@@ -49,13 +49,13 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
 
   const handleSetFilter = () => {
     //console.log('текущие', e.currentTarget.value, e.currentTarget.checked);
-    setAllSelectedFilters(newSelectedFilters);
+    setAllSelectedFilters(newSelectedFilters, 0);
     handleCloseBurger();
     /*setSelectedFilters({ [name]: [value] });*/
   };
   const handleDefaultFilters = () => {
     console.log('defaultFilters', selectedFilters);
-    setAllSelectedFilters(defaultSelectedFilters);
+    setAllSelectedFilters(defaultSelectedFilters, 0);
     handleShaded();
   };
 
@@ -88,6 +88,11 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
     fontWeight: '600',
     fontSize: '12px',
   };
+
+  const countSelectedFilters = Object.values(selectedFilters).reduce((prev, item) => {
+    return prev + item.length;
+  }, 0);
+  const stylesSelectedFiltersButton = countSelectedFilters ? { background: 'green' } : {};
 
   switch (type) {
     case 'menu':
@@ -137,16 +142,19 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
         <div className={styles['menu-content-wrapper']}>
           <div className={styles['menu-content-filter']}>
             <div className={styles['filter-items-wrapper']}>
-              {filters.map(({ name, options }) => {
+              {filters.map(({ name, options, textName, textOptions }, index) => {
+                const countActiveFilters = selectedFilters[name].length;
+                const customStyles = countActiveFilters ? { color: 'green' } : {};
                 return (
-                  <Accordion key={nanoid()} title={name}>
+                  <Accordion key={nanoid()} title={textName.ru} customStyles={customStyles}>
                     <div className={styles['flex-container']}>
-                      {options.map((value) => (
+                      {textOptions.ru.map((value, index) => (
                         <Checkbox
-                          isChecked={isChecked(name, value)}
+                          isChecked={isChecked(name, options[index])}
                           key={nanoid()}
                           name={name}
-                          label={value.toString()}
+                          label={options[index].toString()}
+                          textLabel={value.toString()}
                           onChange={handleOnChangeCheckbox}
                         />
                       ))}
@@ -161,7 +169,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
             <Button
               content="Сбросить"
               onClick={handleDefaultFilters}
-              customStyles={customCSSStyles}
+              customStyles={{ ...customCSSStyles, ...stylesSelectedFiltersButton }}
             />
             <Button content="Применить" onClick={handleSetFilter} customStyles={customCSSStyles} />
           </div>

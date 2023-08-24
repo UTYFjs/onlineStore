@@ -33,7 +33,8 @@ interface IUtilityStore {
   filters: IFilter[];
   selectedSorting: string;
   selectedFilters: SelectedFilters;
-  setAllSelectedFilters: (filters: SelectedFilters) => void;
+  countActiveFilters: number;
+  setAllSelectedFilters: (filters: SelectedFilters, countActiveFilters: number) => void;
   setSelectedFilters: (filters: Partial<SelectedFilters>) => void;
   setSelectedSorting: (newSelectedSorting: string) => void;
 }
@@ -43,7 +44,9 @@ export const useUtilityStore = create<IUtilityStore>((set) => ({
   setCurrentProduct: (product) => set((state) => ({ currentProduct: product })),
   filters: filters,
   selectedFilters: defaultSelectedFilters,
-  setAllSelectedFilters: (filters) => set((state) => ({ selectedFilters: filters })),
+  countActiveFilters: 0,
+  setAllSelectedFilters: (filters, countActiveFilters) =>
+    set((state) => ({ selectedFilters: filters, countActiveFilters: countActiveFilters })),
   setSelectedFilters: (filters) =>
     set((state) => ({ selectedFilters: { ...state.selectedFilters, ...filters } })),
   /*{
