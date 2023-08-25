@@ -8,6 +8,7 @@ import { dataProducts } from '../../../../data/dataProducts';
 import styles from './ProductPage.module.scss';
 import Input from '../../../../components/Input/Input';
 import Button from '../../../../components/Button/Button';
+import { mockSelectRules } from '../../../../mock/mock';
 
 function ProductPage() {
   const { product: currentProductId } = useParams();
@@ -21,6 +22,7 @@ function ProductPage() {
       setCurrentProduct(null);
     };
   }, [setCurrentProduct]);*/
+  console.log('PRODUCT FROM PRODUCT PAGE', currentProduct);
   return (
     <div>
       <div className={styles.grid}>
@@ -32,14 +34,19 @@ function ProductPage() {
 
           <div className={styles['flex-row']}>
             <p className={styles.spacing}>Выберите цвет</p>
-            <Select data={sortingRules} checkedValue={''} onChange={() => {}} className={'qq1'} />
+            <Select
+              data={mockSelectRules}
+              checkedValue={mockSelectRules[0].value}
+              onChange={() => {}}
+              customStyles={{ height: '35px' }}
+            />
           </div>
           <div className={styles['flex-row']}>
             <p className={styles.spacing}>Выберите коробочку</p>
           </div>
           <div className={styles['flex-row']}>
             <p className={styles.spacing}>Добавить инициалы</p>
-            <Input />
+            <Input placeholder={'Добавьте свои инициалы'} />
           </div>
 
           <p className={styles.price}>{price + ' gel'}</p>

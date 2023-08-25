@@ -14,13 +14,13 @@ export const upperNavHeaderData = [
   { url: '/how-to-order', content: 'Как заказать' },
 ];
 
-export interface ISortingRule {
+export interface ISelectRule {
   id: string;
   title: string;
   value: string;
 }
 
-export const sortingRules: ISortingRule[] = [
+export const sortingRules: ISelectRule[] = [
   { id: nanoid(), title: '', value: '' },
   { id: nanoid(), title: 'Price, low to high', value: 'priceAscending' },
   { id: nanoid(), title: 'Price, high to low', value: 'priceDescending' },
