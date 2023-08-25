@@ -1,1 +1,15 @@
 @use '../../styles/style.scss' as *;
+
+.favorites{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 70vh;
+
+  .title{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+}
