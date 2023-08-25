@@ -11,7 +11,9 @@ interface IAccordionProps {
 }
 function Accordion({ title, customStyles, children = null }: IAccordionProps) {
   const [isActive, setIsActive] = useState(false);
+
   const classActive = classNames(styles.content, isActive && styles.active);
+  //style={{ marginBottom: `${isActive ? '.5rem' : ''}` }}
   return (
     <div className={styles.accordion}>
       <div
@@ -20,7 +22,7 @@ function Accordion({ title, customStyles, children = null }: IAccordionProps) {
           setIsActive(!isActive);
         }}
       >
-        <p className={styles.title} style={customStyles}>
+        <p className={styles.title} style={{ ...customStyles, fontWeight: 500, fontSize: '1.2em' }}>
           {title}
         </p>
         <ExpandMoreIcon className={styles['icon']} style={customStyles} />

@@ -25,7 +25,7 @@ export const useZustandStore = create<IZustandStore>((set) => ({
   burgerOpen: () => set(() => ({ isShadedActive: true, isBurgerOpen: true })),
 }));
 
-export type SelectedFilters = Record<filterType, (string | number)[]>;
+export type SelectedFilters = Record<filterType, (string | number | never)[]>;
 
 interface IUtilityStore {
   currentProduct: IDataProduct | null;
@@ -33,6 +33,7 @@ interface IUtilityStore {
   filters: IFilter[];
   selectedSorting: string;
   selectedFilters: SelectedFilters;
+  //remove count active filters
   countActiveFilters: number;
   setAllSelectedFilters: (filters: SelectedFilters, countActiveFilters: number) => void;
   setSelectedFilters: (filters: Partial<SelectedFilters>) => void;

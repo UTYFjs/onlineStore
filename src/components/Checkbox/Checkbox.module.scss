@@ -1,0 +1,18 @@
+.checkbox{
+
+  display:flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.3rem;
+  color: #272727;
+  input{
+    line-height: 1.2rem;
+  }
+  
+}
+.checkbox:hover {
+  color: black;
+  //text-shadow: 3px 4px 20px rgb(0, 0, 0);
+  //box-shadow: 0px 5px 12px 8px rgba(0,0,0,0.1);
+  //box-shadow: inset 0px 5px 12px 8px rgba(0,0,0,0.1);
+}

@@ -1,2 +1,9 @@
 @use '../../styles/style.scss' as *;
 
+.catalog{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: 70vh;
+}

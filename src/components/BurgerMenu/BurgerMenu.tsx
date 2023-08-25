@@ -11,6 +11,7 @@ import Button from '../Button/Button';
 import { nanoid } from 'nanoid';
 import Checkbox from '../Checkbox/Checkbox';
 import { defaultSelectedFilters, filterType } from '../../data/data';
+import BubbleFilterList from '../BubbleFilterList/BubbleFilterList';
 
 interface IBurgerMenuProps {
   type: 'menu' | 'filter' | null;
@@ -80,6 +81,10 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
   let contentTitle: JSX.Element = <div></div>;
   let content: JSX.Element = <div></div>;
 
+  const countSelectedFilters = Object.values(selectedFilters).reduce((prev, item) => {
+    return prev + item.length;
+  }, 0);
+
   const customCSSStyles: React.CSSProperties = {
     width: '120px',
     textAlign: 'center',
@@ -88,11 +93,9 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
     fontWeight: '600',
     fontSize: '12px',
   };
-
-  const countSelectedFilters = Object.values(selectedFilters).reduce((prev, item) => {
-    return prev + item.length;
-  }, 0);
-  const stylesSelectedFiltersButton = countSelectedFilters ? { background: 'green' } : {};
+  const stylesSelectedFiltersButton = countSelectedFilters
+    ? { background: '#ff4f33' }
+    : { color: '#363636', background: '#fff', border: '1px solid #a7a7a7' };
 
   switch (type) {
     case 'menu':
@@ -141,10 +144,26 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
       content = (
         <div className={styles['menu-content-wrapper']}>
           <div className={styles['menu-content-filter']}>
+            <BubbleFilterList
+              customStyles={{
+                flexDirection: 'column',
+                gap: '3px',
+                marginBottom: '10px',
+              }}
+              customStylesBubbleItem={{
+                width: '200px',
+                alignSelf: 'start',
+                paddingLeft: '5px',
+                background: '#ff4f33',
+                color: '#fff',
+                textAlign: 'center',
+                border: 'none',
+              }}
+            />
             <div className={styles['filter-items-wrapper']}>
               {filters.map(({ name, options, textName, textOptions }, index) => {
                 const countActiveFilters = selectedFilters[name].length;
-                const customStyles = countActiveFilters ? { color: 'green' } : {};
+                const customStyles = countActiveFilters ? { color: '#ff4f33' } : {};
                 return (
                   <Accordion key={nanoid()} title={textName.ru} customStyles={customStyles}>
                     <div className={styles['flex-container']}>

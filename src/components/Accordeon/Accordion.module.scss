@@ -7,6 +7,7 @@
   min-width: 100%;
   overflow: hidden;
   height: fit-content;
+  //margin-bottom: 1rem;
 
 }
 .accordion-header{
@@ -20,7 +21,7 @@
   cursor: pointer;
 }
 .title{
-      margin-block-start: .2em;
+    margin-block-start: .2em;
     margin-block-end: .2em;
 }
 .icon{
@@ -29,12 +30,15 @@
 .content{
   max-height: 0px;
   width: 100%;
-  
+  padding-left: .5rem;
   opacity: 0;
   transition: max-height .4s, opacity .4s, margin .4s;
 }
 .content.active{
+
+  margin-top: .5rem;
   max-height: 500px;
+  
   //padding: .5rem 0;
   opacity: 1;
   //line-height: 2rem;

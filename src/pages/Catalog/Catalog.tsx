@@ -21,10 +21,10 @@ function Catalog() {
     burgerOpen();
   };*/
   return (
-    <>
+    <div className={styles.catalog}>
       <FiltersMenu />
-      <ListProducts />;
-    </>
+      <ListProducts />
+    </div>
   );
 }
 
