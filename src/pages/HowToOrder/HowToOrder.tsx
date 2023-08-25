@@ -4,6 +4,7 @@ import styles from './HowToOrder.module.scss';
 function HowToOrder() {
   return (
     <div className={styles['how-to']}>
+      <h2 className={styles.title}> Часто задаваемые вопросы</h2>
       <Accordion title="Как заказать?">
         <p> Напишите нам</p>
       </Accordion>
