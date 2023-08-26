@@ -1,9 +1,9 @@
 @use '../../styles/style.scss' as *;
+//@use '../../styles/colors.scss' as *;
 .button{
     position: relative;
     align-self: center;
     width: fit-content;
-    padding: 1px 2rem;
     border-radius: 5px;
     border: none;
     line-height: 1.3rem;
@@ -15,11 +15,12 @@
     letter-spacing: .3em;
     display: inline-block;
     padding: 11px 20px;
-    border: none;
-    border-radius: 10px;
+    border: 2px solid transparent;
+    border-radius: 3px;
     color: #fff;
-    background: #ff4f33;
+    background: $color-myred;
     cursor: pointer;
+    overflow: hidden;
   }
   .button:after{
     content: '';
@@ -43,4 +44,9 @@
   .button:active{
     transform: scale(0.95);
     background: red;
+  }
+
+  .full-width{
+    
+    width: 100%;
   }

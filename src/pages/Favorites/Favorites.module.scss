@@ -1,9 +1,15 @@
 @use '../../styles/style.scss' as *;
 
-.catalog{
+.favorites{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
   min-height: 70vh;
+
+  .title{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
 }

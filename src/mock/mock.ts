@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import { ISelectRule } from '../data/data';
 
 export const mockSelect = [
   { id: nanoid(), content: '', value: 'all' },
@@ -42,4 +43,13 @@ export const mockDataCategory = [
     to: '/collection/cardholders',
     imgSrc: './assets/img/webp/bg/wallet-mini-bison.webp',
   },
+];
+
+export const mockSelectRules: ISelectRule[] = [
+  { id: nanoid(), title: '', value: '' },
+  { id: nanoid(), title: '1', value: '1' },
+  { id: nanoid(), title: '2', value: '2' },
+  { id: nanoid(), title: '3', value: '3' },
+  { id: nanoid(), title: '4', value: '4' },
+  { id: nanoid(), title: '5', value: '5' },
 ];

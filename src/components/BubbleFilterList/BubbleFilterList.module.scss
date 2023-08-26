@@ -1,0 +1,14 @@
+   @use '../../styles/style.scss' as *;
+   
+   .bubbles{
+      display:flex;
+      gap: 5px
+
+
+
+    }
+      @include for-phone{
+      .bubbles{
+      display: none;
+    }
+   }

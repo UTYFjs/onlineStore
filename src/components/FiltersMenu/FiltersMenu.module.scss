@@ -1,0 +1,30 @@
+@use '../../styles/style.scss' as *;
+
+.navigation {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 45px 0;
+
+  .filters-wrapper{
+    display:flex;
+    gap: 5px;
+
+ 
+    
+
+
+  }
+
+  @include for-tablet{
+    padding: 0 2vw 0;
+    
+  }
+    @include for-phone{
+    padding: 0 5px 0;
+      
+
+  }
+}
+

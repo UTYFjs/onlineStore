@@ -4,12 +4,14 @@ import { Route, Routes } from 'react-router-dom';
 import styles from './App.module.scss';
 import About from './pages/About/About';
 import Catalog from './pages/Catalog/Catalog';
+import ProductPage from './pages/Catalog/SelectProducts/ProductPage/ProductPage';
 import SelectProducts from './pages/Catalog/SelectProducts/SelectProducts';
+import Favorites from './pages/Favorites/Favorites';
 import HowToOrder from './pages/HowToOrder/HowToOrder';
 import Layout from './pages/layout/Layout';
 import MainPage from './pages/MainPage/MainPage';
 
-import { useZustandStore } from './store/zustandStore';
+import { useFavoriteStore, useZustandStore } from './store/zustandStore';
 
 function App() {
   //const root = document.getElementById('root');
@@ -19,7 +21,7 @@ function App() {
   } else {
     document.body.classList.remove('lock');
   }
-
+  const favoriteProducts = useFavoriteStore((state) => state.favoriteProducts);
   return (
     <>
       <Routes>
@@ -27,8 +29,10 @@ function App() {
           <Route index element={<MainPage />} />
           <Route path="collection" element={<Catalog />} />
           <Route path="collection/:id" element={<SelectProducts />} />
+          <Route path="collection/:id/:product" element={<ProductPage />} />
           <Route path="about" element={<About />} />
           <Route path="how-to-order" element={<HowToOrder />} />
+          <Route path="favorites" element={<Favorites products={favoriteProducts} />} />
         </Route>
       </Routes>
     </>

@@ -17,7 +17,7 @@ function Social({ color = '#000', iconSize = 'medium' }: socialProps) {
   return (
     <>
       <InstagramIcon
-        onClick={() => window.open('https://ig.me/m/o.sugakova')}
+        onClick={() => window.open('https://ig.me/m/sugakovgennadii')}
         className={styles.icon}
         fontSize={iconSize}
         style={{ color: colorIg }}
@@ -29,7 +29,7 @@ function Social({ color = '#000', iconSize = 'medium' }: socialProps) {
         }}
       />
       <TelegramIcon
-        onClick={() => window.open('https://t.me/o_sugakova')}
+        onClick={() => window.open('https://t.me/utyfjs')}
         className={styles.icon}
         fontSize={iconSize}
         style={{ color: colorTg }}
@@ -41,7 +41,7 @@ function Social({ color = '#000', iconSize = 'medium' }: socialProps) {
         }}
       />
       <FacebookIcon
-        onClick={() => window.open('https://m.me/olga.sygakova')}
+        onClick={() => window.open('https://m.me/henadzi.suhakou')}
         className={styles.icon}
         fontSize={iconSize}
         style={{ color: colorFb }}
@@ -53,7 +53,7 @@ function Social({ color = '#000', iconSize = 'medium' }: socialProps) {
         }}
       />
       <WhatsAppIcon
-        onClick={() => window.open('https://wa.me/995511150849')}
+        onClick={() => window.open('https://wa.me/995595909226')}
         className={styles.icon}
         fontSize={iconSize}
         style={{ color: colorWs }}

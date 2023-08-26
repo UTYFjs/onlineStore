@@ -10,12 +10,14 @@ import NavLinkCustom from '../../../../components/NavLink/NavLinkCustom';
 import { routerPagesData, upperNavHeaderData } from '../../../../data/data';
 import LocationTag from '../../../../components/LocationTag/LocationTag';
 import Social from '../../../../components/Social/Social';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 interface IHeaderProps {
   setMenu: () => void;
 }
 
 function Header({ setMenu }: IHeaderProps) {
+  const navigate = useNavigate();
+
   const iconsFontSize = { xs: '33px', sm: '33px', md: '35px', lg: '38px' };
   return (
     <AppBar component="header" position="relative" className={styles.header} color={'transparent'}>
@@ -63,7 +65,14 @@ function Header({ setMenu }: IHeaderProps) {
           GENOLI
         </Typography>
         <Box className={styles.icons}>
-          <FavoriteIcon sx={{ fontSize: iconsFontSize }} color={'error'} />
+          <FavoriteIcon
+            className={styles.favorite}
+            onClick={() => {
+              navigate('/favorites');
+            }}
+            sx={{ fontSize: iconsFontSize }}
+            color={'error'}
+          />
           <ShoppingCartOutlinedIcon sx={{ fontSize: iconsFontSize }} color={'error'} />
         </Box>
       </nav>

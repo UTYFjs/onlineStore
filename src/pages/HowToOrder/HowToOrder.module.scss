@@ -1,12 +1,37 @@
-.container-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
+@use '../../styles/style.scss' as *;
 
-  .grid-item{
-    width: 100%;
-    min-height: 300px;
-    max-height: 600px;
-    background: #000;
+.how-to{
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+  align-items: center;
+  min-height: 70vh;
+  padding: 20px 360px;
+
+
+
+  .title{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
   }
+
+
+
+
 }
+
+  @include for-tablet {
+
+    .how-to{
+      padding: 20px 160px;
+    }
+  }
+
+    @include for-phone {
+
+    .how-to{
+      padding: 10px 30px;
+    }
+  }

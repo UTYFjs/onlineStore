@@ -1,0 +1,44 @@
+@use '../../../../styles/style.scss' as *;
+.grid{
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
+.image-wrapper{
+  max-width: calc(100vh - 350px);
+  margin: 0 auto;
+  position: sticky;
+  top: 30px;
+}
+.image-wrapper img{
+  width: 100%;
+  height: auto;
+    position: sticky;
+  top: 30px;
+}
+.content-wrapper{
+display: flex;
+flex-direction: column;
+gap: 1rem;
+
+.spacing{
+  font-size: 1.1em;
+  letter-spacing: .2em;
+  line-height: 44px;
+}
+.price{
+  font-size: 25px;
+}
+  .flex-row{
+    display: flex;
+    gap: 2rem;
+  }
+  .title{
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+}
+
