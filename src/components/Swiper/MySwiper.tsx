@@ -6,7 +6,7 @@ import { SwiperSlide, Swiper, SwiperRef, SwiperProps, useSwiper } from 'swiper/r
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { Navigation, Pagination, Mousewheel, Keyboard, Scrollbar, A11y } from 'swiper/modules';
 import ImgLazy from '../ImgLazy/ImgLazy';
 
 //import Swiper from 'swiper';
@@ -23,6 +23,14 @@ export default function MySwiper({ images }: ISwaperProps) {
   return (
     <div>
       <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={0}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log('slide change')}
         //breakpoints={}
         //cssMode={true}
         //navigation={true}
