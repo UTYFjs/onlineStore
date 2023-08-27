@@ -2,7 +2,7 @@
 .form-input-text{
 
   @include font-input-select;
-  width: 400px;
+  max-width: 400px;
   padding: 5px 10px;
   border:  1px solid $color-border-inputs ;
   outline:none;

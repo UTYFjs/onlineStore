@@ -66,7 +66,7 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
         </div>
       </div>
 
-      <div className={styles['img-wrapper']}>
+      <div className={styles['img-wrapper']} onClick={handleToProductPage}>
         <ImgLazy src={thumbnailSrc} alt={title} />
       </div>
       <h4 className={styles['card-title']}>{title}</h4>

@@ -21,9 +21,10 @@ function Catalog() {
     burgerOpen();
   };*/
   return (
-    <div className={styles.catalog}>
+    <div>
       <FiltersMenu />
-      <ListProducts />
+
+      <ListProducts deepPath={'./.'} />
     </div>
   );
 }

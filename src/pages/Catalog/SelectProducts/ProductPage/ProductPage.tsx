@@ -9,12 +9,17 @@ import styles from './ProductPage.module.scss';
 import Input from '../../../../components/Input/Input';
 import Button from '../../../../components/Button/Button';
 import { mockSelectRules } from '../../../../mock/mock';
+import CustomSlider from '../../../../components/customSlider/CustomSlider';
+import Slider from '../../../../components/Slider/Slider';
+import SliderSwiper from '../../../../components/SliderSwiper/SliderSwiper';
 
 function ProductPage() {
   const { product: currentProductId } = useParams();
   const currentProduct = dataProducts.find((product) => product.id === currentProductId);
   const { id, price } = currentProduct ? currentProduct : { id: null, price: null };
   const imgSrc = './../.' + currentProduct?.thumbnail.primary;
+
+  const imagesSrc = currentProduct?.images.map((image) => './../.' + image);
   //const { currentProduct, setCurrentProduct } = useUtilityStore((state) => state);
   /*useEffect(() => {
     return () => {
@@ -27,7 +32,15 @@ function ProductPage() {
     <div>
       <div className={styles.grid}>
         <div className={styles['image-wrapper']}>
-          <ImgLazy src={imgSrc} />
+          {
+            //<ImgLazy src={imgSrc} />
+            //imagesSrc && <CustomSlider slides={imagesSrc} />
+            //imagesSrc && <Slider slides={imagesSrc} />
+            imagesSrc && <SliderSwiper images={imagesSrc} />
+          }
+          {
+            //imagesSrc?.map((image) => (<ImgLazy key={image + 55} src={image} />))
+          }
         </div>
         <div className={styles['content-wrapper']}>
           <h3 className={styles.title}>{currentProduct?.title}</h3>
