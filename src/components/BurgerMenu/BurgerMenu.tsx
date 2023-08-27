@@ -146,6 +146,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
           <div className={styles['menu-content-filter']}>
             <BubbleFilterList
               customStyles={{
+                display: 'flex',
                 flexDirection: 'column',
                 gap: '3px',
                 marginBottom: '10px',
