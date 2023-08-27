@@ -11,6 +11,7 @@ import Button from '../../../../components/Button/Button';
 import { mockSelectRules } from '../../../../mock/mock';
 import CustomSlider from '../../../../components/customSlider/CustomSlider';
 import Slider from '../../../../components/Slider/Slider';
+import SliderSlick from '../../../../components/SliderSlick/SliderSlick';
 
 function ProductPage() {
   const { product: currentProductId } = useParams();
@@ -34,7 +35,8 @@ function ProductPage() {
           {
             //<ImgLazy src={imgSrc} />
             //imagesSrc && <CustomSlider slides={imagesSrc} />
-            imagesSrc && <Slider slides={imagesSrc} />
+            //imagesSrc && <Slider slides={imagesSrc} />
+            imagesSrc && <SliderSlick slides={imagesSrc} />
           }
         </div>
         <div className={styles['content-wrapper']}>
