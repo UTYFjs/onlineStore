@@ -42,7 +42,7 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
       <div className={styles.fake}>
         <div className={styles['fake-content']}>
           {' '}
-          <div className={styles['img-wrapper']} onClick={handleToProductPage}></div>
+          <div className={styles['img-wrapper']}></div>
           <h4 className={styles['card-title']}>{title}</h4>
           <p className={styles['card-price']}>{price + ' gel'}</p>
         </div>
@@ -66,7 +66,11 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
         </div>
       </div>
 
-      <div className={styles['img-wrapper']}>
+      <div
+        className={styles['img-wrapper']}
+        onClick={handleToProductPage}
+        onTouchStart={handleToProductPage}
+      >
         <ImgLazy src={thumbnailSrc} alt={title} />
       </div>
       <h4 className={styles['card-title']}>{title}</h4>

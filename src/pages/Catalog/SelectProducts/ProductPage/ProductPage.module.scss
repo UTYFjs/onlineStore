@@ -5,8 +5,12 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 20px;
+
 .image-wrapper{
+  
+
   max-width: calc(100vh - 350px);
+  max-height: calc(100vh - 350px);
   margin: 0 auto;
   position: sticky;
   top: 30px;
