@@ -5,20 +5,35 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 20px;
+   
+  @include for-phone{
+  grid-template-columns: 1fr;
+  grid-template-rows:repeat(2);
+  grid-column-gap: 20px;
+  }
 
 .image-wrapper{
-  
-
+  //max-width: 500px;
+  //max-height: 500px;
+// to do fix issue with responsive image
   max-width: calc(100vh - 350px);
   max-height: calc(100vh - 350px);
   margin: 0 auto;
   position: sticky;
   top: 30px;
+
+
+  @include for-phone{
+    max-width: calc(100vw - 50px);
+    height: calc(100vw - 50px);
+    position: relative;
+    top: 0;
+  }
 }
 .image-wrapper img{
   width: 100%;
   height: auto;
-    position: sticky;
+  //position: sticky;
   top: 30px;
 }
 .content-wrapper{
@@ -37,6 +52,9 @@ gap: 1rem;
   .flex-row{
     display: flex;
     gap: 2rem;
+    @include for-phone{
+      flex-direction: column;
+    }
   }
   .title{
     font-size: 24px;

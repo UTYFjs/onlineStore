@@ -58,9 +58,9 @@ export default function Slider({ slides, autoPlay, autoPlayTime, width, height }
         handleTouchMove(e);
       }}
     >
-      <Arrows handleLeft={handleLeft} handleRight={handleRight} />
+      {slides.length !== 1 && <Arrows handleLeft={handleLeft} handleRight={handleRight} />}
       <SlideList slidesSrc={slides} currentSlide={currentSlide} />
-      <Dots slides={slides} handleSlide={changeSlide} />
+      {slides.length !== 1 && <Dots slides={slides} handleSlide={changeSlide} />}
     </div>
   );
 }
