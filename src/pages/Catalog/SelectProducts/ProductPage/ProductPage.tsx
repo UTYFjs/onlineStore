@@ -13,6 +13,7 @@ import CustomSlider from '../../../../components/customSlider/CustomSlider';
 import Slider from '../../../../components/Slider/Slider';
 import SliderSwiper from '../../../../components/SliderSwiper/SliderSwiper';
 import Checkbox from '../../../../components/Checkbox/Checkbox';
+import { ICartProduct, useCartStore } from '../../../../store/zustandStore';
 
 function ProductPage() {
   const { product: currentProductId } = useParams();
@@ -21,7 +22,13 @@ function ProductPage() {
   const imgSrc = './../.' + currentProduct?.thumbnail.primary;
 
   const imagesSrc = currentProduct?.images.map((image) => './../.' + image);
-
+  const { cartProduct, addCartProduct, removeCartProduct } = useCartStore();
+  const isInCart = cartProduct.some((item) => {
+    if (currentProduct) {
+      return item.cartProduct.id === currentProduct?.id;
+    }
+    return false;
+  });
   //const { currentProduct, setCurrentProduct } = useUtilityStore((state) => state);
   /*useEffect(() => {
     return () => {
@@ -29,6 +36,29 @@ function ProductPage() {
       setCurrentProduct(null);
     };
   }, [setCurrentProduct]);*/
+  const handleAddProductToCart = () => {
+    if (currentProduct) {
+      const newCartProduct: ICartProduct = {
+        cartProduct: currentProduct,
+        color: '',
+        count: 1,
+        price: currentProduct.price,
+        priceCurrency: 'GEL',
+        discount: 0,
+        embossing: '',
+      };
+      addCartProduct(newCartProduct);
+    }
+
+    console.log('add Product to cart', isInCart);
+  };
+  const handleRemoveProductFromCart = () => {
+    if (currentProduct) {
+      removeCartProduct(currentProduct.id);
+    }
+
+    console.log('remove Product from cart', isInCart);
+  };
   console.log('PRODUCT FROM PRODUCT PAGE', currentProduct);
   return (
     <div>
@@ -57,18 +87,30 @@ function ProductPage() {
             <p className={styles.spacing}>Выберите коробочку</p>
           </div>
           <div className={styles['flex-row']}>
-            <p className={styles.spacing}>Добавить инициалы</p>
+            <p
+              className={styles.spacing}
+              onClick={() => {
+                console.log(cartProduct, isInCart);
+              }}
+            >
+              Добавить инициалы
+            </p>
             {
               //todo checkbox инициалы
             }
             <Checkbox name="инициалы" />
           </div>
           <Input placeholder={'Добавьте свои инициалы'} />
-          <p className={styles.price}>{price + ' gel'}</p>
+          <p className={styles.price} onClick={handleRemoveProductFromCart}>
+            {price + ' gel'}
+          </p>
           <Button
             className="full-width"
-            content={'Add To Cart'}
-            onClick={() => console.log('djlskjdlkjs')}
+            content={isInCart ? 'Remove from Cart' : 'Add To Cart'}
+            onClick={isInCart ? handleRemoveProductFromCart : handleAddProductToCart}
+            customStyles={
+              isInCart ? { color: '#363636', background: '#fff', border: '1px solid #a7a7a7' } : {}
+            }
           />
           <div>
             <h4>Характеристики:</h4>
