@@ -38,9 +38,6 @@ function ProductPage() {
             //imagesSrc && <Slider slides={imagesSrc} />
             imagesSrc && <SliderSwiper images={imagesSrc} />
           }
-          {
-            //imagesSrc?.map((image) => (<ImgLazy key={image + 55} src={image} />))
-          }
         </div>
         <div className={styles['content-wrapper']}>
           <h3 className={styles.title}>{currentProduct?.title}</h3>

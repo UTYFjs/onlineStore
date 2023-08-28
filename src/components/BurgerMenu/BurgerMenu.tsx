@@ -86,7 +86,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
   }, 0);
 
   const customCSSStyles: React.CSSProperties = {
-    width: '120px',
+    width: 'fit-content',
     textAlign: 'center',
     lineHeight: '1rem',
     padding: '10px 0.6rem',
@@ -146,6 +146,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
           <div className={styles['menu-content-filter']}>
             <BubbleFilterList
               customStyles={{
+                //always render also in mobile phones
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '3px',

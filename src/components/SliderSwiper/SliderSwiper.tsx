@@ -29,10 +29,14 @@ interface ISwaperProps {
   images: string[];
 }
 export default function SliderSwiper({ images }: ISwaperProps) {
-  //SwiperCore.use([]);
-  //const swiper = useSwiper();
-  //const SSwiper = new Swiper1('.swiper');
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const phoneMediaQuery = window.matchMedia('(max-width: 767px)');
+
+  const [isPhone, setIsPhone] = useState(phoneMediaQuery.matches);
+  phoneMediaQuery.addEventListener('change', (e) => {
+    console.log('e.matches', e.matches);
+    setIsPhone(e.matches);
+  });
+  //const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
     <>
       <Swiper
@@ -49,8 +53,8 @@ export default function SliderSwiper({ images }: ISwaperProps) {
         lazy={true}
         keyboard={true}
         //scrollbar={true}
-        thumbs={{ swiper: thumbsSwiper }}
-        navigation={true}
+        //thumbs={{ swiper: thumbsSwiper }}
+        navigation={!isPhone}
         pagination={{
           clickable: true,
 
