@@ -44,24 +44,36 @@
 .content-wrapper{
 display: flex;
 flex-direction: column;
-gap: 1rem;
+gap: .3rem;
 
 .spacing{
   font-size: 1.1em;
   letter-spacing: .2em;
-  line-height: 44px;
+  line-height: 35px;
+    @include for-tablet{
+      line-height: 35px;
+    }
+    @include for-phone{
+      letter-spacing: 0.05em;
+      line-height: 25px;
+    }
 }
 .price{
   font-size: 25px;
+  margin: .5em 1em;
 }
-  .flex-row{
+.flex-row{
     display: flex;
     gap: 2rem;
+
+
     @include for-tablet{
-      flex-direction: column;
+      //flex-direction: column;
+      gap: .5rem;
     }
     @include for-phone{
-      flex-direction: column;
+      //flex-direction: column;
+      gap: .5rem;
     }
   }
   .title{

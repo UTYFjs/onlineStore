@@ -12,6 +12,7 @@ import { mockSelectRules } from '../../../../mock/mock';
 import CustomSlider from '../../../../components/customSlider/CustomSlider';
 import Slider from '../../../../components/Slider/Slider';
 import SliderSwiper from '../../../../components/SliderSwiper/SliderSwiper';
+import Checkbox from '../../../../components/Checkbox/Checkbox';
 
 function ProductPage() {
   const { product: currentProductId } = useParams();
@@ -20,6 +21,7 @@ function ProductPage() {
   const imgSrc = './../.' + currentProduct?.thumbnail.primary;
 
   const imagesSrc = currentProduct?.images.map((image) => './../.' + image);
+
   //const { currentProduct, setCurrentProduct } = useUtilityStore((state) => state);
   /*useEffect(() => {
     return () => {
@@ -56,9 +58,12 @@ function ProductPage() {
           </div>
           <div className={styles['flex-row']}>
             <p className={styles.spacing}>Добавить инициалы</p>
-            <Input placeholder={'Добавьте свои инициалы'} />
+            {
+              //todo checkbox инициалы
+            }
+            <Checkbox name="инициалы" />
           </div>
-
+          <Input placeholder={'Добавьте свои инициалы'} />
           <p className={styles.price}>{price + ' gel'}</p>
           <Button
             className="full-width"
