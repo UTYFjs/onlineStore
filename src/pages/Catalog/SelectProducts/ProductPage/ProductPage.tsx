@@ -1,16 +1,12 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import ImgLazy from '../../../../components/ImgLazy/ImgLazy';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import Select from '../../../../components/Select/Select';
-import { sortingRules } from '../../../../data/data';
 import { dataProducts } from '../../../../data/dataProducts';
-
 import styles from './ProductPage.module.scss';
 import Input from '../../../../components/Input/Input';
 import Button from '../../../../components/Button/Button';
 import { mockSelectRules } from '../../../../mock/mock';
-import CustomSlider from '../../../../components/customSlider/CustomSlider';
-import Slider from '../../../../components/Slider/Slider';
+
 import SliderSwiper from '../../../../components/SliderSwiper/SliderSwiper';
 import Checkbox from '../../../../components/Checkbox/Checkbox';
 import { ICartProduct, useCartStore } from '../../../../store/zustandStore';
@@ -18,17 +14,43 @@ import { ICartProduct, useCartStore } from '../../../../store/zustandStore';
 function ProductPage() {
   const { product: currentProductId } = useParams();
   const currentProduct = dataProducts.find((product) => product.id === currentProductId);
-  const { id, price } = currentProduct ? currentProduct : { id: null, price: null };
-  const imgSrc = './../.' + currentProduct?.thumbnail.primary;
+  const navigate = useNavigate();
 
-  const imagesSrc = currentProduct?.images.map((image) => './../.' + image);
-  const { cartProduct, addCartProduct, removeCartProduct } = useCartStore();
-  const isInCart = cartProduct.some((item) => {
-    if (currentProduct) {
-      return item.cartProduct.id === currentProduct?.id;
+  useEffect(() => {
+    if (!currentProduct) {
+      navigate('/collection');
     }
-    return false;
-  });
+    console.log('useEffect');
+  }, [currentProduct, navigate]);
+
+  const { cartProducts, addCartProduct, removeCartProduct, updateCartProduct } = useCartStore();
+
+  const [isDisabled, setIsDisabled] = useState(true);
+  const [color, setColor] = useState(getColor() || mockSelectRules[0].value);
+  if (!currentProduct) return null;
+
+  const isInCart = cartProducts.find((item) => item.cartProduct.id === currentProduct.id);
+
+  const newCartProduct: ICartProduct = {
+    cartProduct: currentProduct,
+    color: color,
+    count: 1,
+    price: currentProduct.price,
+    priceCurrency: 'GEL',
+    discount: 0,
+    embossing: '',
+  };
+
+  //to do good resolve for get color
+  function getColor() {
+    const cartProduct1 = cartProducts?.find((item) => item.cartProduct.id === currentProduct?.id);
+    return cartProduct1?.color;
+  }
+  const { id, price } = currentProduct;
+  const imgSrc = './../.' + currentProduct.thumbnail.primary;
+
+  const imagesSrc = currentProduct.images.map((image) => './../.' + image);
+
   //const { currentProduct, setCurrentProduct } = useUtilityStore((state) => state);
   /*useEffect(() => {
     return () => {
@@ -36,27 +58,31 @@ function ProductPage() {
       setCurrentProduct(null);
     };
   }, [setCurrentProduct]);*/
-  const handleAddProductToCart = () => {
-    if (currentProduct) {
-      const newCartProduct: ICartProduct = {
-        cartProduct: currentProduct,
-        color: '',
-        count: 1,
-        price: currentProduct.price,
-        priceCurrency: 'GEL',
-        discount: 0,
-        embossing: '',
-      };
-      addCartProduct(newCartProduct);
+
+  const handleChangeColor = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newColor = e.target.value;
+    setColor(newColor);
+    newCartProduct.color = newColor;
+    if (isInCart) {
+      console.log('update color', color, newCartProduct, cartProducts);
+      updateCartProduct(newCartProduct);
     }
+  };
+  const handleChangeEmbossingInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.currentTarget.value;
+    newCartProduct.embossing = value;
+    if (isInCart) {
+      updateCartProduct(newCartProduct);
+    }
+  };
+  const handleAddProductToCart = () => {
+    addCartProduct(newCartProduct);
 
     console.log('add Product to cart', isInCart);
   };
   const handleRemoveProductFromCart = () => {
-    if (currentProduct) {
-      removeCartProduct(currentProduct.id);
-    }
-
+    removeCartProduct(currentProduct.id);
+    console.log('isInCart', isInCart);
     console.log('remove Product from cart', isInCart);
   };
   console.log('PRODUCT FROM PRODUCT PAGE', currentProduct);
@@ -72,14 +98,14 @@ function ProductPage() {
           }
         </div>
         <div className={styles['content-wrapper']}>
-          <h3 className={styles.title}>{currentProduct?.title}</h3>
+          <h3 className={styles.title}>{currentProduct.title}</h3>
 
           <div className={styles['flex-row']}>
             <p className={styles.spacing}>Выберите цвет</p>
             <Select
               data={mockSelectRules}
-              checkedValue={mockSelectRules[0].value}
-              onChange={() => {}}
+              checkedValue={color}
+              onChange={handleChangeColor}
               customStyles={{ height: '35px' }}
             />
           </div>
@@ -90,7 +116,7 @@ function ProductPage() {
             <p
               className={styles.spacing}
               onClick={() => {
-                console.log(cartProduct, isInCart);
+                console.log(cartProducts, isInCart);
               }}
             >
               Добавить инициалы
@@ -98,9 +124,19 @@ function ProductPage() {
             {
               //todo checkbox инициалы
             }
-            <Checkbox name="инициалы" />
+            <Checkbox
+              name="embossing"
+              onChange={(e) => {
+                console.log('isDisabled', isDisabled, e.currentTarget.checked);
+                e.currentTarget.checked ? setIsDisabled(false) : setIsDisabled(true);
+              }}
+            />
           </div>
-          <Input placeholder={'Добавьте свои инициалы'} />
+          <Input
+            placeholder={'Добавьте свои инициалы'}
+            isDisable={isDisabled}
+            onChange={handleChangeEmbossingInput}
+          />
           <p className={styles.price} onClick={handleRemoveProductFromCart}>
             {price + ' gel'}
           </p>
@@ -109,7 +145,9 @@ function ProductPage() {
             content={isInCart ? 'Remove from Cart' : 'Add To Cart'}
             onClick={isInCart ? handleRemoveProductFromCart : handleAddProductToCart}
             customStyles={
-              isInCart ? { color: '#363636', background: '#fff', border: '1px solid #a7a7a7' } : {}
+              isInCart
+                ? { color: '#363636', background: '#fff', border: '1px solid #a7a7a7' }
+                : { border: '1px solid transparent' }
             }
           />
           <div>

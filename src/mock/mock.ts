@@ -47,9 +47,9 @@ export const mockDataCategory = [
 
 export const mockSelectRules: ISelectRule[] = [
   { id: nanoid(), title: '', value: '' },
-  { id: nanoid(), title: '1', value: '1' },
-  { id: nanoid(), title: '2', value: '2' },
-  { id: nanoid(), title: '3', value: '3' },
-  { id: nanoid(), title: '4', value: '4' },
-  { id: nanoid(), title: '5', value: '5' },
+  { id: nanoid(), title: 'Черный', value: 'black' },
+  { id: nanoid(), title: 'Коричневый', value: 'brown' },
+  { id: nanoid(), title: 'Рыжий', value: 'orange' },
+  { id: nanoid(), title: 'Красный', value: 'red' },
+  { id: nanoid(), title: 'Синий', value: 'Blue' },
 ];

@@ -92,31 +92,31 @@ export interface ICartProduct {
   count: number;
 }
 interface ICartStore {
-  cartProduct: ICartProduct[];
+  cartProducts: ICartProduct[];
   addCartProduct: (product: ICartProduct) => void;
   removeCartProduct: (id: string) => void;
   updateCartProduct: (updatedCartProduct: ICartProduct) => void;
 }
 
 export const useCartStore = create<ICartStore>((set) => ({
-  cartProduct: [],
+  cartProducts: [],
   addCartProduct: (product: ICartProduct) =>
     set((state) => {
-      const cartProduct = state.cartProduct.find(
+      const cartProduct = state.cartProducts.find(
         (item) => item.cartProduct.id === product.cartProduct.id
       );
       if (!cartProduct) {
-        return { cartProduct: [...state.cartProduct, product] };
+        return { cartProducts: [...state.cartProducts, product] };
       }
       return state;
     }),
   removeCartProduct: (id: string) =>
     set((state) => ({
-      cartProduct: [...state.cartProduct.filter((item) => item.cartProduct.id !== id)],
+      cartProducts: [...state.cartProducts.filter((item) => item.cartProduct.id !== id)],
     })),
   updateCartProduct: (updatedCartProduct: ICartProduct) =>
     set((state) => ({
-      cartProduct: state.cartProduct.map((item) => {
+      cartProducts: state.cartProducts.map((item) => {
         return item.cartProduct.id === updatedCartProduct.cartProduct.id
           ? updatedCartProduct
           : item;
