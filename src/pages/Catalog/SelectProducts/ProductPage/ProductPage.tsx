@@ -14,19 +14,41 @@ import { ICartProduct, useCartStore } from '../../../../store/zustandStore';
 function ProductPage() {
   const { product: currentProductId } = useParams();
   const currentProduct = dataProducts.find((product) => product.id === currentProductId);
+  let productInCart: ICartProduct | undefined;
   const navigate = useNavigate();
-
+  const { cartProducts, addCartProduct, removeCartProduct, updateCartProduct } = useCartStore();
   useEffect(() => {
     if (!currentProduct) {
       navigate('/collection');
+    } else {
+      productInCart = cartProducts.find((item) => item.cartProduct.id === currentProduct.id);
     }
     console.log('useEffect');
   }, [currentProduct, navigate]);
 
-  const { cartProducts, addCartProduct, removeCartProduct, updateCartProduct } = useCartStore();
+  const [isCheckedGiftBox, setIsCheckedGiftBox] = useState(false);
+  const [isCheckedEmbossing, setIsCheckedEmbossing] = useState(false);
+  const [embossingValue, setEmbossingValue] = useState('');
+  // to do fix first init color
+  const [color, setColor] = useState(mockSelectRules[0].value);
+  const [currentPrice, setCurrentPrice] = useState(currentProduct?.price);
 
-  const [isDisabled, setIsDisabled] = useState(true);
-  const [color, setColor] = useState(getColor() || mockSelectRules[0].value);
+  useEffect(() => {
+    if (productInCart) {
+      setColor(productInCart.color);
+      if (productInCart.embossing) {
+        setEmbossingValue(productInCart.embossing);
+      }
+      if (productInCart.isEmbossing) {
+        setIsCheckedEmbossing(true);
+      }
+      if (productInCart.isGiftBox) {
+        setIsCheckedGiftBox(true);
+      }
+      setCurrentPrice(productInCart.price);
+      console.log('useEffect Product in cart', 'isCheckedEmbossing', isCheckedEmbossing);
+    }
+  }, [productInCart]);
   if (!currentProduct) return null;
 
   const isInCart = cartProducts.find((item) => item.cartProduct.id === currentProduct.id);
@@ -35,19 +57,14 @@ function ProductPage() {
     cartProduct: currentProduct,
     color: color,
     count: 1,
-    price: currentProduct.price,
+    // to do remove || 1000
+    price: currentPrice || currentProduct.price,
     priceCurrency: 'GEL',
     discount: 0,
-    embossing: '',
+    isGiftBox: isCheckedGiftBox,
+    isEmbossing: isCheckedEmbossing,
+    embossing: embossingValue,
   };
-
-  //to do good resolve for get color
-  function getColor() {
-    const cartProduct1 = cartProducts?.find((item) => item.cartProduct.id === currentProduct?.id);
-    return cartProduct1?.color;
-  }
-  const { id, price } = currentProduct;
-  const imgSrc = './../.' + currentProduct.thumbnail.primary;
 
   const imagesSrc = currentProduct.images.map((image) => './../.' + image);
 
@@ -68,6 +85,46 @@ function ProductPage() {
       updateCartProduct(newCartProduct);
     }
   };
+  const handleAddGiftBox = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsCheckedGiftBox(e.currentTarget.checked);
+    if (e.currentTarget.checked) {
+      setCurrentPrice((prev) => {
+        if (prev) {
+          return prev + 10;
+        }
+        return prev;
+      });
+    } else {
+      setCurrentPrice((prev) => {
+        if (prev) {
+          return prev - 10;
+        }
+        return prev;
+      });
+    }
+  };
+  const handleAddEmbossing = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsCheckedEmbossing(e.currentTarget.checked);
+    if (e.currentTarget.checked) {
+      setCurrentPrice((prev) => {
+        if (prev) {
+          return prev + 10;
+        }
+        return prev;
+      });
+    } else {
+      setCurrentPrice((prev) => {
+        if (prev) {
+          return prev - 10;
+        }
+        return prev;
+      });
+    }
+
+    updateCartProduct(newCartProduct);
+    //console.log('isDisabled', isDisabled, e.currentTarget.checked);
+    console.log(isCheckedEmbossing);
+  };
   const handleChangeEmbossingInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value;
     newCartProduct.embossing = value;
@@ -85,7 +142,7 @@ function ProductPage() {
     console.log('isInCart', isInCart);
     console.log('remove Product from cart', isInCart);
   };
-  console.log('PRODUCT FROM PRODUCT PAGE', currentProduct);
+  //console.log('PRODUCT FROM PRODUCT PAGE', currentProduct);
   return (
     <div>
       <div className={styles.grid}>
@@ -110,7 +167,15 @@ function ProductPage() {
             />
           </div>
           <div className={styles['flex-row']}>
-            <p className={styles.spacing}>Выберите коробочку</p>
+            <p
+              className={styles.spacing}
+              onClick={() => {
+                console.log(isCheckedEmbossing);
+              }}
+            >
+              Добавить подарочную коробочку
+            </p>
+            <Checkbox isChecked={isCheckedGiftBox} name="embossing" onChange={handleAddGiftBox} />
           </div>
           <div className={styles['flex-row']}>
             <p
@@ -125,21 +190,18 @@ function ProductPage() {
               //todo checkbox инициалы
             }
             <Checkbox
+              isChecked={isCheckedEmbossing}
               name="embossing"
-              onChange={(e) => {
-                console.log('isDisabled', isDisabled, e.currentTarget.checked);
-                e.currentTarget.checked ? setIsDisabled(false) : setIsDisabled(true);
-              }}
+              onChange={handleAddEmbossing}
             />
           </div>
           <Input
             placeholder={'Добавьте свои инициалы'}
-            isDisable={isDisabled}
+            isDisable={!isCheckedEmbossing}
+            value={embossingValue}
             onChange={handleChangeEmbossingInput}
           />
-          <p className={styles.price} onClick={handleRemoveProductFromCart}>
-            {price + ' gel'}
-          </p>
+          <p className={styles.price}>{currentPrice + ' gel'}</p>
           <Button
             className="full-width"
             content={isInCart ? 'Remove from Cart' : 'Add To Cart'}

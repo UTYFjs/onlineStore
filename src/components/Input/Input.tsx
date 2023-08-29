@@ -4,12 +4,14 @@ interface IInput {
   type?: string;
   placeholder?: string;
   isDisable?: boolean;
+  value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 function Input({
   type = 'text',
   placeholder = 'Search our store',
   isDisable = false,
+  value,
   onChange,
 }: IInput) {
   return (
@@ -18,6 +20,7 @@ function Input({
       type={type}
       placeholder={placeholder}
       disabled={isDisable}
+      defaultValue={value}
       onChange={onChange}
     ></input>
   );

@@ -171,7 +171,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
                     <div className={styles['flex-container']}>
                       {textOptions.ru.map((value, index) => (
                         <Checkbox
-                          isChecked={isChecked(name, options[index])}
+                          isCheckedDefault={isChecked(name, options[index])}
                           key={nanoid()}
                           name={name}
                           label={options[index].toString()}

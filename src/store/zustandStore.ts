@@ -85,6 +85,8 @@ export const useFavoriteStore = create<IFavoriteStore>((set) => ({
 export interface ICartProduct {
   cartProduct: IDataProduct;
   color: string;
+  isGiftBox: boolean;
+  isEmbossing: boolean;
   embossing: string | null;
   price: number;
   priceCurrency: string;

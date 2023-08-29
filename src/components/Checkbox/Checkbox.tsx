@@ -7,15 +7,25 @@ interface ICheckboxProps {
   className?: string;
   label?: string;
   textLabel?: string;
+  isCheckedDefault?: boolean;
   isChecked?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 // todo переписать id label логику
-function Checkbox({ className, label, textLabel, name, isChecked, onChange }: ICheckboxProps) {
+function Checkbox({
+  className,
+  label,
+  textLabel,
+  name,
+  isCheckedDefault,
+  isChecked,
+  onChange,
+}: ICheckboxProps) {
   return (
     <label className={cn(styles.checkbox, className)}>
       <input
-        defaultChecked={isChecked}
+        checked={isChecked}
+        defaultChecked={isCheckedDefault}
         id={name + label}
         name={name}
         type={'checkbox'}
