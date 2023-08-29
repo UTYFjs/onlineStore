@@ -1,0 +1,12 @@
+.cart{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  width: 100%;
+  max-height: calc(100% - 150px);
+  margin-bottom: 20px;
+  text-align: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}

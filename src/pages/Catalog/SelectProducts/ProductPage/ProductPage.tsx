@@ -151,7 +151,11 @@ function ProductPage() {
             //<ImgLazy src={imgSrc} />
             //imagesSrc && <CustomSlider slides={imagesSrc} />
             //imagesSrc && <Slider slides={imagesSrc} />
-            imagesSrc && <SliderSwiper images={imagesSrc} />
+            imagesSrc && (
+              <div className={styles['swiper-wrapper']}>
+                <SliderSwiper images={imagesSrc} />
+              </div>
+            )
           }
         </div>
         <div className={styles['content-wrapper']}>

@@ -75,7 +75,7 @@ gap: .5rem;
   @include for-phone {
     gap: 1rem;
   }
-  .favorite:hover{
+  .favorite:hover, .cart:hover{
     cursor: pointer;
     transform: scale(1.25);
     transition: all .4s;

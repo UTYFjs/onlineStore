@@ -74,6 +74,7 @@ function Header({ setMenu }: IHeaderProps) {
             color={'error'}
           />
           <ShoppingCartOutlinedIcon
+            className={styles.cart}
             sx={{ fontSize: iconsFontSize }}
             color={'error'}
             onClick={() => {

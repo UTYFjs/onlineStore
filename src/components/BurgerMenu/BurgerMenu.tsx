@@ -12,6 +12,7 @@ import { nanoid } from 'nanoid';
 import Checkbox from '../Checkbox/Checkbox';
 import { defaultSelectedFilters, filterType } from '../../data/data';
 import BubbleFilterList from '../BubbleFilterList/BubbleFilterList';
+import CartContent from '../CartContent/CartContent';
 
 interface IBurgerMenuProps {
   type: 'menu' | 'filter' | 'cart' | null;
@@ -218,8 +219,10 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
       );
       content = (
         <div className={styles['menu-content-wrapper']}>
-          <div className={styles['menu-content']}>Cart</div>
-          <Button content={'Заказать'} />
+          <div className={styles['menu-content-cart']}>
+            <CartContent />
+          </div>
+          <Button content={'Заказать'} customStyles={{ width: '100%' }} />
         </div>
       );
       break;
