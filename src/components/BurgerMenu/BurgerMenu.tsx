@@ -14,7 +14,7 @@ import { defaultSelectedFilters, filterType } from '../../data/data';
 import BubbleFilterList from '../BubbleFilterList/BubbleFilterList';
 
 interface IBurgerMenuProps {
-  type: 'menu' | 'filter' | null;
+  type: 'menu' | 'filter' | 'cart' | null;
   data: Array<{ url: string; content: string }>;
 }
 
@@ -23,7 +23,12 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
   const handleShaded = useZustandStore((state) => state.handleShaded);
 
   const { filters, selectedFilters, setAllSelectedFilters } = useUtilityStore((state) => state);
-  const classesBurger = cn(styles.burger, isBurgerOpen && styles.active);
+
+  const classesBurger = cn(
+    styles.burger,
+    type === 'cart' ? styles.right : '',
+    isBurgerOpen && styles.active
+  );
 
   /*const Typography = styled('a')(({ theme }) => ({
     fontSize: '2rem',
@@ -129,6 +134,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
       );
       break;
     case 'filter':
+      // to do refactor and optimise contentTitle
       contentTitle = (
         <h3
           className={styles['burger-title-item']}
@@ -194,6 +200,26 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
             />
             <Button content="Применить" onClick={handleSetFilter} customStyles={customCSSStyles} />
           </div>
+        </div>
+      );
+      break;
+    case 'cart':
+      contentTitle = (
+        <h3
+          className={styles['burger-title-item']}
+          style={{
+            fontSize: '2rem',
+            fontWeight: 600,
+            color: 'black',
+          }}
+        >
+          Cart
+        </h3>
+      );
+      content = (
+        <div className={styles['menu-content-wrapper']}>
+          <div className={styles['menu-content']}>Cart</div>
+          <Button content={'Заказать'} />
         </div>
       );
       break;

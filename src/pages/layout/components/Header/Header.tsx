@@ -12,7 +12,7 @@ import LocationTag from '../../../../components/LocationTag/LocationTag';
 import Social from '../../../../components/Social/Social';
 import { useNavigate } from 'react-router-dom';
 interface IHeaderProps {
-  setMenu: () => void;
+  setMenu: (type: 'filter' | 'menu' | 'cart') => void;
 }
 
 function Header({ setMenu }: IHeaderProps) {
@@ -42,7 +42,7 @@ function Header({ setMenu }: IHeaderProps) {
         <MenuIcon
           sx={{ display: { xs: 'block', md: 'none', lg: 'none' }, fontSize: iconsFontSize }}
           color={'action'}
-          onClick={() => setMenu()}
+          onClick={() => setMenu('menu')}
         />
         <SearchIcon
           sx={{
@@ -73,7 +73,13 @@ function Header({ setMenu }: IHeaderProps) {
             sx={{ fontSize: iconsFontSize }}
             color={'error'}
           />
-          <ShoppingCartOutlinedIcon sx={{ fontSize: iconsFontSize }} color={'error'} />
+          <ShoppingCartOutlinedIcon
+            sx={{ fontSize: iconsFontSize }}
+            color={'error'}
+            onClick={() => {
+              setMenu('cart');
+            }}
+          />
         </Box>
       </nav>
       <nav className={styles.navigation}>

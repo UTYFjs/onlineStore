@@ -27,9 +27,9 @@ const Layout = () => {
     setIsShadedActive();
   };
 
-  const handleMenuOpen = () => {
+  const handleMenuOpen = (type: 'filter' | 'menu' | 'cart' = 'menu') => {
     /*dispatch(setBurgerOpen(!isBurgerOpen));*/
-    setBurgerType('menu');
+    setBurgerType(type);
     burgerOpen();
   };
 

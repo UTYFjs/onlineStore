@@ -2,14 +2,14 @@ import create from 'zustand';
 import { defaultSelectedFilters, filters, filterType, IFilter } from '../data/data';
 import { IDataProduct } from '../data/dataProducts';
 interface IZustandStore {
-  burgerType: 'menu' | 'filter' | null;
+  burgerType: 'menu' | 'filter' | 'cart' | null;
   isBurgerOpen: boolean;
   isShadedActive: boolean;
   handleShaded: () => void;
 
   setIsShadedActive: () => void;
   setIsBurgerOpen: () => void;
-  setBurgerType: (type: 'menu' | 'filter' | null) => void;
+  setBurgerType: (type: 'menu' | 'filter' | 'cart' | null) => void;
   burgerOpen: () => void;
 }
 
