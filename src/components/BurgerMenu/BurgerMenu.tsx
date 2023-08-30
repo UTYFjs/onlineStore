@@ -12,9 +12,10 @@ import { nanoid } from 'nanoid';
 import Checkbox from '../Checkbox/Checkbox';
 import { defaultSelectedFilters, filterType } from '../../data/data';
 import BubbleFilterList from '../BubbleFilterList/BubbleFilterList';
+import CartContent from '../CartContent/CartContent';
 
 interface IBurgerMenuProps {
-  type: 'menu' | 'filter' | null;
+  type: 'menu' | 'filter' | 'cart' | null;
   data: Array<{ url: string; content: string }>;
 }
 
@@ -23,7 +24,14 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
   const handleShaded = useZustandStore((state) => state.handleShaded);
 
   const { filters, selectedFilters, setAllSelectedFilters } = useUtilityStore((state) => state);
-  const classesBurger = cn(styles.burger, isBurgerOpen && styles.active);
+
+  const classesBurger = cn(
+    styles.burger,
+    type === 'cart' ? styles.right : '',
+    isBurgerOpen && styles.active
+  );
+
+  const classesBurgerTitle = cn(styles['burger-title'], type === 'cart' ? styles.right : '');
 
   /*const Typography = styled('a')(({ theme }) => ({
     fontSize: '2rem',
@@ -129,6 +137,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
       );
       break;
     case 'filter':
+      // to do refactor and optimise contentTitle
       contentTitle = (
         <h3
           className={styles['burger-title-item']}
@@ -171,7 +180,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
                     <div className={styles['flex-container']}>
                       {textOptions.ru.map((value, index) => (
                         <Checkbox
-                          isChecked={isChecked(name, options[index])}
+                          isCheckedDefault={isChecked(name, options[index])}
                           key={nanoid()}
                           name={name}
                           label={options[index].toString()}
@@ -197,6 +206,28 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
         </div>
       );
       break;
+    case 'cart':
+      contentTitle = (
+        <h3
+          className={styles['burger-title-item']}
+          style={{
+            fontSize: '2rem',
+            fontWeight: 600,
+            color: 'black',
+          }}
+        >
+          Cart
+        </h3>
+      );
+      content = (
+        <div className={styles['menu-content-wrapper']}>
+          <div className={styles['menu-content-cart']}>
+            <CartContent />
+          </div>
+          <Button content={'Заказать'} customStyles={{ width: '100%' }} />
+        </div>
+      );
+      break;
     case null:
       //todo: add some content
       content = (
@@ -207,7 +238,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
 
   return (
     <div className={classesBurger}>
-      <div className={styles['burger-title']}>
+      <div className={classesBurgerTitle}>
         {contentTitle}
         <CloseIcon
           className={styles['burger-close']}

@@ -1,5 +1,6 @@
 @use '../../../../styles/style.scss' as *;
 .grid{
+  position: relative;
   margin: 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -18,7 +19,7 @@
 .image-wrapper{
   //max-width: 500px;
   //max-height: 500px;
-// to do fix issue with responsive image
+  // to do fix issue with responsive image
   max-width: calc(100vh - 350px);
   //max-height: calc(100vh - 350px);
   margin: 0 auto 20px;
@@ -35,12 +36,16 @@
     top: 0;
   }
 }
-.image-wrapper img{
-  width: 100%;
-  height: auto;
-  //position: sticky;
+.swiper-wrapper{
+  position: sticky;
   top: 30px;
 }
+/*.image-wrapper img{
+  width: 100%;
+  height: auto;
+  position: sticky;
+  top: 30px;
+}*/
 .content-wrapper{
 display: flex;
 flex-direction: column;

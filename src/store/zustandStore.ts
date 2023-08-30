@@ -2,14 +2,14 @@ import create from 'zustand';
 import { defaultSelectedFilters, filters, filterType, IFilter } from '../data/data';
 import { IDataProduct } from '../data/dataProducts';
 interface IZustandStore {
-  burgerType: 'menu' | 'filter' | null;
+  burgerType: 'menu' | 'filter' | 'cart' | null;
   isBurgerOpen: boolean;
   isShadedActive: boolean;
   handleShaded: () => void;
 
   setIsShadedActive: () => void;
   setIsBurgerOpen: () => void;
-  setBurgerType: (type: 'menu' | 'filter' | null) => void;
+  setBurgerType: (type: 'menu' | 'filter' | 'cart' | null) => void;
   burgerOpen: () => void;
 }
 
@@ -79,5 +79,49 @@ export const useFavoriteStore = create<IFavoriteStore>((set) => ({
   removeProduct: (productId: string) =>
     set((state) => ({
       favoriteProducts: state.favoriteProducts.filter((p) => p.id !== productId),
+    })),
+}));
+
+export interface ICartProduct {
+  cartProduct: IDataProduct;
+  color: string;
+  isGiftBox: boolean;
+  isEmbossing: boolean;
+  embossing: string | null;
+  price: number;
+  priceCurrency: string;
+  discount: number;
+  count: number;
+}
+interface ICartStore {
+  cartProducts: ICartProduct[];
+  addCartProduct: (product: ICartProduct) => void;
+  removeCartProduct: (id: string) => void;
+  updateCartProduct: (updatedCartProduct: ICartProduct) => void;
+}
+
+export const useCartStore = create<ICartStore>((set) => ({
+  cartProducts: [],
+  addCartProduct: (product: ICartProduct) =>
+    set((state) => {
+      const cartProduct = state.cartProducts.find(
+        (item) => item.cartProduct.id === product.cartProduct.id
+      );
+      if (!cartProduct) {
+        return { cartProducts: [...state.cartProducts, product] };
+      }
+      return state;
+    }),
+  removeCartProduct: (id: string) =>
+    set((state) => ({
+      cartProducts: [...state.cartProducts.filter((item) => item.cartProduct.id !== id)],
+    })),
+  updateCartProduct: (updatedCartProduct: ICartProduct) =>
+    set((state) => ({
+      cartProducts: state.cartProducts.map((item) => {
+        return item.cartProduct.id === updatedCartProduct.cartProduct.id
+          ? updatedCartProduct
+          : item;
+      }),
     })),
 }));
