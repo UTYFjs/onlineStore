@@ -11,11 +11,13 @@ type ListProductsProps = {
 };
 
 function ListProducts({ customProducts, deepPath }: ListProductsProps) {
-  const { selectedFilters, selectedSorting, filters } = useUtilityStore((state) => state);
+  const { selectedFilters, selectedSorting, filters, searchText } = useUtilityStore(
+    (state) => state
+  );
 
   let products: IDataProduct[] = [];
   if (customProducts === undefined) {
-    products = getProducts(dataProducts, filters, selectedFilters, '', selectedSorting, '');
+    products = getProducts(dataProducts, filters, selectedFilters, '', selectedSorting, searchText);
   } else {
     products = customProducts;
   }

@@ -27,12 +27,13 @@ export function getProducts(
   currentProducts = getFilteringProducts(currentProducts, filters, selectedFilters);
 
   //case search
-  /* if (searchText.trim() !== '') {
+  if (searchText.trim() !== '') {
+    console.log('заходит в поиск', searchText);
     const searchTextLower = searchText.trim().toLowerCase();
     currentProducts = currentProducts.filter(
-      (product) => product.title.indexOf(searchTextLower) !== -1
+      (product) => product.title.toLocaleLowerCase().indexOf(searchTextLower) !== -1
     );
-  }*/
+  }
   //case filter
 
   return currentProducts;

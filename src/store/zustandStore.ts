@@ -33,8 +33,10 @@ interface IUtilityStore {
   filters: IFilter[];
   selectedSorting: string;
   selectedFilters: SelectedFilters;
+  searchText: string;
   //remove count active filters
   countActiveFilters: number;
+  setSearchText: (newSearchText: string) => void;
   setAllSelectedFilters: (filters: SelectedFilters, countActiveFilters: number) => void;
   setSelectedFilters: (filters: Partial<SelectedFilters>) => void;
   setSelectedSorting: (newSelectedSorting: string) => void;
@@ -45,11 +47,14 @@ export const useUtilityStore = create<IUtilityStore>((set) => ({
   setCurrentProduct: (product) => set((state) => ({ currentProduct: product })),
   filters: filters,
   selectedFilters: defaultSelectedFilters,
+  searchText: '',
   countActiveFilters: 0,
+  setSearchText: (newSearchText) => set((state) => ({ searchText: newSearchText })),
   setAllSelectedFilters: (filters, countActiveFilters) =>
     set((state) => ({ selectedFilters: filters, countActiveFilters: countActiveFilters })),
   setSelectedFilters: (filters) =>
     set((state) => ({ selectedFilters: { ...state.selectedFilters, ...filters } })),
+
   /*{
     color: [],
     cardCapacity: [],

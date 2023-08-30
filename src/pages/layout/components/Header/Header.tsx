@@ -1,24 +1,35 @@
 import { AppBar, Box, Link, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Header.module.scss';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import classNames from 'classnames';
 import NavLinkCustom from '../../../../components/NavLink/NavLinkCustom';
 import { routerPagesData, upperNavHeaderData } from '../../../../data/data';
 import LocationTag from '../../../../components/LocationTag/LocationTag';
 import Social from '../../../../components/Social/Social';
 import { useNavigate } from 'react-router-dom';
+import SearchBar from '../../../../components/SearchBar/SearchBar';
+import SearchBarCustom from '../../../../components/SearchBarCustom/SearchBarCustom';
+import Input from '../../../../components/Input/Input';
+import { useUtilityStore } from '../../../../store/zustandStore';
 interface IHeaderProps {
   setMenu: (type: 'filter' | 'menu' | 'cart') => void;
 }
 
 function Header({ setMenu }: IHeaderProps) {
   const navigate = useNavigate();
-
+  const [isSearch, setIsSearch] = useState(false);
   const iconsFontSize = { xs: '33px', sm: '33px', md: '35px', lg: '38px' };
+  const mobileQuery = window.matchMedia('(max-width: 767px');
+  const classLogo = classNames(styles.logo, isSearch && mobileQuery.matches && styles.hide);
+
+  const { searchText, setSearchText } = useUtilityStore();
+  const handleSetSearchText = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchText(e.currentTarget.value);
+  };
   return (
     <AppBar component="header" position="relative" className={styles.header} color={'transparent'}>
       <nav className={styles['up-navigation']}>
@@ -39,20 +50,46 @@ function Header({ setMenu }: IHeaderProps) {
         </div>
       </nav>
       <nav className={styles.toolbar}>
-        <MenuIcon
-          sx={{ display: { xs: 'block', md: 'none', lg: 'none' }, fontSize: iconsFontSize }}
-          color={'action'}
-          onClick={() => setMenu('menu')}
-        />
-        <SearchIcon
-          sx={{
-            display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' },
-            fontSize: iconsFontSize,
-          }}
-          color={'action'}
-        />
+        <div className={styles.searchbar}>
+          <MenuIcon
+            sx={{ display: { xs: 'block', md: 'none', lg: 'none' }, fontSize: iconsFontSize }}
+            color={'action'}
+            onClick={() => setMenu('menu')}
+          />
+          {
+            !isSearch && (
+              <SearchIcon
+                sx={{
+                  display: { xs: 'block', sm: 'block', md: 'block', lg: 'block' },
+                  fontSize: iconsFontSize,
+                }}
+                color={'action'}
+                onClick={() => {
+                  setIsSearch(true);
+                }}
+              />
+            )
+
+            //<SearchBar />
+          }
+          {isSearch && (
+            <Input
+              isFocus={true}
+              onBlur={() => {
+                setIsSearch(false);
+              }}
+              onChange={(e) => {
+                handleSetSearchText(e);
+              }}
+            />
+          )}
+          {
+            //<SearchBarCustom />
+          }
+        </div>
+
         <Typography
-          className={styles.logo}
+          className={classLogo}
           component={Link}
           href={'/'}
           underline={'none'}

@@ -7,7 +7,7 @@
   background-color: #fff;
 }
 
-.up-navigation, .toolbar, .navigation{
+.up-navigation,.toolbar, .navigation{
   position: relative;
   display: flex;
   flex-direction: row;
@@ -16,7 +16,40 @@
 
 
   background-color: $color-background-white;
+
+
 }
+
+.toolbar{
+  
+  .searchbar, .logo, .icons {
+    flex-basis: 27%;
+
+    @include for-phone{
+      flex-basis: auto;
+    }
+  }
+  .searchbar{
+    display: flex;
+    gap: 5px;
+  }
+  .logo{
+    text-align: center;
+  }
+  .logo.hide{
+    display: none;
+  }
+  .icons{
+    justify-content: end;
+  }
+}
+/*.toolbar{
+    position: relative;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+
+}*/
 .up-navigation{
 
 padding: 1px 50px;
@@ -25,13 +58,17 @@ background-color: $color-burgundy;
 @include for-tablet {
    padding: 1px 10px;
 }
+@include for-phone{
+  padding: 1px 5px;
+}
 .info, .contact{
 
   display:flex;
   gap: .8rem;
 
   @include for-phone{
-gap: .5rem;
+
+    gap: .5rem;
   }
 }
 
@@ -47,6 +84,7 @@ gap: .5rem;
 
   @include for-phone{
      min-height: 65px;
+     padding: 0 5px;
   }
 }
 .menu-icon{
@@ -59,11 +97,11 @@ gap: .5rem;
   gap: 1rem;
   max-height: 32px;
   min-height: 24px;
-    margin: 0 auto;
+  margin: 0 auto;
 
     @include for-phone { 
       display: none;
-      padding: 5px 20px;
+      padding: 5px 10px;
     }
   
 }
