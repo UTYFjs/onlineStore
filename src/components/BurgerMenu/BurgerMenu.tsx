@@ -31,6 +31,8 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
     isBurgerOpen && styles.active
   );
 
+  const classesBurgerTitle = cn(styles['burger-title'], type === 'cart' ? styles.right : '');
+
   /*const Typography = styled('a')(({ theme }) => ({
     fontSize: '2rem',
     fontWeight: 600,
@@ -236,7 +238,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
 
   return (
     <div className={classesBurger}>
-      <div className={styles['burger-title']}>
+      <div className={classesBurgerTitle}>
         {contentTitle}
         <CloseIcon
           className={styles['burger-close']}

@@ -18,16 +18,24 @@
    
   }
 .burger.right{
-  width: 310px;
+    width: 480px;
     left: auto;
     right: -100%;
     transition: right .85s;
+    @include for-phone{
+    width: 310px;
+  }
   }
 .burger.right.active{
-  width: 310px;
+  width: 480px;
   left: auto;
   right: 0;
   transition: right .85s;
+
+  @include for-phone{
+    width: 310px;
+  }
+
   }
 
 
@@ -63,6 +71,17 @@
     }
   }
 }
+
+.burger-title.right{
+  width: 480px;
+  height: 80px;
+  .burger-close{
+    height: 60px;
+  }
+
+}
+
+
 
   .menu-content{
     align-items: center;

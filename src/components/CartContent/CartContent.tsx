@@ -17,18 +17,27 @@ export default function CartContent() {
   }
   return (
     <div className={styles.cart}>
-      {/*cartProducts.map((item) => (
-        <div key={item.cartProduct.id}>
-          КАрточка товара <b>{item.cartProduct.title}</b>{' '}
+      {!!cartProducts.length &&
+        cartProducts.map((item) => (
+          <CartProductCard key={item.cartProduct.id + 'cart'} data={item} />
+        ))}
+      {!cartProducts.length && <div> Ваша корзина пока что пуста</div>}
+
+      {!!cartProducts.length && (
+        <div className={styles['result-price']}>
+          <div>
+            <b>ИТОГО: </b>
+          </div>
+          <div className={styles['result-price-value']}>
+            <b>
+              {cartProducts.reduce((prev, item) => {
+                return prev + item.price * item.count;
+              }, 0)}
+            </b>{' '}
+            <span> {cartProducts[0].priceCurrency}</span>
+          </div>
         </div>
-      ))*/}
-      {cartProducts.map((item) => (
-        <CartProductCard key={item.cartProduct.id + 'cart'} data={item} />
-      ))}
-      total:{' '}
-      {cartProducts.reduce((prev, item) => {
-        return prev + item.price;
-      }, 0)}
+      )}
     </div>
   );
 }
