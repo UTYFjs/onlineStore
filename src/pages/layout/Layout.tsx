@@ -1,7 +1,7 @@
 import { Box, Container } from '@mui/system';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Layout.module.scss';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import BurgerMenu from '../../components/BurgerMenu/BurgerMenu';
@@ -15,6 +15,11 @@ const Layout = () => {
   /*const dispatch = useAppDispatch();
   const isBurgerOpen = useAppSelector((store) => store.formRedux.isBurgerOpen);
 */
+
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   //zustand state management
   const burgerType = useZustandStore((state) => state.burgerType);

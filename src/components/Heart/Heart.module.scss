@@ -1,0 +1,32 @@
+@use '../../styles/style.scss' as *;
+
+.heart-icon{
+          position: absolute;
+          padding: 3%;
+          top: 82%;
+          left:80%;
+          height: 16%;
+          width:16%;
+          //border: 1px solid black;
+          z-index: 1;
+
+          &:hover{
+            cursor:pointer;
+            scale: 1.25;
+            transition: all .4s;
+          }
+
+
+      }
+
+.transparent:hover{
+            cursor:pointer;
+            scale: 1.25;
+            stroke:  transparentize($color: #fff, $amount: 1);
+            transition: all .4s;
+      }
+.active{
+  fill: $color-myred-light;
+  stroke: $color-myred-light;
+
+}

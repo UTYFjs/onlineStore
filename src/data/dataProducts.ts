@@ -82,7 +82,7 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/bag-tote-orange.webp',
       secondary: 'string',
     },
-    images: ['./assets/img/jpg/bag-tote-orange.jpg'],
+    images: ['./assets/img/jpg/bag-tote-orange.jpg', './assets/img/jpg/belt-bizon-black.jpg'],
     category: 'bag',
     color: 'orange',
     price: 250,

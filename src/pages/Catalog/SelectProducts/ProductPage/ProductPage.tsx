@@ -9,7 +9,8 @@ import { mockSelectRules } from '../../../../mock/mock';
 
 import SliderSwiper from '../../../../components/SliderSwiper/SliderSwiper';
 import Checkbox from '../../../../components/Checkbox/Checkbox';
-import { ICartProduct, useCartStore } from '../../../../store/zustandStore';
+import { ICartProduct, useCartStore, useFavoriteStore } from '../../../../store/zustandStore';
+import Heart from '../../../../components/Heart/Heart';
 
 function ProductPage() {
   const { product: currentProductId } = useParams();
@@ -17,6 +18,8 @@ function ProductPage() {
   let productInCart: ICartProduct | undefined;
   const navigate = useNavigate();
   const { cartProducts, addCartProduct, removeCartProduct, updateCartProduct } = useCartStore();
+  const { favoriteProducts, addProduct, removeProduct } = useFavoriteStore();
+
   useEffect(() => {
     if (!currentProduct) {
       navigate('/collection');
@@ -51,6 +54,7 @@ function ProductPage() {
   }, [productInCart]);
   if (!currentProduct) return null;
 
+  const isFavorite = favoriteProducts.some((product) => product.id === currentProduct.id);
   const isInCart = cartProducts.find((item) => item.cartProduct.id === currentProduct.id);
 
   const newCartProduct: ICartProduct = {
@@ -142,6 +146,9 @@ function ProductPage() {
     console.log('isInCart', isInCart);
     console.log('remove Product from cart', isInCart);
   };
+  const handleAddToFavorite = () => {
+    isFavorite ? removeProduct(currentProduct.id) : addProduct(currentProduct);
+  };
   //console.log('PRODUCT FROM PRODUCT PAGE', currentProduct);
   return (
     <div>
@@ -154,6 +161,11 @@ function ProductPage() {
             imagesSrc && (
               <div className={styles['swiper-wrapper']}>
                 <SliderSwiper images={imagesSrc} />
+                <Heart
+                  onClick={handleAddToFavorite}
+                  isActive={isFavorite}
+                  customStyles={{ width: '13%', height: '13%', top: '85%', left: '83%' }}
+                />
               </div>
             )
           }

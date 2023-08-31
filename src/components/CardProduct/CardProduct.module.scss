@@ -39,11 +39,15 @@
         pointer-events: all;
 
 
-      .img-wrapper{
-      width:100%;
-      aspect-ratio: 1 / 1;
+      /*.img-wrapper{
+       // position: relative;
+        width:100%;
+        aspect-ratio: 1 / 1;
         cursor: pointer;
-      }
+
+        
+
+      }*/
 
       }
       .fake-nav{
@@ -56,6 +60,9 @@
         display: flex;
         background: #fff;
       }
+
+
+      // styles for empty div with class heart-1
       .heart-1{
         display: block;
          position: absolute;
@@ -73,6 +80,7 @@
         transition: all .4s;
       }
       }
+
       }
       
     }
@@ -104,9 +112,33 @@
 
 
   }
-      .img-wrapper{
+  .img-wrapper{
+      position: relative;
       width:100%;
       aspect-ratio: 1 / 1;
+      cursor: pointer;
+        
+
+      //stykes for svg heartIcon
+      .heart-icon{
+          position: absolute;
+          padding: 3%;
+          top: 82%;
+          left:80%;
+          height: 16%;
+          width:16%;
+          //border: 1px solid black;
+
+
+          &:hover{
+            scale: 1.25;
+
+            stroke:  transparentize($color: #fff, $amount: 1);
+            transition: all .4s;
+          }
+        }
+
+
     }
 
 }

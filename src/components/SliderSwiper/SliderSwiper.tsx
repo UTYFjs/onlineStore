@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import styles from './SliderSwiper.module.scss';
-import Swiper1 from 'swiper';
-import SwiperCore from 'swiper';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
@@ -9,17 +6,7 @@ import 'swiper/scss/pagination';
 import 'swiper/scss/scrollbar';
 import 'swiper/scss/free-mode';
 import 'swiper/scss/thumbs';
-import {
-  Navigation,
-  Pagination,
-  Mousewheel,
-  Keyboard,
-  Scrollbar,
-  A11y,
-  FreeMode,
-  Thumbs,
-  Lazy,
-} from 'swiper';
+import { Navigation, Pagination, Keyboard, Scrollbar, FreeMode, Thumbs, Lazy } from 'swiper';
 import ImgLazy from '../ImgLazy/ImgLazy';
 
 //import Swiper from 'swiper';
@@ -82,7 +69,7 @@ export default function SliderSwiper({ images }: ISwaperProps) {
       >
         {images.map((image) => (
           <SwiperSlide key={image + 1}>
-            <img src={image} />
+            {images.length > 1 ? <ImgLazy src={image} /> : <img src={image} alt={image} />}
           </SwiperSlide>
         ))}
       </Swiper>

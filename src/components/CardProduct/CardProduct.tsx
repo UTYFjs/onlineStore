@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { IDataProduct } from '../../data/dataProducts';
 import {
   ICartProduct,
@@ -10,6 +10,8 @@ import {
 import Button from '../Button/Button';
 import ImgLazy from '../ImgLazy/ImgLazy';
 import styles from './CardProduct.module.scss';
+import Heart from '../Heart/Heart';
+
 interface ICardProductProps {
   data: IDataProduct;
   deepPath?: string;
@@ -20,6 +22,7 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
   const navigate = useNavigate();
   const { cartProducts, addCartProduct, removeCartProduct } = useCartStore();
   const isInCart = cartProducts.some((product) => product.cartProduct.id === data.id);
+
   const handleToProductPage = () => {
     setCurrentProduct(data);
     navigate(`/collection/${category}/${id}`);
@@ -31,14 +34,10 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
   const { setCurrentProduct } = useUtilityStore((state) => state);
 
   const isFavorite = favoriteProducts.some((p) => p.id === data.id);
-
-  const handleToggleFavorite = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    e.stopPropagation();
+  const handleToggleFavorite = () => {
     isFavorite ? removeProduct(data.id) : addProduct(data);
   };
-  const getStyleFavorite = () => {
-    return isFavorite ? { background: '#FF5252' } : { background: '#000000' };
-  };
+
   const setEmbossing = (checked: boolean): void => {
     const newPrice = checked ? data.price + 10 : data.price;
     setPrice(newPrice);
@@ -67,7 +66,9 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
       <div className={styles.fake}>
         <div className={styles['fake-content']}>
           {' '}
-          <div className={styles['img-wrapper']} onClick={handleToProductPage}></div>
+          <div className={styles['img-wrapper']} onClick={handleToProductPage}>
+            <Heart onClick={handleToggleFavorite} isActive={isFavorite} isTransparentHover={true} />
+          </div>
           <h4 className={styles['card-title']}>{title}</h4>
           <p className={styles['card-price']}>{price + ' gel'}</p>
         </div>
@@ -91,16 +92,12 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
                 : { border: '1px solid transparent' }
             }
           />
-          <div
-            className={styles['heart-1']}
-            style={getStyleFavorite()}
-            onClick={handleToggleFavorite}
-          />
         </div>
       </div>
 
       <div className={styles['img-wrapper']} onClick={handleToProductPage}>
         <ImgLazy src={thumbnailSrc} alt={title} />
+        <Heart onClick={handleToggleFavorite} isActive={isFavorite} />
       </div>
       <h4 className={styles['card-title']}>{title}</h4>
       <p className={styles['card-price']}>{price + ' gel'}</p>
