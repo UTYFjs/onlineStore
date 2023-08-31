@@ -23,8 +23,7 @@ function Header({ setMenu }: IHeaderProps) {
   const navigate = useNavigate();
   const [isSearch, setIsSearch] = useState(false);
   const iconsFontSize = { xs: '33px', sm: '33px', md: '35px', lg: '38px' };
-  const mobileQuery = window.matchMedia('(max-width: 767px');
-  const classLogo = classNames(styles.logo, isSearch && mobileQuery.matches && styles.hide);
+  const classLogo = classNames(styles.logo, isSearch && styles.hide);
 
   const { searchText, setSearchText } = useUtilityStore();
   const handleSetSearchText = (e: React.ChangeEvent<HTMLInputElement>) => {

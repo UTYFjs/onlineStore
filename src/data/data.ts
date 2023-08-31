@@ -7,6 +7,7 @@ export const routerPagesData = [
   { url: '/collection/bags', content: 'Сумки' },
   { url: '/collection/cardholders', content: 'Картхолдеры' },
   { url: '/collection/fordocuments', content: 'Для документов' },
+  { url: '/favorites', content: 'Избранное' },
 ];
 
 export const upperNavHeaderData = [
@@ -22,11 +23,19 @@ export interface ISelectRule {
 
 export const sortingRules: ISelectRule[] = [
   { id: nanoid(), title: '', value: '' },
+  { id: nanoid(), title: 'Сначала Дешевые', value: 'priceAscending' },
+  { id: nanoid(), title: 'Сначала Дорогие', value: 'priceDescending' },
+  { id: nanoid(), title: 'По Алфавиту Я -> A', value: 'titleAscending' },
+  { id: nanoid(), title: 'По Алфавиту A -> Я', value: 'titleDescending' },
+  //{ id: nanoid(), title: 'BestSelling', value: 'bestselling' },
+];
+export const sortingRulesEng: ISelectRule[] = [
+  { id: nanoid(), title: '', value: '' },
   { id: nanoid(), title: 'Price, low to high', value: 'priceAscending' },
   { id: nanoid(), title: 'Price, high to low', value: 'priceDescending' },
   { id: nanoid(), title: 'Alphabetically A to Z', value: 'titleAscending' },
   { id: nanoid(), title: 'Alphabetically Z to A', value: 'titleDescending' },
-  { id: nanoid(), title: 'BestSelling', value: 'bestselling' },
+  //{ id: nanoid(), title: 'BestSelling', value: 'bestselling' },
 ];
 
 export type filterType =

@@ -2,8 +2,33 @@
 
 
 .form-input-text{
-  
+  padding: 5px 10px;
+  border-radius: 5px;
+  border:  1px solid transparentize($color: #000000, $amount: .4);
+
+  &:disabled{
+    border:  1px solid transparentize($color: #000000, $amount: .95);
+  }
+
+  &::placeholder{
+  //font-family: 'Alegreya Sans SC', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  // identical to box height, or 129% 
+
+  color: $grey-black-20;
+
+  }
 }
+
+
+
+
+
+
+
 /*.form-input-text{
 
   @include font-input-select;

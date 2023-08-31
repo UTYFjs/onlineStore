@@ -37,7 +37,10 @@
     text-align: center;
   }
   .logo.hide{
-    display: none;
+    @include for-phone{
+          display: none;
+    }
+
   }
   .icons{
     justify-content: end;

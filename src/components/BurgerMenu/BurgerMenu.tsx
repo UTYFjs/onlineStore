@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import cn from 'classnames';
 import NavLinkCustom from '../NavLink/NavLinkCustom';
@@ -22,8 +22,9 @@ interface IBurgerMenuProps {
 function BurgerMenu({ data, type }: IBurgerMenuProps) {
   const isBurgerOpen = useZustandStore((state) => state.isBurgerOpen);
   const handleShaded = useZustandStore((state) => state.handleShaded);
-
   const { filters, selectedFilters, setAllSelectedFilters } = useUtilityStore((state) => state);
+
+  const [resultPrice, setResultPrice] = useState('');
 
   const classesBurger = cn(
     styles.burger,
@@ -85,6 +86,9 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
       ];
     }
     console.log('изменились фильтры', selectedFilters, name, typeof valueNew);
+  };
+  const handleSetResultPrice = (resultPrice: string) => {
+    setResultPrice(resultPrice);
   };
   let contentTitle: JSX.Element = <div></div>;
   let content: JSX.Element = <div></div>;
@@ -222,9 +226,21 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
       content = (
         <div className={styles['menu-content-wrapper']}>
           <div className={styles['menu-content-cart']}>
-            <CartContent />
+            <CartContent setResultPrice={handleSetResultPrice} />
           </div>
-          <Button content={'Заказать'} customStyles={{ width: '100%' }} />
+          <div className={styles.result}>
+            {!!resultPrice && (
+              <div className={styles['result-price']}>
+                <div>
+                  <b>ИТОГО: </b>
+                </div>
+                <div className={styles['result-price-value']}>
+                  <b>{resultPrice}</b>
+                </div>
+              </div>
+            )}
+            <Button content={'Заказать'} customStyles={{ width: '100%' }} />
+          </div>
         </div>
       );
       break;
