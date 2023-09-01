@@ -71,7 +71,7 @@ function ProductPage() {
   };
 
   const imagesSrc = currentProduct.images.map((image) => './../.' + image);
-
+  console.log('imagesSrc', imagesSrc);
   //const { currentProduct, setCurrentProduct } = useUtilityStore((state) => state);
   /*useEffect(() => {
     return () => {

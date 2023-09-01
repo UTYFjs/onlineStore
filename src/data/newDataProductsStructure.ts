@@ -1,12 +1,19 @@
 import { nanoid } from 'nanoid';
 
-export interface IDataProduct {
+interface IColorProduct {
+  color: string;
+  thumbnail: { primary: string; secondary: string };
+  images: string[];
+}
+
+export interface IDataProductNew {
   id: string;
   title: string;
   thumbnail: { primary: string; secondary: string };
   images: string[];
-  category: string;
   color: string;
+  colors: IColorProduct[];
+  category: string;
   price: number;
   discountPersentage: number;
   stock: number;
@@ -26,8 +33,7 @@ export interface IDataProduct {
   strap?: 'yes' | 'no';
   bifold?: 'yes' | 'no';
 }
-
-export const dataProducts: Array<IDataProduct> = [
+export const newDataProductsStructure: Array<IDataProductNew> = [
   /*{
     id: nanoid(),
     title: 'Ремень "Винтаж"',
@@ -55,12 +61,25 @@ export const dataProducts: Array<IDataProduct> = [
     },
     images: [
       './assets/img/jpg/bag-tote-child-orange-small.jpg',
-      './assets/img/jpg/bag-tote-child-orange-small-1.jpg',
-      './assets/img/jpg/bag-tote-child-orange-small-2.jpg',
-      './assets/img/jpg/bag-tote-child-orange-small-3.jpg',
+      './assets/img/jpg/wallet-brown1.jpg',
+      './assets/img/jpg/passport-cover-wood.jpg',
+      './assets/img/jpg/passport-cover-bizon.jpg',
+      './assets/img/jpg/wallet-orange.jpg',
+    ],
+    color: 'orange',
+    colors: [
+      {
+        color: 'orange',
+        images: [
+          './assets/img/jpg/bag-tote-child-orange-small.jpg',
+          './assets/img/jpg/bag-tote-child-orange-small-1.jpg',
+          './assets/img/jpg/bag-tote-child-orange-small-2.jpg',
+          './assets/img/jpg/bag-tote-child-orange-small-3.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/bag-tote-child-orange-small.webp', secondary: '' },
+      },
     ],
     category: 'bag',
-    color: 'orange',
     price: 110,
     discountPersentage: 0,
     stock: 1,
@@ -81,14 +100,21 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/bag-tote-orange.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/bag-tote-orange.jpg',
-      './assets/img/jpg/bag-tote-orange-1.jpg',
-      './assets/img/jpg/bag-tote-orange-2.jpg',
-      './assets/img/jpg/bag-tote-orange-3.jpg',
+    images: ['./assets/img/jpg/bag-tote-orange.jpg', './assets/img/jpg/belt-bizon-black.jpg'],
+    color: 'orange',
+    colors: [
+      {
+        color: 'orange',
+        images: [
+          './assets/img/jpg/bag-tote-orange.jpg',
+          './assets/img/jpg/bag-tote-orange-1.jpg',
+          './assets/img/jpg/bag-tote-orange-2.jpg',
+          './assets/img/jpg/bag-tote-orange-3.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/bag-tote-orange.webp', secondary: '' },
+      },
     ],
     category: 'bag',
-    color: 'orange',
     price: 250,
     discountPersentage: 0,
     stock: 3,
@@ -118,6 +144,21 @@ export const dataProducts: Array<IDataProduct> = [
       './assets/img/jpg/bag-crossbody-saf-orange-5.jpg',
       './assets/img/jpg/bag-crossbody-saf-orange-6.jpg',
     ],
+    colors: [
+      {
+        color: 'orange',
+        images: [
+          './assets/img/jpg/bag-crossbody-saf-orange.jpg',
+          './assets/img/jpg/bag-crossbody-saf-orange-1.jpg',
+          './assets/img/jpg/bag-crossbody-saf-orange-2.jpg',
+          './assets/img/jpg/bag-crossbody-saf-orange-3.jpg',
+          './assets/img/jpg/bag-crossbody-saf-orange-4.jpg',
+          './assets/img/jpg/bag-crossbody-saf-orange-5.jpg',
+          './assets/img/jpg/bag-crossbody-saf-orange-6.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/bag-crossbody-saf-orange.webp', secondary: '' },
+      },
+    ],
     category: 'bag',
     color: 'orange',
     price: 350,
@@ -146,6 +187,21 @@ export const dataProducts: Array<IDataProduct> = [
       './assets/img/jpg/gift-set-belt-dockholder-black-2.jpg',
       './assets/img/jpg/gift-set-belt-dockholder-black-3.jpg',
     ],
+    colors: [
+      {
+        color: 'black',
+        images: [
+          './assets/img/jpg/gift-set-belt-dockholder-black.jpg',
+          './assets/img/jpg/gift-set-belt-dockholder-black-1.jpg',
+          './assets/img/jpg/gift-set-belt-dockholder-black-2.jpg',
+          './assets/img/jpg/gift-set-belt-dockholder-black-3.jpg',
+        ],
+        thumbnail: {
+          primary: './assets/img/webp/gift-set-belt-dockholder-black.webp',
+          secondary: '',
+        },
+      },
+    ],
     category: 'belt',
     color: 'black',
     price: 300,
@@ -161,7 +217,6 @@ export const dataProducts: Array<IDataProduct> = [
     year: 2022,
     countInCart: 0,
   },
-
   {
     id: nanoid(),
     title: 'Ремень "Fireman"',
@@ -169,19 +224,26 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/belt-fireman-black.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/belt-fireman-black.jpg',
-      './assets/img/jpg/belt-fireman-black-1.jpg',
-      './assets/img/jpg/belt-fireman-black-2.jpg',
-      './assets/img/jpg/belt-fireman-black-3.jpg',
-      './assets/img/jpg/belt-fireman-black-4.jpg',
-      './assets/img/jpg/belt-fireman-black-5.jpg',
-      './assets/img/jpg/belt-fireman-black-6.jpg',
-      './assets/img/jpg/belt-fireman-black-7.jpg',
-      './assets/img/jpg/belt-fireman-black-8.jpg',
+    images: ['./assets/img/jpg/belt-fireman-black.jpg'],
+    color: 'black',
+    colors: [
+      {
+        color: 'black',
+        images: [
+          './assets/img/jpg/belt-fireman-black.jpg',
+          './assets/img/jpg/belt-fireman-black-1.jpg',
+          './assets/img/jpg/belt-fireman-black-2.jpg',
+          './assets/img/jpg/belt-fireman-black-3.jpg',
+          './assets/img/jpg/belt-fireman-black-4.jpg',
+          './assets/img/jpg/belt-fireman-black-5.jpg',
+          './assets/img/jpg/belt-fireman-black-6.jpg',
+          './assets/img/jpg/belt-fireman-black-7.jpg',
+          './assets/img/jpg/belt-fireman-black-8.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/belt-fireman-black.webp', secondary: '' },
+      },
     ],
     category: 'belt',
-    color: 'black',
     price: 190,
     discountPersentage: 0,
     stock: 2,
@@ -202,104 +264,47 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/notebook-wooden.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/notebook-wooden-mountains.jpg',
-      './assets/img/jpg/notebook-wooden-mountains-1.jpg',
-      './assets/img/jpg/notebook-wooden-mountains-2.jpg',
-      './assets/img/jpg/notebook-wooden-honeycomb.jpg',
-      './assets/img/jpg/notebook-wooden-honeycomb-1.jpg',
-      './assets/img/jpg/notebook-wooden-common-1.jpg',
-      './assets/img/jpg/notebook-wooden-common-2.jpg',
-      './assets/img/jpg/notebook-wooden-common-3.jpg',
-      './assets/img/jpg/notebook-wooden-common-4.jpg',
-      './assets/img/jpg/notebook-wooden-common-5.jpg',
-      './assets/img/jpg/notebook-wooden-common-6.jpg',
-      './assets/img/jpg/notebook-wooden-common-7.jpg',
-      './assets/img/jpg/notebook-wooden-common-8.jpg',
-      './assets/img/jpg/notebook-wooden-A6-stars.jpg',
-      './assets/img/jpg/notebook-wooden-A6-stars-1.jpg',
-      './assets/img/jpg/notebook-wooden-plan.jpg',
-      './assets/img/jpg/notebook-wooden-plan-1.jpg',
-      './assets/img/jpg/notebook-wooden-plan-2.jpg',
-      './assets/img/jpg/notebook-wooden-plan-3.jpg',
-      './assets/img/jpg/notebook-wooden-plan-4.jpg',
-      './assets/img/jpg/notebook-wooden-tiger.jpg',
-      './assets/img/jpg/notebook-wooden-tiger-1.jpg',
+    images: ['./assets/img/jpg/notebook-wooden.jpg'],
+    color: 'sand',
+    colors: [
+      {
+        color: 'sand',
+        images: [
+          './assets/img/jpg/notebook-wooden-mountains.jpg',
+          './assets/img/jpg/notebook-wooden-mountains-1.jpg',
+          './assets/img/jpg/notebook-wooden-mountains-2.jpg',
+          './assets/img/jpg/notebook-wooden-honeycomb.jpg',
+          './assets/img/jpg/notebook-wooden-honeycomb-1.jpg',
+          './assets/img/jpg/notebook-wooden-lion.jpg',
+          './assets/img/jpg/notebook-wooden-lion-1.jpg',
+          './assets/img/jpg/notebook-wooden-lion-2.jpg',
+          './assets/img/jpg/notebook-wooden-lion-3.jpg',
+          './assets/img/jpg/notebook-wooden-lion-4.jpg',
+          './assets/img/jpg/notebook-wooden-common-1.jpg',
+          './assets/img/jpg/notebook-wooden-common-2.jpg',
+          './assets/img/jpg/notebook-wooden-common-3.jpg',
+          './assets/img/jpg/notebook-wooden-common-4.jpg',
+          './assets/img/jpg/notebook-wooden-common-5.jpg',
+          './assets/img/jpg/notebook-wooden-common-6.jpg',
+          './assets/img/jpg/notebook-wooden-common-7.jpg',
+          './assets/img/jpg/notebook-wooden-common-8.jpg',
+          './assets/img/jpg/notebook-wooden-A6-stars.jpg',
+          './assets/img/jpg/notebook-wooden-A6-stars-1.jpg',
+          './assets/img/jpg/notebook-wooden-future.jpg',
+          './assets/img/jpg/notebook-wooden-future-1.jpg',
+          './assets/img/jpg/notebook-wooden-future-2.jpg',
+          './assets/img/jpg/notebook-wooden-plan.jpg',
+          './assets/img/jpg/notebook-wooden-plan-1.jpg',
+          './assets/img/jpg/notebook-wooden-plan-2.jpg',
+          './assets/img/jpg/notebook-wooden-plan-3.jpg',
+          './assets/img/jpg/notebook-wooden-plan-4.jpg',
+          './assets/img/jpg/notebook-wooden-tiger.jpg',
+          './assets/img/jpg/notebook-wooden-tiger-1.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/notebook-wooden.webp', secondary: '' },
+      },
     ],
     category: 'notebook',
-    color: 'sand',
-    price: 75,
-    discountPersentage: 0,
-    stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
-    countSales: 0,
-    productionTime: '14',
-    bestseller: true,
-    freeShipping: false,
-    manufacturer: 'alPaco',
-    year: 2021,
-    countInCart: 0,
-  },
-  {
-    id: nanoid(),
-    title: 'Деревянный блокнот',
-    thumbnail: {
-      primary: './assets/img/webp/notebook-wooden-lion.webp',
-      secondary: 'string',
-    },
-    images: [
-      './assets/img/jpg/notebook-wooden-lion.jpg',
-      './assets/img/jpg/notebook-wooden-lion-1.jpg',
-      './assets/img/jpg/notebook-wooden-lion-2.jpg',
-      './assets/img/jpg/notebook-wooden-lion-3.jpg',
-      './assets/img/jpg/notebook-wooden-lion-4.jpg',
-      './assets/img/jpg/notebook-wooden-common-1.jpg',
-      './assets/img/jpg/notebook-wooden-common-2.jpg',
-      './assets/img/jpg/notebook-wooden-common-3.jpg',
-      './assets/img/jpg/notebook-wooden-common-4.jpg',
-      './assets/img/jpg/notebook-wooden-common-5.jpg',
-      './assets/img/jpg/notebook-wooden-common-6.jpg',
-      './assets/img/jpg/notebook-wooden-common-7.jpg',
-      './assets/img/jpg/notebook-wooden-common-8.jpg',
-    ],
-    category: 'notebook',
-    color: 'sand',
-    price: 75,
-    discountPersentage: 0,
-    stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
-    countSales: 0,
-    productionTime: '14',
-    bestseller: true,
-    freeShipping: false,
-    manufacturer: 'alPaco',
-    year: 2021,
-    countInCart: 0,
-  },
-  {
-    id: nanoid(),
-    title: 'Деревянный блокнот',
-    thumbnail: {
-      primary: './assets/img/webp/notebook-wooden-future.webp',
-      secondary: 'string',
-    },
-    images: [
-      './assets/img/jpg/notebook-wooden-future.jpg',
-      './assets/img/jpg/notebook-wooden-future-1.jpg',
-      './assets/img/jpg/notebook-wooden-future-2.jpg',
-      './assets/img/jpg/notebook-wooden-common-1.jpg',
-      './assets/img/jpg/notebook-wooden-common-2.jpg',
-      './assets/img/jpg/notebook-wooden-common-3.jpg',
-      './assets/img/jpg/notebook-wooden-common-4.jpg',
-      './assets/img/jpg/notebook-wooden-common-5.jpg',
-      './assets/img/jpg/notebook-wooden-common-6.jpg',
-      './assets/img/jpg/notebook-wooden-common-7.jpg',
-      './assets/img/jpg/notebook-wooden-common-8.jpg',
-    ],
-    category: 'notebook',
-    color: 'sand',
     price: 75,
     discountPersentage: 0,
     stock: 2,
@@ -320,15 +325,46 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/belt-missouri-black.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/belt-missouri-black.jpg',
-      './assets/img/jpg/belt-missouri-black-1.jpg',
-      './assets/img/jpg/belt-missouri-black-2.jpg',
-      './assets/img/jpg/belt-missouri-black-3.jpg',
-      './assets/img/jpg/belt-missouri-black-4.jpg',
+    images: ['./assets/img/jpg/belt-missouri-black.jpg'],
+    color: 'black',
+    colors: [
+      {
+        color: 'black',
+        images: [
+          './assets/img/jpg/belt-missouri-black.jpg',
+          './assets/img/jpg/belt-missouri-black-1.jpg',
+          './assets/img/jpg/belt-missouri-black-2.jpg',
+          './assets/img/jpg/belt-missouri-black-3.jpg',
+          './assets/img/jpg/belt-missouri-black-4.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/belt-missouri-black.webp', secondary: '' },
+      },
+      {
+        color: 'brown',
+        images: [
+          './assets/img/jpg/belt-missouri-burgundy.jpg',
+          './assets/img/jpg/belt-missouri-burgundy-1.jpg',
+          './assets/img/jpg/belt-missouri-burgundy-2.jpg',
+          './assets/img/jpg/belt-missouri-burgundy-3.jpg',
+          './assets/img/jpg/belt-missouri-burgundy-4.jpg',
+          './assets/img/jpg/belt-missouri-burgundy-5.jpg',
+          './assets/img/jpg/belt-missouri-burgundy-6.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/belt-missouri-burgundy.webp', secondary: '' },
+      },
+      {
+        color: 'brown',
+        images: [
+          './assets/img/jpg/belt-missouri-lite-brown.jpg',
+          './assets/img/jpg/belt-missouri-lite-brown-1.jpg',
+          './assets/img/jpg/belt-missouri-lite-brown-2.jpg',
+          './assets/img/jpg/belt-missouri-lite-brown-3.jpg',
+          './assets/img/jpg/belt-missouri-lite-brown-4.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/belt-missouri-lite-brown.webp', secondary: '' },
+      },
     ],
     category: 'belt',
-    color: 'black',
     price: 180,
     discountPersentage: 0,
     stock: 2,
@@ -341,7 +377,7 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2022,
     countInCart: 0,
-  },
+  } /*
   {
     id: nanoid(),
     title: 'Ремень "Missouri"',
@@ -349,15 +385,7 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/belt-missouri-burgundy.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/belt-missouri-burgundy.jpg',
-      './assets/img/jpg/belt-missouri-burgundy-1.jpg',
-      './assets/img/jpg/belt-missouri-burgundy-2.jpg',
-      './assets/img/jpg/belt-missouri-burgundy-3.jpg',
-      './assets/img/jpg/belt-missouri-burgundy-4.jpg',
-      './assets/img/jpg/belt-missouri-burgundy-5.jpg',
-      './assets/img/jpg/belt-missouri-burgundy-6.jpg',
-    ],
+    images: ['./assets/img/jpg/belt-missouri-burgundy.jpg'],
     category: 'belt',
     color: 'brown',
     price: 180,
@@ -380,13 +408,7 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/belt-missouri-lite-brown.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/belt-missouri-lite-brown.jpg',
-      './assets/img/jpg/belt-missouri-lite-brown-1.jpg',
-      './assets/img/jpg/belt-missouri-lite-brown-2.jpg',
-      './assets/img/jpg/belt-missouri-lite-brown-3.jpg',
-      './assets/img/jpg/belt-missouri-lite-brown-4.jpg',
-    ],
+    images: ['./assets/img/jpg/belt-missouri-lite-brown.jpg'],
     category: 'belt',
     color: 'brown',
     price: 180,
@@ -401,7 +423,7 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2021,
     countInCart: 0,
-  },
+  }*/,
   {
     id: nanoid(),
     title: 'Ремень "Gold"',
@@ -409,9 +431,16 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/belt-gold.webp',
       secondary: 'string',
     },
-    images: ['./assets/img/jpg/belt-gold.jpg', './assets/img/jpg/belt-gold-1.jpg'],
-    category: 'belt',
+    images: ['./assets/img/jpg/belt-gold.jpg'],
     color: 'gold',
+    colors: [
+      {
+        color: 'gold',
+        images: ['./assets/img/jpg/belt-gold.jpg', './assets/img/jpg/belt-gold-1.jpg'],
+        thumbnail: { primary: './assets/img/webp/belt-gold.webp', secondary: '' },
+      },
+    ],
+    category: 'belt',
     price: 150,
     discountPersentage: 0,
     stock: 1,
@@ -432,19 +461,26 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/belt-only-black.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/belt-only-black.jpg',
-      './assets/img/jpg/belt-only-black-1.jpg',
-      './assets/img/jpg/belt-only-black-2.jpg',
-      './assets/img/jpg/belt-only-black-3.jpg',
-      './assets/img/jpg/belt-only-black-4.jpg',
-      './assets/img/jpg/belt-only-black-5.jpg',
-      './assets/img/jpg/belt-only-black-6.jpg',
-      './assets/img/jpg/belt-only-black-7.jpg',
-      './assets/img/jpg/belt-only-black-8.jpg',
+    images: ['./assets/img/jpg/belt-only-black.jpg'],
+    color: 'black',
+    colors: [
+      {
+        color: 'black',
+        images: [
+          './assets/img/jpg/belt-only-black.jpg',
+          './assets/img/jpg/belt-only-black-1.jpg',
+          './assets/img/jpg/belt-only-black-2.jpg',
+          './assets/img/jpg/belt-only-black-3.jpg',
+          './assets/img/jpg/belt-only-black-4.jpg',
+          './assets/img/jpg/belt-only-black-5.jpg',
+          './assets/img/jpg/belt-only-black-6.jpg',
+          './assets/img/jpg/belt-only-black-7.jpg',
+          './assets/img/jpg/belt-only-black-8.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/belt-only-black.webp', secondary: '' },
+      },
     ],
     category: 'belt',
-    color: 'black',
     price: 195,
     discountPersentage: 0,
     stock: 2,
@@ -465,19 +501,26 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/belt-pomegranate.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/belt-pomegranate.jpg',
-      './assets/img/jpg/belt-pomegranate-1.jpg',
-      './assets/img/jpg/belt-pomegranate-2.jpg',
-      './assets/img/jpg/belt-pomegranate-3.jpg',
-      './assets/img/jpg/belt-pomegranate-4.jpg',
-      './assets/img/jpg/belt-pomegranate-5.jpg',
-      './assets/img/jpg/belt-pomegranate-6.jpg',
-      './assets/img/jpg/belt-pomegranate-7.jpg',
-      './assets/img/jpg/belt-pomegranate-8.jpg',
+    images: ['./assets/img/jpg/belt-pomegranate.jpg'],
+    color: 'mix',
+    colors: [
+      {
+        color: 'mix',
+        images: [
+          './assets/img/jpg/belt-pomegranate.jpg',
+          './assets/img/jpg/belt-pomegranate-1.jpg',
+          './assets/img/jpg/belt-pomegranate-2.jpg',
+          './assets/img/jpg/belt-pomegranate-3.jpg',
+          './assets/img/jpg/belt-pomegranate-4.jpg',
+          './assets/img/jpg/belt-pomegranate-5.jpg',
+          './assets/img/jpg/belt-pomegranate-6.jpg',
+          './assets/img/jpg/belt-pomegranate-7.jpg',
+          './assets/img/jpg/belt-pomegranate-8.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/belt-pomegranate.webp', secondary: '' },
+      },
     ],
     category: 'belt',
-    color: 'mix',
     price: 150,
     discountPersentage: 0,
     stock: 3,
@@ -491,7 +534,8 @@ export const dataProducts: Array<IDataProduct> = [
     year: 2021,
     countInCart: 0,
   },
-  {
+
+  /*{
     id: nanoid(),
     title: 'Ремень "Винтаж"',
     thumbnail: {
@@ -521,19 +565,26 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/belt-bloody-mary.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/belt-bloody-mary.jpg',
-      './assets/img/jpg/belt-bloody-mary-1.jpg',
-      './assets/img/jpg/belt-bloody-mary-2.jpg',
-      './assets/img/jpg/belt-bloody-mary-3.jpg',
-      './assets/img/jpg/belt-bloody-mary-4.jpg',
-      './assets/img/jpg/belt-bloody-mary-5.jpg',
-      './assets/img/jpg/belt-bloody-mary-6.jpg',
-      './assets/img/jpg/belt-bloody-mary-7.jpg',
-      './assets/img/jpg/belt-bloody-mary-8.jpg',
+    images: ['./assets/img/jpg/belt-bloody-mary.jpg'],
+    color: 'mix',
+    colors: [
+      {
+        color: 'mix',
+        images: [
+          './assets/img/jpg/belt-bloody-mary.jpg',
+          './assets/img/jpg/belt-bloody-mary-1.jpg',
+          './assets/img/jpg/belt-bloody-mary-2.jpg',
+          './assets/img/jpg/belt-bloody-mary-3.jpg',
+          './assets/img/jpg/belt-bloody-mary-4.jpg',
+          './assets/img/jpg/belt-bloody-mary-5.jpg',
+          './assets/img/jpg/belt-bloody-mary-6.jpg',
+          './assets/img/jpg/belt-bloody-mary-7.jpg',
+          './assets/img/jpg/belt-bloody-mary-8.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/belt-bloody-mary.webp', secondary: '' },
+      },
     ],
     category: 'belt',
-    color: 'mix',
     price: 150,
     discountPersentage: 0,
     stock: 1,
@@ -547,7 +598,7 @@ export const dataProducts: Array<IDataProduct> = [
     year: 2021,
     countInCart: 0,
   },
-
+  */
   {
     id: nanoid(),
     title: 'Кошелек с застежкой',
@@ -561,8 +612,20 @@ export const dataProducts: Array<IDataProduct> = [
       './assets/img/jpg/wallet-M3x-barton-black-2.jpg',
       './assets/img/jpg/wallet-M3x-barton-black-3.jpg',
     ],
-    category: 'wallet',
     color: 'black',
+    colors: [
+      {
+        color: 'black',
+        images: [
+          './assets/img/jpg/wallet-M3x-barton-black.jpg',
+          './assets/img/jpg/wallet-M3x-barton-black-1.jpg',
+          './assets/img/jpg/wallet-M3x-barton-black-2.jpg',
+          './assets/img/jpg/wallet-M3x-barton-black-3.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/wallet-M3-vegcamel-orange.webp', secondary: '' },
+      },
+    ],
+    category: 'wallet',
     price: 140,
     discountPersentage: 0,
     stock: 1,
@@ -590,16 +653,24 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/wallet-M3x-crazy-brown.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/wallet-M3x-crazy-brown.jpg',
-      './assets/img/jpg/wallet-M3x-crazy-brown-1.jpg',
-      './assets/img/jpg/wallet-M3x-crazy-brown-2.jpg',
-      './assets/img/jpg/wallet-M3x-crazy-brown-3.jpg',
-      './assets/img/jpg/wallet-M3x-crazy-brown-4.jpg',
+    images: ['./assets/img/jpg/wallet-M3x-crazy-brown.jpg'],
+
+    color: 'brown',
+    colors: [
+      {
+        color: 'brown',
+        images: [
+          './assets/img/jpg/wallet-M3x-crazy-brown.jpg',
+          './assets/img/jpg/wallet-M3x-crazy-brown-1.jpg',
+          './assets/img/jpg/wallet-M3x-crazy-brown-2.jpg',
+          './assets/img/jpg/wallet-M3x-crazy-brown-3.jpg',
+          './assets/img/jpg/wallet-M3x-crazy-brown-4.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/cardholder-D-bison.webp', secondary: '' },
+      },
     ],
     category: 'wallet',
-    color: 'brown',
-    price: 130,
+    price: 140,
     discountPersentage: 0,
     stock: 3,
     description:
@@ -622,20 +693,28 @@ export const dataProducts: Array<IDataProduct> = [
 
   {
     id: nanoid(),
-    title: 'Кошелек',
+    title: 'Кошелек Camel',
     thumbnail: {
       primary: './assets/img/webp/wallet-M3-vegcamel-orange.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/wallet-M3-vegcamel-orange.jpg',
-      './assets/img/jpg/wallet-M3-vegcamel-orange-1.jpg',
-      './assets/img/jpg/wallet-M3-vegcamel-orange-2.jpg',
-      './assets/img/jpg/wallet-M3-vegcamel-orange-3.jpg',
-      './assets/img/jpg/wallet-M3-vegcamel-orange-4.jpg',
+    images: ['./assets/img/jpg/wallet-M3-vegcamel-orange.jpg'],
+
+    color: 'orange',
+    colors: [
+      {
+        color: 'orange',
+        images: [
+          './assets/img/jpg/wallet-M3-vegcamel-orange.jpg',
+          './assets/img/jpg/wallet-M3-vegcamel-orange-1.jpg',
+          './assets/img/jpg/wallet-M3-vegcamel-orange-2.jpg',
+          './assets/img/jpg/wallet-M3-vegcamel-orange-3.jpg',
+          './assets/img/jpg/wallet-M3-vegcamel-orange-4.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/wallet-M3-vegcamel-orange.webp', secondary: '' },
+      },
     ],
     category: 'wallet',
-    color: 'orange',
     price: 130,
     discountPersentage: 0,
     stock: 1,
@@ -669,8 +748,21 @@ export const dataProducts: Array<IDataProduct> = [
       './assets/img/jpg/cardholder-D-bison-2.jpg',
       './assets/img/jpg/cardholder-D-bison-3.jpg',
     ],
-    category: 'wallet',
+
     color: 'brown',
+    colors: [
+      {
+        color: 'brown',
+        images: [
+          './assets/img/jpg/cardholder-D-bison.jpg',
+          './assets/img/jpg/cardholder-D-bison-1.jpg',
+          './assets/img/jpg/cardholder-D-bison-2.jpg',
+          './assets/img/jpg/cardholder-D-bison-3.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/cardholder-D-bison.webp', secondary: '' },
+      },
+    ],
+    category: 'wallet',
     price: 80,
     discountPersentage: 0,
     stock: 2,
@@ -705,8 +797,21 @@ export const dataProducts: Array<IDataProduct> = [
       './assets/img/jpg/wallet-4v-barton-black-3.jpg',
       './assets/img/jpg/wallet-4v-barton-black-4.jpg',
     ],
-    category: 'wallet',
     color: 'black',
+    colors: [
+      {
+        color: 'black',
+        images: [
+          './assets/img/jpg/wallet-4v-barton-black.jpg',
+          './assets/img/jpg/wallet-4v-barton-black-1.jpg',
+          './assets/img/jpg/wallet-4v-barton-black-2.jpg',
+          './assets/img/jpg/wallet-4v-barton-black-3.jpg',
+          './assets/img/jpg/wallet-4v-barton-black-4.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/wallet-4v-barton-black.webp', secondary: '' },
+      },
+    ],
+    category: 'wallet',
     price: 120,
     discountPersentage: 0,
     stock: 1,
@@ -718,7 +823,7 @@ export const dataProducts: Array<IDataProduct> = [
     freeShipping: false,
     manufacturer: 'alPaco',
     year: 2021,
-    countInCart: 4,
+    countInCart: 0,
   },
   {
     id: nanoid(),
@@ -731,8 +836,27 @@ export const dataProducts: Array<IDataProduct> = [
       './assets/img/jpg/wallets-4h-crazy-brown.jpg',
       './assets/img/jpg/wallets-4h-crazy-brown-1.jpg',
     ],
-    category: 'wallet',
     color: 'brown',
+    colors: [
+      {
+        color: 'brown',
+        images: [
+          './assets/img/jpg/wallets-4h-crazy-brown.jpg',
+          './assets/img/jpg/wallets-4h-crazy-brown-1.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/wallets-4h-crazy-brown.webp', secondary: '' },
+      },
+      {
+        color: 'orange',
+        images: [
+          './assets/img/jpg/wallets-4h-uft-orange.jpg',
+          './assets/img/jpg/wallets-4h-uft-orange-1.jpg',
+          './assets/img/jpg/wallets-4h-uft-orange-2.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/wallets-4h-uft-orange.webp', secondary: '' },
+      },
+    ],
+    category: 'wallet',
     price: 120,
     discountPersentage: 0,
     stock: 1,
@@ -746,33 +870,7 @@ export const dataProducts: Array<IDataProduct> = [
     year: 2021,
     countInCart: 4,
   },
-  {
-    id: nanoid(),
-    title: 'Кошелек для карт',
-    thumbnail: {
-      primary: './assets/img/webp/wallets-4h-uft-orange.webp',
-      secondary: 'string',
-    },
-    images: [
-      './assets/img/jpg/wallets-4h-uft-orange.jpg',
-      './assets/img/jpg/wallets-4h-uft-orange-1.jpg',
-      './assets/img/jpg/wallets-4h-uft-orange-2.jpg',
-    ],
-    category: 'wallet',
-    color: 'orange',
-    price: 130,
-    discountPersentage: 0,
-    stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
-    countSales: 0,
-    productionTime: '3',
-    bestseller: false,
-    freeShipping: false,
-    manufacturer: 'alPaco',
-    year: 2021,
-    countInCart: 4,
-  },
+
   {
     id: nanoid(),
     title: 'Ремень "Violet"',
@@ -780,14 +878,21 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/belt-violet.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/belt-violet.jpg',
-      './assets/img/jpg/belt-violet-1.jpg',
-      './assets/img/jpg/belt-violet-2.jpg',
-      './assets/img/jpg/belt-violet-3.jpg',
+    images: ['./assets/img/jpg/belt-violet.jpg'],
+    color: 'mix',
+    colors: [
+      {
+        color: 'mix',
+        images: [
+          './assets/img/jpg/belt-violet.jpg',
+          './assets/img/jpg/belt-violet-1.jpg',
+          './assets/img/jpg/belt-violet-2.jpg',
+          './assets/img/jpg/belt-violet-3.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/belt-violet.webp', secondary: '' },
+      },
     ],
     category: 'belt',
-    color: 'mix',
     price: 150,
     discountPersentage: 0,
     stock: 1,
@@ -805,16 +910,40 @@ export const dataProducts: Array<IDataProduct> = [
     id: nanoid(),
     title: 'Картхолдер',
     thumbnail: {
-      primary: './assets/img/webp/cardholder-A-black.webp',
+      primary: './assets/webp/jpg/cardholder-A-black.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/cardholder-A-black.jpg',
-      './assets/img/jpg/cardholder-A-black-1.jpg',
+    images: ['./assets/img/jpg/cardholder-A-black.jpg'],
+
+    color: 'mix',
+    colors: [
+      {
+        color: 'black',
+        images: [
+          './assets/img/jpg/cardholder-A-black.jpg',
+          './assets/img/jpg/cardholder-A-black-1.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/cardholder-A-black.webp', secondary: '' },
+      },
+      {
+        color: 'brown',
+        images: [
+          './assets/img/jpg/cardholder-A-brown.jpg',
+          './assets/img/jpg/cardholder-A-brown-1.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/cardholder-A-brown.webp', secondary: '' },
+      },
+      {
+        color: 'orange',
+        images: [
+          './assets/img/jpg/cardholder-A-orange.jpg',
+          './assets/img/jpg/cardholder-A-orange-1.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/cardholder-A-orange.webp', secondary: '' },
+      },
     ],
     category: 'cardholder',
-    color: 'black',
-    price: 45,
+    price: 40,
     discountPersentage: 0,
     stock: 1,
     description:
@@ -834,20 +963,17 @@ export const dataProducts: Array<IDataProduct> = [
     strap: 'no',
     bifold: 'no',
   },
-  {
+  /*{
     id: nanoid(),
     title: 'Картхолдер',
     thumbnail: {
-      primary: './assets/img/webp/cardholder-A-brown.webp',
+      primary: './assets/img/webp/cardholder-brown.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/cardholder-A-brown.jpg',
-      './assets/img/jpg/cardholder-A-brown-1.jpg',
-    ],
+    images: ['./assets/img/jpg/cardholder-brown.jpg'],
     category: 'cardholder',
     color: 'brown',
-    price: 45,
+    price: 40,
     discountPersentage: 0,
     stock: 2,
     description:
@@ -904,16 +1030,31 @@ export const dataProducts: Array<IDataProduct> = [
       primary: './assets/img/webp/dockholder-mix-color.webp',
       secondary: 'string',
     },
-    images: [
+    images: ['./assets/img/jpg/dockholder-mix-color.jpg'],
+
+    color: 'mix',
+    colors: [
+      {
+        color: 'black',
+        images: [
       './assets/img/jpg/dockholder-mix-color.jpg',
       './assets/img/jpg/dockholder-black-1.jpg',
       './assets/img/jpg/dockholder-black-2.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/dockholder-mix-color.webp', secondary: '' },
+      },
+      {
+        color: 'orange',
+        images: [
+      './assets/img/jpg/dockholder-mix-color.jpg',
       './assets/img/jpg/dockholder-orange-1.jpg',
       './assets/img/jpg/dockholder-orange-2.jpg',
       './assets/img/jpg/dockholder-orange-3.jpg',
+        ],
+        thumbnail: { primary: './assets/img/webp/dockholder-mix-color.webp', secondary: '' },
+      },
     ],
     category: 'forDocument',
-    color: 'mix',
     price: 120,
     discountPersentage: 0,
     stock: 1,
@@ -934,7 +1075,7 @@ export const dataProducts: Array<IDataProduct> = [
     strap: 'no',
     bifold: 'yes',
   },
-  {
+    {
     id: nanoid(),
     title: 'Зажим с монетницей',
     thumbnail: {
@@ -965,27 +1106,18 @@ export const dataProducts: Array<IDataProduct> = [
     year: 2021,
     countInCart: 0,
   },
-
+  
+  
   {
     id: nanoid(),
     title: 'Обложка на паспорт',
     thumbnail: {
-      primary: './assets/img/webp/passport-cover-assorti.webp',
+      primary: './assets/img/webp/passport-cover-bizon.webp',
       secondary: 'string',
     },
-    images: [
-      './assets/img/jpg/passport-cover-assorti.jpg',
-      './assets/img/jpg/passport-cover-assorti-1.jpg',
-      './assets/img/jpg/passport-cover-assorti-2.jpg',
-      './assets/img/jpg/passport-cover-assorti-3.jpg',
-      './assets/img/jpg/passport-cover-assorti-4.jpg',
-      './assets/img/jpg/passport-cover-assorti-5.jpg',
-      './assets/img/jpg/passport-cover-assorti-6.jpg',
-      './assets/img/jpg/passport-cover-assorti-7.jpg',
-    ],
-
+    images: ['./assets/img/jpg/passport-cover-bizon.jpg'],
     category: 'forDocument',
-    color: 'mix',
+    color: 'brown',
     price: 50,
     discountPersentage: 0,
     stock: 1,
@@ -1022,7 +1154,7 @@ export const dataProducts: Array<IDataProduct> = [
     year: 2022,
     countInCart: 0,
   },
-  {
+   {
     id: nanoid(),
     title: 'Монетница',
     thumbnail: {
@@ -1120,8 +1252,16 @@ export const dataProducts: Array<IDataProduct> = [
       secondary: 'string',
     },
     images: ['./assets/img/jpg/belt-bizon-black.jpg'],
-    category: 'belt',
+
     color: 'black',
+    colors: [
+      {
+        color: 'black',
+        images: ['./assets/img/jpg/belt-bizon-black.jpg'],
+        thumbnail: { primary: './assets/img/webp/belt-bizon-black.webp', secondary: '' },
+      },
+    ],
+    category: 'belt',
     price: 130,
     discountPersentage: 0,
     stock: 2,
@@ -1187,5 +1327,5 @@ export const dataProducts: Array<IDataProduct> = [
     manufacturer: 'alPaco',
     year: 2021,
     countInCart: 0,
-  },
+  },*/
 ];
