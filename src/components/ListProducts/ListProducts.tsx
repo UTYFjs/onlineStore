@@ -8,26 +8,40 @@ import styles from './ListProducts.module.scss';
 type ListProductsProps = {
   customProducts?: IDataProduct[];
   deepPath?: string;
+  notFoundText?: string;
 };
 
-function ListProducts({ customProducts, deepPath }: ListProductsProps) {
+function ListProducts({ customProducts, deepPath, notFoundText }: ListProductsProps) {
   const { selectedFilters, selectedSorting, filters, searchText } = useUtilityStore(
     (state) => state
   );
 
   let products: IDataProduct[] = [];
   if (customProducts === undefined) {
-    products = getProducts(dataProducts, filters, selectedFilters, '', selectedSorting, searchText);
+    const copyDataProducts = JSON.parse(JSON.stringify(dataProducts));
+    products = getProducts(
+      copyDataProducts,
+      filters,
+      selectedFilters,
+      '',
+      selectedSorting,
+      searchText
+    );
   } else {
     products = customProducts;
   }
 
   return (
-    <div className={styles['catalog-grid-container']}>
-      {products.map((item) => {
-        return <CardProduct key={item.id} data={item} deepPath={deepPath} />;
-      })}
-    </div>
+    <>
+      {products.length === 0 && <p className={styles['not-found-title']}> {notFoundText}</p>}
+      {products.length !== 0 && (
+        <div className={styles['catalog-grid-container']}>
+          {products.map((item) => {
+            return <CardProduct key={item.id} data={item} deepPath={deepPath} />;
+          })}
+        </div>
+      )}
+    </>
   );
 }
 

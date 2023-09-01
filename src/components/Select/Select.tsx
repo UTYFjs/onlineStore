@@ -13,6 +13,7 @@ interface ISelectProps {
 
 function Select({ data, onChange, checkedValue, className, customStyles }: ISelectProps) {
   const currentClassNames = classNames(styles.select, className && styles[className]);
+  console.log('checked Value', checkedValue);
   return (
     <select
       value={checkedValue}

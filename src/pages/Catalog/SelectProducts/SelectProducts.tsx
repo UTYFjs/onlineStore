@@ -9,16 +9,23 @@ import { dataProducts } from '../../../data/dataProducts';
 import { useUtilityStore, useZustandStore } from '../../../store/zustandStore';
 import { getProducts } from '../../../utility/getProducts';
 import styles from './SelectProducts.module.scss';
+import { notFoundText } from '../../../data/const';
 
 function SelectProducts() {
   const currentCategory = useParams().id as string;
 
-  const { selectedSorting, selectedFilters, filters, setSelectedSorting } = useUtilityStore(
-    (state) => state
-  );
+  const {
+    selectedSorting,
+    selectedFilters,
+    filters,
+    setSelectedSorting,
+    searchText,
+    setSearchText,
+  } = useUtilityStore((state) => state);
 
   useEffect(() => {
     setSelectedSorting('');
+    setSearchText('');
   }, [currentCategory, setSelectedSorting]);
   const products = getProducts(
     dataProducts,
@@ -26,14 +33,18 @@ function SelectProducts() {
     selectedFilters,
     currentCategory,
     selectedSorting,
-    ''
+    searchText
   );
 
   return (
     <div>
       <FiltersMenu />
 
-      <ListProducts customProducts={products} deepPath={'./.'} />
+      <ListProducts
+        customProducts={products}
+        deepPath={'./.'}
+        notFoundText={notFoundText.notFoundProducts.ru}
+      />
     </div>
   );
 }

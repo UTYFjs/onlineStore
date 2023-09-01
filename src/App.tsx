@@ -12,6 +12,7 @@ import Layout from './pages/layout/Layout';
 import MainPage from './pages/MainPage/MainPage';
 
 import { useFavoriteStore, useZustandStore } from './store/zustandStore';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   //const root = document.getElementById('root');
@@ -33,6 +34,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="how-to-order" element={<HowToOrder />} />
           <Route path="favorites" element={<Favorites products={favoriteProducts} />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </>

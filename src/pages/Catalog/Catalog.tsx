@@ -7,6 +7,7 @@ import { sortingRules } from '../../data/data';
 import { useUtilityStore, useZustandStore } from '../../store/zustandStore';
 
 import styles from './Catalog.module.scss';
+import { notFoundText } from '../../data/const';
 function Catalog() {
   /*const { burgerOpen, setBurgerType } = useZustandStore((state) => state);
 
@@ -23,8 +24,7 @@ function Catalog() {
   return (
     <div>
       <FiltersMenu />
-
-      <ListProducts deepPath={'./.'} />
+      <ListProducts deepPath={'./.'} notFoundText={notFoundText.notFoundProducts.ru} />
     </div>
   );
 }

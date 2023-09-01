@@ -34,7 +34,6 @@ export function getProducts(
       (product) => product.title.toLocaleLowerCase().indexOf(searchTextLower) !== -1
     );
   }
-  //case filter
 
   return currentProducts;
 }
