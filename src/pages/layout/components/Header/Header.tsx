@@ -10,7 +10,7 @@ import NavLinkCustom from '../../../../components/NavLink/NavLinkCustom';
 import { routerPagesData, upperNavHeaderData } from '../../../../data/data';
 import LocationTag from '../../../../components/LocationTag/LocationTag';
 import Social from '../../../../components/Social/Social';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import SearchBar from '../../../../components/SearchBar/SearchBar';
 import SearchBarCustom from '../../../../components/SearchBarCustom/SearchBarCustom';
 import Input from '../../../../components/Input/Input';
@@ -22,6 +22,8 @@ interface IHeaderProps {
 function Header({ setMenu }: IHeaderProps) {
   const navigate = useNavigate();
   const [isSearch, setIsSearch] = useState(false);
+  const location = useLocation();
+  const isCollectionLocation = location.pathname.split('/')[1] === 'collection';
   const iconsFontSize = { xs: '33px', sm: '33px', md: '35px', lg: '38px' };
   const classLogo = classNames(styles.logo, isSearch && styles.hide);
 
@@ -29,6 +31,7 @@ function Header({ setMenu }: IHeaderProps) {
   const handleSetSearchText = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.currentTarget.value);
   };
+
   return (
     <AppBar component="header" position="relative" className={styles.header} color={'transparent'}>
       <nav className={styles['up-navigation']}>
@@ -56,7 +59,7 @@ function Header({ setMenu }: IHeaderProps) {
             onClick={() => setMenu('menu')}
           />
           {
-            !isSearch && (
+            !isSearch && isCollectionLocation && (
               <SearchIcon
                 sx={{
                   display: { xs: 'block', sm: 'block', md: 'block', lg: 'block' },
@@ -71,9 +74,10 @@ function Header({ setMenu }: IHeaderProps) {
 
             //<SearchBar />
           }
-          {isSearch && (
+          {isSearch && isCollectionLocation && (
             <Input
               isFocus={true}
+              placeholder={'Поиск по каталогу'}
               onBlur={() => {
                 setIsSearch(false);
               }}
