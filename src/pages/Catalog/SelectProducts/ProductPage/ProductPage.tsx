@@ -151,148 +151,126 @@ function ProductPage() {
   };
   //console.log('PRODUCT FROM PRODUCT PAGE', currentProduct);
   return (
-    <div>
-      <div className={styles.grid}>
-        <div className={styles['image-wrapper']}>
-          {
-            //<ImgLazy src={imgSrc} />
-            //imagesSrc && <CustomSlider slides={imagesSrc} />
-            //imagesSrc && <Slider slides={imagesSrc} />
-            imagesSrc && (
-              <div className={styles['swiper-wrapper']}>
-                <SliderSwiper images={imagesSrc} />
-                <Heart
-                  onClick={handleAddToFavorite}
-                  isActive={isFavorite}
-                  customStyles={{ width: '13%', height: '13%', top: '85%', left: '83%' }}
-                />
-              </div>
-            )
-          }
-        </div>
-        <div className={styles['content-wrapper']}>
-          <h3 className={styles.title}>{currentProduct.title}</h3>
+    <div className={styles.grid}>
+      <div className={styles['image-wrapper']}>
+        {
+          //<ImgLazy src={imgSrc} />
+          //imagesSrc && <CustomSlider slides={imagesSrc} />
+          //imagesSrc && <Slider slides={imagesSrc} />
+          imagesSrc && (
+            <div className={styles['swiper-wrapper']}>
+              <SliderSwiper images={imagesSrc} />
+              <Heart
+                onClick={handleAddToFavorite}
+                isActive={isFavorite}
+                customStyles={{ width: '13%', height: '13%', top: '85%', left: '83%' }}
+              />
+            </div>
+          )
+        }
+      </div>
+      <div className={styles['content-wrapper']}>
+        <h3 className={styles.title}>{currentProduct.title}</h3>
 
-          <div className={styles['flex-row']}>
-            <p className={styles.spacing}>Выберите цвет</p>
-            <Select
-              data={mockSelectRules}
-              checkedValue={color}
-              onChange={handleChangeColor}
-              customStyles={{ height: '35px' }}
-            />
-          </div>
-          <div className={styles['flex-row']}>
-            <p
-              className={styles.spacing}
-              onClick={() => {
-                console.log(isCheckedEmbossing);
-              }}
-            >
-              Добавить подарочную коробочку
-            </p>
-            <Checkbox isChecked={isCheckedGiftBox} name="embossing" onChange={handleAddGiftBox} />
-          </div>
-          <div className={styles['flex-row']}>
-            <p
-              className={styles.spacing}
-              onClick={() => {
-                console.log(cartProducts, isInCart);
-              }}
-            >
-              Добавить инициалы
-            </p>
-            {
-              //todo checkbox инициалы
-            }
-            <Checkbox
-              isChecked={isCheckedEmbossing}
-              name="embossing"
-              onChange={handleAddEmbossing}
-            />
-          </div>
-          <Input
-            placeholder={'Добавьте свои инициалы'}
-            isDisable={!isCheckedEmbossing}
-            value={embossingValue}
-            onChange={handleChangeEmbossingInput}
+        <div className={styles['flex-row']}>
+          <p className={styles.spacing}>Выберите цвет</p>
+          <Select
+            data={mockSelectRules}
+            checkedValue={color}
+            onChange={handleChangeColor}
+            customStyles={{ height: '35px' }}
           />
-          <p className={styles.price}>{currentPrice + ' gel'}</p>
-          <Button
-            className="full-width"
-            content={isInCart ? 'Remove from Cart' : 'Add To Cart'}
-            onClick={isInCart ? handleRemoveProductFromCart : handleAddProductToCart}
-            customStyles={
-              isInCart
-                ? { color: '#363636', background: '#fff', border: '1px solid #a7a7a7' }
-                : { border: '1px solid transparent' }
-            }
-          />
-          <div>
-            <h4>Характеристики:</h4>
-            <p>Цвет:</p>
-            <p>Материал: Натуральная кожа</p>
-            <p>Размеры: </p>
-          </div>
-          <div>
-            <h4>Функциональность:</h4>
-            <p>Купюры:</p>
-            <p>Пластиковые карты: </p>
-            <p>Монеты: </p>
-          </div>
-          <div>
-            <h4>Описание:</h4>
-            <p></p>
-          </div>
-          <div>
-            <h4>Характеристики:</h4>
-            <p>Цвет:</p>
-            <p>Материал: Натуральная кожа</p>
-            <p>Размеры: </p>
-          </div>
-          <div>
-            <h4>Функциональность:</h4>
-            <p>Купюры:</p>
-            <p>Пластиковые карты: </p>
-            <p>Монеты: </p>
-          </div>
-          <div>
-            <h4>Описание:</h4>
-            <p></p>
-          </div>
-          <div>
-            <h4>Характеристики:</h4>
-            <p>Цвет:</p>
-            <p>Материал: Натуральная кожа</p>
-            <p>Размеры: </p>
-          </div>
-          <div>
-            <h4>Функциональность:</h4>
-            <p>Купюры:</p>
-            <p>Пластиковые карты: </p>
-            <p>Монеты: </p>
-          </div>
-          <div>
-            <h4>Описание:</h4>
-            <p></p>
-          </div>
         </div>
-      </div>
-      <div>
-        <h4>Характеристики:</h4>
-        <p>Цвет:</p>
-        <p>Материал: Натуральная кожа</p>
-        <p>Размеры: </p>
-      </div>
-      <div>
-        <h4>Функциональность:</h4>
-        <p>Купюры:</p>
-        <p>Пластиковые карты: </p>
-        <p>Монеты: </p>
-      </div>
-      <div>
-        <h4>Описание:</h4>
-        <p></p>
+        <div className={styles['flex-row']}>
+          <p
+            className={styles.spacing}
+            onClick={() => {
+              console.log(isCheckedEmbossing);
+            }}
+          >
+            Добавить подарочную коробочку
+          </p>
+          <Checkbox isChecked={isCheckedGiftBox} name="embossing" onChange={handleAddGiftBox} />
+        </div>
+        <div className={styles['flex-row']}>
+          <p
+            className={styles.spacing}
+            onClick={() => {
+              console.log(cartProducts, isInCart);
+            }}
+          >
+            Добавить инициалы
+          </p>
+          {
+            //todo checkbox инициалы
+          }
+          <Checkbox isChecked={isCheckedEmbossing} name="embossing" onChange={handleAddEmbossing} />
+        </div>
+        <Input
+          placeholder={'Добавьте свои инициалы'}
+          isDisable={!isCheckedEmbossing}
+          value={embossingValue}
+          onChange={handleChangeEmbossingInput}
+        />
+        <p className={styles.price}>{currentPrice + ' gel'}</p>
+        <Button
+          className="full-width"
+          content={isInCart ? 'Remove from Cart' : 'Add To Cart'}
+          onClick={isInCart ? handleRemoveProductFromCart : handleAddProductToCart}
+          customStyles={
+            isInCart
+              ? { color: '#363636', background: '#fff', border: '1px solid #a7a7a7' }
+              : { border: '1px solid transparent' }
+          }
+        />
+        <div>
+          <h4>Характеристики:</h4>
+          <p>Цвет:</p>
+          <p>Материал: Натуральная кожа</p>
+          <p>Размеры: </p>
+        </div>
+        <div>
+          <h4>Функциональность:</h4>
+          <p>Купюры:</p>
+          <p>Пластиковые карты: </p>
+          <p>Монеты: </p>
+        </div>
+        <div>
+          <h4>Описание:</h4>
+          <p></p>
+        </div>
+        <div>
+          <h4>Характеристики:</h4>
+          <p>Цвет:</p>
+          <p>Материал: Натуральная кожа</p>
+          <p>Размеры: </p>
+        </div>
+        <div>
+          <h4>Функциональность:</h4>
+          <p>Купюры:</p>
+          <p>Пластиковые карты: </p>
+          <p>Монеты: </p>
+        </div>
+        <div>
+          <h4>Описание:</h4>
+          <p></p>
+        </div>
+        <div>
+          <h4>Характеристики:</h4>
+          <p>Цвет:</p>
+          <p>Материал: Натуральная кожа</p>
+          <p>Размеры: </p>
+        </div>
+        <div>
+          <h4>Функциональность:</h4>
+          <p>Купюры:</p>
+          <p>Пластиковые карты: </p>
+          <p>Монеты: </p>
+        </div>
+        <div>
+          <h4>Описание:</h4>
+          <p></p>
+        </div>
       </div>
     </div>
   );

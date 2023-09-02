@@ -14,6 +14,7 @@
   grid-template-columns: 1fr;
   grid-template-rows:repeat(2);
   grid-column-gap: 20px;
+  margin: 10px 0 10px 0;
   }
 
 .image-wrapper{
@@ -33,7 +34,7 @@
     aspect-ratio: 1 / 1;
   }
   @include for-phone{
-    width:calc(100vw - 50px);
+    width:calc(100vw - 30px);
     aspect-ratio: 1 / 1;
     position: relative;
     top: 0;
@@ -42,6 +43,7 @@
 .swiper-wrapper{
   position: sticky;
   top: 30px;
+  width:100%;
 }
 /*.image-wrapper img{
   width: 100%;
@@ -58,12 +60,9 @@ gap: .3rem;
   font-size: 1.1em;
   letter-spacing: .2em;
   line-height: 35px;
-    @include for-tablet{
-      line-height: 35px;
-    }
-    @include for-phone{
+
+  @include for-phone{
       letter-spacing: 0.05em;
-      line-height: 25px;
     }
 }
 .price{
@@ -77,11 +76,11 @@ gap: .3rem;
 
     @include for-tablet{
       //flex-direction: column;
-      gap: .5rem;
+      gap: 1rem;
     }
     @include for-phone{
       //flex-direction: column;
-      gap: .5rem;
+      gap: 1rem;
     }
   }
   .title{
