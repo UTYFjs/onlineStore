@@ -28,28 +28,8 @@ export interface IDataProduct {
 }
 
 export const dataProducts: Array<IDataProduct> = [
-  /*{
-    id: nanoid(),
-    title: 'Ремень "Винтаж"',
-    images: ['./assets/img/jpg/belt_red_vintage.jpg'],
-    category: 'belt',
-    color: 'red',
-    price: 130,
-    stock: 2,
-        description: {
-      ru: '',
-      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
-    },
-    countSales: 0,
-      productionTime: '3',
-    bestseller: false,
-    freeShipping: false,
-    manufacturer: 'alPaco',
-    year: 2021,
-    countInCart: 0,
-  },*/
   {
-    id: nanoid(),
+    id: 'RCOKv6r_F4MhE3faMdqE2',
     title: 'Сумка "Child"',
     thumbnail: {
       primary: './assets/img/webp/bag-tote-child-orange-small.webp',
@@ -79,7 +59,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'Aj7xP6Ep6qOmx66TuZw7-',
     title: 'Сумка Тоут',
     thumbnail: {
       primary: './assets/img/webp/bag-tote-orange.webp',
@@ -109,7 +89,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'lDMZhm4P8Al9hSWfHC9R4',
     title: 'Сумка Кроссбоди',
     thumbnail: {
       primary: './assets/img/webp/bag-crossbody-saf-orange.webp',
@@ -142,7 +122,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'fPJ2O5FydK0PSfbjA992W',
     title: 'Подарочный набор',
     thumbnail: {
       primary: './assets/img/webp/gift-set-belt-dockholder-black.webp',
@@ -172,9 +152,8 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
     cardCapacity: 3,
   },
-
   {
-    id: nanoid(),
+    id: '1FjLyOiNpGxkQhi2QNcuI',
     title: 'Ремень "Fireman"',
     thumbnail: {
       primary: './assets/img/webp/belt-fireman-black.webp',
@@ -209,7 +188,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'Qcw-b6GFX8Zd_IFDZy_tr',
     title: 'Деревянный блокнот',
     thumbnail: {
       primary: './assets/img/webp/notebook-wooden.webp',
@@ -257,7 +236,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'g9SrDK8GoPtbQ7Yh-3Stv',
     title: 'Деревянный блокнот',
     thumbnail: {
       primary: './assets/img/webp/notebook-wooden-lion.webp',
@@ -296,7 +275,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'Aidg-61OdenzXI1Yen9sT',
     title: 'Деревянный блокнот',
     thumbnail: {
       primary: './assets/img/webp/notebook-wooden-future.webp',
@@ -333,7 +312,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'YIJaBQD8e9iGdyl3kZbdY',
     title: 'Ремень "Missouri"',
     thumbnail: {
       primary: './assets/img/webp/belt-missouri-black.webp',
@@ -364,7 +343,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'Fctqn-qnwywLMuP1-hCrN',
     title: 'Ремень "Missouri"',
     thumbnail: {
       primary: './assets/img/webp/belt-missouri-burgundy.webp',
@@ -397,7 +376,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: '9mCCRsOJ3mJuHr1-65WT9',
     title: 'Ремень "Missouri"',
     thumbnail: {
       primary: './assets/img/webp/belt-missouri-lite-brown.webp',
@@ -428,7 +407,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: '_h0nHb458j6yPIOP0Flv8',
     title: 'Ремень "Gold"',
     thumbnail: {
       primary: './assets/img/webp/belt-gold.webp',
@@ -453,7 +432,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'JW78JmMNP1-hkBM7xro3Z',
     title: 'Ремень "OnlyBlack"',
     thumbnail: {
       primary: './assets/img/webp/belt-only-black.webp',
@@ -488,7 +467,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'tMG5JEGjUsM-SuFdWGn43',
     title: 'Ремень "Гранат"',
     thumbnail: {
       primary: './assets/img/webp/belt-pomegranate.webp',
@@ -523,7 +502,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'lawUczvJdq2TDHIYxS0qS',
     title: 'Ремень "Винтаж"',
     thumbnail: {
       primary: './assets/img/webp/belt-vintage-orange.webp',
@@ -548,7 +527,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: '33X2K0uEBleTnT_f05654',
     title: 'Ремень "Кровавая Мэри"',
     thumbnail: {
       primary: './assets/img/webp/belt-bloody-mary.webp',
@@ -582,9 +561,8 @@ export const dataProducts: Array<IDataProduct> = [
     year: 2021,
     countInCart: 0,
   },
-
   {
-    id: nanoid(),
+    id: 'NJzQHy7B1VccddmXJ6Hya',
     title: 'Кошелек с застежкой',
     thumbnail: {
       primary: './assets/img/webp/wallet-M3x-barton-black.webp',
@@ -621,7 +599,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'yes',
   },
   {
-    id: nanoid(),
+    id: 'mH9nhv8Vy_3Mr9j-736HA',
     title: 'Кошелек Crazy',
     thumbnail: {
       primary: './assets/img/webp/wallet-M3x-crazy-brown.webp',
@@ -658,9 +636,8 @@ export const dataProducts: Array<IDataProduct> = [
     strap: 'no',
     bifold: 'yes',
   },
-
   {
-    id: nanoid(),
+    id: 'mFN1bhdlpNRu74URj2ER-',
     title: 'Кошелек',
     thumbnail: {
       primary: './assets/img/webp/wallet-M3-vegcamel-orange.webp',
@@ -698,7 +675,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'yes',
   },
   {
-    id: nanoid(),
+    id: 'rGYZ7kWqGHqobsJYZVP-T',
     title: 'Мини-кошелек "Бизон"',
     thumbnail: {
       primary: './assets/img/webp/cardholder-D-bison.webp',
@@ -735,7 +712,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'yes',
   },
   {
-    id: nanoid(),
+    id: 'oFJZIB3QIWT9JF-sjXAcJ',
     title: 'Кошелек для карт',
     thumbnail: {
       primary: './assets/img/webp/wallet-4v-barton-black.webp',
@@ -773,7 +750,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'yes',
   },
   {
-    id: nanoid(),
+    id: 'T7O2-XBVTzkNfxhamLHRG',
     title: 'Кошелек для карт',
     thumbnail: {
       primary: './assets/img/webp/wallets-4h-crazy-brown.webp',
@@ -808,7 +785,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'yes',
   },
   {
-    id: nanoid(),
+    id: 'ySJEYbxCr5mJbRBfyaZHH',
     title: 'Кошелек для карт',
     thumbnail: {
       primary: './assets/img/webp/wallets-4h-uft-orange.webp',
@@ -844,7 +821,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'yes',
   },
   {
-    id: nanoid(),
+    id: 'TyjfkxaEuRk12dKCgvCwi',
     title: 'Ремень "Violet"',
     thumbnail: {
       primary: './assets/img/webp/belt-violet.webp',
@@ -874,7 +851,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'otw1_0gAh1F1gmI5QqpY6',
     title: 'Картхолдер',
     thumbnail: {
       primary: './assets/img/webp/cardholder-A-black.webp',
@@ -909,7 +886,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'no',
   },
   {
-    id: nanoid(),
+    id: 'r-OIWugqZHbQdr4Q1386G',
     title: 'Картхолдер',
     thumbnail: {
       primary: './assets/img/webp/cardholder-A-brown.webp',
@@ -944,7 +921,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'no',
   },
   {
-    id: nanoid(),
+    id: 'UpkG6BZKKM0gufSSrwFvS',
     title: 'Картхолдер сет (4 шт)',
     thumbnail: {
       primary: './assets/img/webp/cardhalder-mix.webp',
@@ -976,7 +953,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'no',
   },
   {
-    id: nanoid(),
+    id: 'xu40mXkDG_p2aF2gK3aMc',
     title: 'Докхолдер',
     thumbnail: {
       primary: './assets/img/webp/dockholder-mix-color.webp',
@@ -1015,7 +992,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'yes',
   },
   {
-    id: nanoid(),
+    id: 'mRiRbdII8Xe1pIKSdB4zA',
     title: 'Зажим с монетницей',
     thumbnail: {
       primary: './assets/img/webp/wallet-ZM4+2x-crazy-brown.webp',
@@ -1054,9 +1031,8 @@ export const dataProducts: Array<IDataProduct> = [
     strap: 'no',
     bifold: 'yes',
   },
-
   {
-    id: nanoid(),
+    id: 'MDnaIN8kj5HFQtBo6d4s5',
     title: 'Обложка на паспорт',
     thumbnail: {
       primary: './assets/img/webp/passport-cover-assorti.webp',
@@ -1072,7 +1048,6 @@ export const dataProducts: Array<IDataProduct> = [
       './assets/img/jpg/passport-cover-assorti-6.jpg',
       './assets/img/jpg/passport-cover-assorti-7.jpg',
     ],
-
     category: 'forDocument',
     color: 'mix',
     price: 50,
@@ -1091,7 +1066,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'W3Jx6WLV7ujYpwE72_WGY',
     title: 'Обложка на паспорт',
     thumbnail: {
       primary: './assets/img/webp/passport-cover-wood.webp',
@@ -1116,7 +1091,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: '3i-ZHqHA6nzLiwyfVKCmZ',
     title: 'Монетница',
     thumbnail: {
       primary: './assets/img/webp/coin-box-red.webp',
@@ -1148,7 +1123,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'no',
   },
   {
-    id: nanoid(),
+    id: 'kuKzhskq4lPm0D3OIKqru',
     title: 'Докхолдер "Бизон"',
     thumbnail: {
       primary: './assets/img/webp/docholder-bison.webp',
@@ -1180,7 +1155,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'yes',
   },
   {
-    id: nanoid(),
+    id: '5kDeBNeGsiULPT6cFumDj',
     title: 'Кошелек с монетницей',
     thumbnail: {
       primary: './assets/img/webp/wallet-brown1.webp',
@@ -1212,7 +1187,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'yes',
   },
   {
-    id: nanoid(),
+    id: 'pYkaUNOrDxEWqhnVBgKWm',
     title: 'Ремень "Бизон"',
     thumbnail: {
       primary: './assets/img/webp/belt-bizon-black.webp',
@@ -1237,7 +1212,7 @@ export const dataProducts: Array<IDataProduct> = [
     countInCart: 0,
   },
   {
-    id: nanoid(),
+    id: 'Wpg02D4xnxWy-Y6wz4J65',
     title: 'Кошелек',
     thumbnail: {
       primary: './assets/img/webp/wallet-brown.webp',
@@ -1269,7 +1244,7 @@ export const dataProducts: Array<IDataProduct> = [
     bifold: 'yes',
   },
   {
-    id: nanoid(),
+    id: 'CGqrMkQG3cjN4F8nju075',
     title: 'Деревянный блокнот (4 шт)',
     thumbnail: {
       primary: './assets/img/webp/notebook-mix.webp',

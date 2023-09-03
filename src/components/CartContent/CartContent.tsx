@@ -14,6 +14,8 @@ export default function CartContent({ setResultPrice }: ICartProps) {
       return prev + item.price * item.count;
     }, 0);
     if (setResultPrice) setResultPrice(resultPrice + ' ' + cartProducts[0].priceCurrency);
+  } else {
+    if (setResultPrice) setResultPrice('');
   }
 
   return (
