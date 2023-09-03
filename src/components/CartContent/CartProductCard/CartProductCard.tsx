@@ -4,6 +4,7 @@ import { ICartProduct, useCartStore, useZustandStore } from '../../../store/zust
 import ImgLazy from '../../ImgLazy/ImgLazy';
 import CloseIcon from '@mui/icons-material/Close';
 import { useNavigate } from 'react-router-dom';
+import { ruColors } from '../../../data/data';
 
 interface ICartProductCardProps {
   data: ICartProduct;
@@ -53,9 +54,11 @@ export default function CartProductCard({ data }: ICartProductCardProps) {
           {' '}
           <b>{data.cartProduct.title}</b>{' '}
         </p>
-        <p> Цвет: {data.color}</p>
+        <p> Цвет: {ruColors[data.color as keyof typeof ruColors] || ''}</p>
         <p>Подарочная Коробочка: {data.isGiftBox ? 'ДА' : 'НЕТ'}</p>
-        <p>Персонализация: {data.embossing}</p>
+        <p>
+          Персонализация: <b>{data.embossing?.toUpperCase()}</b>
+        </p>
       </div>
       <div className={styles['result-wrapper']}>
         <div className={styles.remove}>

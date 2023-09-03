@@ -1,13 +1,14 @@
 import { nanoid } from 'nanoid';
 
 export const routerPagesData = [
-  { url: '/collection', content: 'Весь каталог' },
+  { url: '/collection', content: 'ВЕСЬ КАТАЛОГ' },
   { url: '/collection/wallets', content: 'Кошельки' },
   { url: '/collection/belts', content: 'Ремни' },
   { url: '/collection/bags', content: 'Сумки' },
   { url: '/collection/cardholders', content: 'Картхолдеры' },
+  { url: '/collection/notebooks', content: 'Блокноты' },
   { url: '/collection/fordocuments', content: 'Для документов' },
-  { url: '/favorites', content: 'Избранное' },
+  { url: '/favorites', content: 'ИЗБРАННОЕ' },
 ];
 
 export const upperNavHeaderData = [
@@ -23,8 +24,8 @@ export interface ISelectRule {
 
 export const sortingRules: ISelectRule[] = [
   { id: nanoid(), title: '', value: '' },
-  { id: nanoid(), title: 'Сначала Дешевые', value: 'priceAscending' },
-  { id: nanoid(), title: 'Сначала Дорогие', value: 'priceDescending' },
+  { id: nanoid(), title: 'По возрастанию цены', value: 'priceAscending' },
+  { id: nanoid(), title: 'По убыванию цены', value: 'priceDescending' },
   { id: nanoid(), title: 'По Алфавиту Я -> A', value: 'titleAscending' },
   { id: nanoid(), title: 'По Алфавиту A -> Я', value: 'titleDescending' },
   //{ id: nanoid(), title: 'BestSelling', value: 'bestselling' },
@@ -183,3 +184,18 @@ export const defaultSelectedFilters = {
   strap: [],
   bifold: [],
 };
+
+export const ruColors = {
+  black: 'Черный',
+  orange: 'Рыжий',
+  brown: 'Коричневый',
+  blue: 'Синий',
+  green: 'Зеленый',
+  red: 'Красный',
+  sand: 'Песочный',
+  gold: 'Золотой',
+  mix: 'Микс',
+  fucsia: 'Фуксия',
+  other: 'Другой',
+};
+// to do create enum or const with actual colors

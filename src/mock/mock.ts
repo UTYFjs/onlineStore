@@ -13,7 +13,7 @@ export const mockDataCategory = [
     textContent: 'Кошельки',
     buttonContent: 'Выбери свой кошелек',
     to: '/collection/wallets',
-    imgSrc: './assets/img/webp/bg/notebook-1080-min.webp',
+    imgSrc: './assets/img/webp/bg/wallet-M3x-crazy-brown-4.webp',
   },
   {
     id: nanoid(),
@@ -42,6 +42,20 @@ export const mockDataCategory = [
     buttonContent: 'Найди свой картхолдер',
     to: '/collection/cardholders',
     imgSrc: './assets/img/webp/bg/wallet-mini-bison.webp',
+  },
+  {
+    id: nanoid(),
+    textContent: 'Для документов',
+    buttonContent: 'Выбери обложку на паспорт',
+    to: '/collection/fordocuments',
+    imgSrc: './assets/img/webp/bg/passport-cover-assorti-1080-1.webp',
+  },
+  {
+    id: nanoid(),
+    textContent: 'Блокноты',
+    buttonContent: 'Закажи блокнот',
+    to: '/collection/notebooks',
+    imgSrc: './assets/img/webp/bg/notebook-1080-min.webp',
   },
 ];
 

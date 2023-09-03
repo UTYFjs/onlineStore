@@ -1,9 +1,34 @@
 import React from 'react';
 
 import styles from './About.module.scss';
+import Social from '../../components/Social/Social';
 
 function About() {
-  return <div className={styles['container-grid-product']}>About Page</div>;
+  return (
+    <div className={styles['container']}>
+      <h2 className={styles.title}> О сайте</h2>
+      <ul>
+        <li>
+          Сайт <b>не является интернет-магазином</b> , а представляет <b>КАТАЛОГ</b> примеров
+          изделий для изготовления на заказ. Все они уже радуют своих владельце, но всегда можно
+          изготовить что то такое же при наличии необходимого материала :)
+        </li>
+        <li>
+          Этот сайт создан с помошью TypeScript и React и с большего является учебным проектом,
+          поэтому если вы заметили какие либо недостатки в интерфейсе либо логике поведения страниц
+          - напишите пожалуйста мне и я постараюсь это исправить.
+        </li>
+        <li>
+          Так же буду очень благодарен отзывам по поводу дизайна и пользовательского интерфейса,
+          насколько он удобен/неудобен и др.
+        </li>
+        <li className={styles.contacts}>
+          <span>Мои контакты: </span> <Social />
+        </li>
+        <li> Спасибо за уделенное время! </li>
+      </ul>
+    </div>
+  );
 }
 
 export default About;

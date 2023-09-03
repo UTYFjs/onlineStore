@@ -1,12 +1,52 @@
+@use '../../styles/style.scss' as *;
 
-.container-grid-product{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5px;
+.container{
+    display:flex;
+  flex-direction: column;
+  gap:10px;
+  align-items: center;
+  min-height: 70vh;
+  padding: 20px 360px;
 }
 
 
-.img-wrapper{
-  width: 50vw;
-  min-height: 50vw;;
-}
+
+  .title{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  ul{
+    li{
+      padding: 8px 0;
+      text-indent: 10px;
+      span{
+        display: inline-block;
+      }
+      
+    }
+  }
+  .contacts{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  
+
+  }
+
+
+    @include for-tablet {
+
+    .container{
+      padding: 20px 160px;
+    }
+  }
+
+    @include for-phone {
+
+    .container{
+      padding: 10px 30px;
+    }
+  }

@@ -47,7 +47,9 @@ function Header({ setMenu }: IHeaderProps) {
           ))}
         </div>
         <div className={styles.contact}>
-          {window.innerWidth > 600 && <LocationTag color="#fff" />}
+          {
+            //window.innerWidth > 600 && <LocationTag color="#fff" />
+          }
           <Social color="#fff" />
         </div>
       </nav>

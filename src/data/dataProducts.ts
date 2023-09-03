@@ -10,7 +10,7 @@ export interface IDataProduct {
   price: number;
   discountPersentage: number;
   stock: number;
-  description: string;
+  description: { ru: string; en: string };
   countSales: number;
   productionTime: string;
   bestseller: boolean;
@@ -36,8 +36,10 @@ export const dataProducts: Array<IDataProduct> = [
     color: 'red',
     price: 130,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+        description: {
+      ru: '',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
       productionTime: '3',
     bestseller: false,
@@ -64,8 +66,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 110,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '7',
     bestseller: false,
@@ -92,8 +96,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 250,
     discountPersentage: 0,
     stock: 3,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '7',
     bestseller: false,
@@ -123,8 +129,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 350,
     discountPersentage: 0,
     stock: 3,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '7',
     bestseller: false,
@@ -151,8 +159,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 300,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '3',
     bestseller: true,
@@ -186,8 +196,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 190,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '5',
     bestseller: true,
@@ -232,8 +244,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 75,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '14',
     bestseller: true,
@@ -269,8 +283,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 75,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '14',
     bestseller: true,
@@ -304,8 +320,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 75,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '14',
     bestseller: true,
@@ -333,8 +351,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 180,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '14',
     bestseller: false,
@@ -364,8 +384,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 180,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '6',
     bestseller: false,
@@ -393,8 +415,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 180,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '5',
     bestseller: false,
@@ -416,8 +440,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 150,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '14',
     bestseller: false,
@@ -449,8 +475,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 195,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '5',
     bestseller: true,
@@ -482,8 +510,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 150,
     discountPersentage: 0,
     stock: 3,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '5',
     bestseller: true,
@@ -505,8 +535,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 130,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '12',
     bestseller: false,
@@ -538,8 +570,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 150,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '3',
     bestseller: true,
@@ -567,8 +601,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 140,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '5',
     bestseller: false,
@@ -603,8 +639,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 130,
     discountPersentage: 0,
     stock: 3,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '4',
     bestseller: false,
@@ -640,8 +678,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 130,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '5',
     bestseller: false,
@@ -675,8 +715,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 80,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '5',
     bestseller: true,
@@ -711,8 +753,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 120,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '3',
     bestseller: false,
@@ -744,8 +788,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 120,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '3',
     bestseller: false,
@@ -778,8 +824,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 130,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '3',
     bestseller: false,
@@ -813,8 +861,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 150,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '3',
     bestseller: false,
@@ -839,8 +889,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 45,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '3',
     bestseller: false,
@@ -872,8 +924,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 45,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '3',
     bestseller: false,
@@ -902,8 +956,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 150,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '4',
     bestseller: false,
@@ -939,8 +995,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 120,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '5',
     bestseller: false,
@@ -977,8 +1035,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 160,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '14',
     bestseller: false,
@@ -1018,8 +1078,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 50,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '3',
     bestseller: true,
@@ -1041,8 +1103,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 60,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '3',
     bestseller: false,
@@ -1064,8 +1128,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 60,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '3',
     bestseller: false,
@@ -1094,8 +1160,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 120,
     discountPersentage: 0,
     stock: 4,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '5',
     bestseller: true,
@@ -1124,8 +1192,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 130,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '5',
     bestseller: false,
@@ -1154,8 +1224,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 130,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '99',
     bestseller: true,
@@ -1177,8 +1249,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 130,
     discountPersentage: 0,
     stock: 2,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '7',
     bestseller: false,
@@ -1207,8 +1281,10 @@ export const dataProducts: Array<IDataProduct> = [
     price: 280,
     discountPersentage: 0,
     stock: 1,
-    description:
-      'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    description: {
+      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
+      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
+    },
     countSales: 0,
     productionTime: '14',
     bestseller: false,

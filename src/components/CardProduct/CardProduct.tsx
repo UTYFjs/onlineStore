@@ -84,7 +84,7 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
             />
           </div>
           <Button
-            content={isInCart ? 'Remove from Cart' : 'Add to cart'}
+            content={isInCart ? 'Убрать из корзины' : 'В корзину'}
             onClick={isInCart ? handleRemovedProductToCart : handleAddProductToCart}
             customStyles={
               isInCart

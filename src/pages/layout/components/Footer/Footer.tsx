@@ -9,7 +9,9 @@ function Footer() {
     <footer className={styles.footer}>
       <Divider className={styles.divider} />
       <div className={styles.contacts}>
-        <LocationTag iconSize="large" />
+        {
+          //<LocationTag iconSize="large" />
+        }
         <Social iconSize="large" />
       </div>
       <p>Genoli 2023</p>

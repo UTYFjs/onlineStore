@@ -11,6 +11,7 @@ import SliderSwiper from '../../../../components/SliderSwiper/SliderSwiper';
 import Checkbox from '../../../../components/Checkbox/Checkbox';
 import { ICartProduct, useCartStore, useFavoriteStore } from '../../../../store/zustandStore';
 import Heart from '../../../../components/Heart/Heart';
+import { ruColors } from '../../../../data/data';
 
 function ProductPage() {
   const { product: currentProductId } = useParams();
@@ -215,7 +216,7 @@ function ProductPage() {
         <p className={styles.price}>{currentPrice + ' gel'}</p>
         <Button
           className="full-width"
-          content={isInCart ? 'Remove from Cart' : 'Add To Cart'}
+          content={isInCart ? 'Убрать из корзины' : 'В корзину'}
           onClick={isInCart ? handleRemoveProductFromCart : handleAddProductToCart}
           customStyles={
             isInCart
@@ -223,52 +224,47 @@ function ProductPage() {
               : { border: '1px solid transparent' }
           }
         />
-        <div>
-          <h4>Характеристики:</h4>
-          <p>Цвет:</p>
-          <p>Материал: Натуральная кожа</p>
-          <p>Размеры: </p>
+        <div className={styles.description}>
+          <h4>
+            {' '}
+            <b>Характеристики:</b> {currentProduct.description.ru}
+          </h4>
+          <p>
+            {' '}
+            <b>Цвет:</b> {ruColors[currentProduct.color as keyof typeof ruColors] || ''}
+          </p>
+          <p>
+            {' '}
+            <b>Материал:</b> Натуральная кожа
+          </p>
+          <p>
+            {' '}
+            <b>Размеры:</b>{' '}
+          </p>
         </div>
         <div>
-          <h4>Функциональность:</h4>
-          <p>Купюры:</p>
-          <p>Пластиковые карты: </p>
-          <p>Монеты: </p>
+          <h4>
+            {' '}
+            <b>Функциональность:</b>{' '}
+          </h4>
+          <p>
+            {' '}
+            <b>Купюры:</b> {currentProduct?.cash}
+          </p>
+          <p>
+            {' '}
+            <b>Пластиковые карты:</b> {currentProduct.cardCapacity}
+          </p>
+          <p>
+            {' '}
+            <b>Монеты:</b> {currentProduct?.coinbox}
+          </p>
         </div>
         <div>
-          <h4>Описание:</h4>
-          <p></p>
-        </div>
-        <div>
-          <h4>Характеристики:</h4>
-          <p>Цвет:</p>
-          <p>Материал: Натуральная кожа</p>
-          <p>Размеры: </p>
-        </div>
-        <div>
-          <h4>Функциональность:</h4>
-          <p>Купюры:</p>
-          <p>Пластиковые карты: </p>
-          <p>Монеты: </p>
-        </div>
-        <div>
-          <h4>Описание:</h4>
-          <p></p>
-        </div>
-        <div>
-          <h4>Характеристики:</h4>
-          <p>Цвет:</p>
-          <p>Материал: Натуральная кожа</p>
-          <p>Размеры: </p>
-        </div>
-        <div>
-          <h4>Функциональность:</h4>
-          <p>Купюры:</p>
-          <p>Пластиковые карты: </p>
-          <p>Монеты: </p>
-        </div>
-        <div>
-          <h4>Описание:</h4>
+          <h4>
+            {' '}
+            <b>Описание:</b> {currentProduct.description.ru}
+          </h4>
           <p></p>
         </div>
       </div>

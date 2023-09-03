@@ -151,7 +151,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
             color: 'black',
           }}
         >
-          FILTERS
+          ФИЛЬТРЫ
         </h3>
       );
       content = (
@@ -220,7 +220,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
             color: 'black',
           }}
         >
-          Cart
+          КОРЗИНА
         </h3>
       );
       content = (
