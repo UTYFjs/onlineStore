@@ -77,7 +77,6 @@ const getInitialFavoriteProducts = (): IDataProduct[] => {
   const initialFavoriteProducts: IDataProduct[] = favoriteProductsString
     ? JSON.parse(favoriteProductsString)
     : [];
-  console.log('initialFavoriteProducts', initialFavoriteProducts);
   return initialFavoriteProducts;
 };
 
@@ -88,12 +87,10 @@ export const useFavoriteStore = create<IFavoriteStore>((set) => ({
     set((state) => ({
       favoriteProducts: [...state.favoriteProducts, product],
     }));
-    console.log('начинаем сохранять в localStorage');
-    const storedFavoriteProductsString = localStorage.getItem('favoriteProducts');
 
+    const storedFavoriteProductsString = localStorage.getItem('favoriteProducts');
     const storedFavoriteProducts: IDataProduct[] =
       storedFavoriteProductsString !== null ? JSON.parse(storedFavoriteProductsString) : [];
-    console.log('до сохранения localStorage', storedFavoriteProducts);
     storedFavoriteProducts.push(product);
     localStorage.setItem('favoriteProducts', JSON.stringify(storedFavoriteProducts));
   },
@@ -102,7 +99,7 @@ export const useFavoriteStore = create<IFavoriteStore>((set) => ({
     set((state) => ({
       favoriteProducts: state.favoriteProducts.filter((p) => p.id !== productId),
     }));
-    console.log('начинаем сохранять в localStorage');
+
     const storedFavoriteProductsString = localStorage.getItem('favoriteProducts');
     const storedFavoriteProducts: IDataProduct[] =
       storedFavoriteProductsString !== null ? JSON.parse(storedFavoriteProductsString) : [];
@@ -122,6 +119,7 @@ export interface ICartProduct {
   discount: number;
   count: number;
 }
+
 interface ICartStore {
   cartProducts: ICartProduct[];
   addCartProduct: (product: ICartProduct) => void;
@@ -129,9 +127,17 @@ interface ICartStore {
   updateCartProduct: (updatedCartProduct: ICartProduct) => void;
 }
 
+const getInitialCartProducts = (): ICartProduct[] => {
+  const favoriteProductsString = localStorage.getItem('cartProducts');
+  const initialFavoriteProducts: ICartProduct[] = favoriteProductsString
+    ? JSON.parse(favoriteProductsString)
+    : [];
+  return initialFavoriteProducts;
+};
+
 export const useCartStore = create<ICartStore>((set) => ({
-  cartProducts: [],
-  addCartProduct: (product: ICartProduct) =>
+  cartProducts: getInitialCartProducts(),
+  addCartProduct: (product: ICartProduct) => {
     set((state) => {
       const cartProduct = state.cartProducts.find(
         (item) => item.cartProduct.id === product.cartProduct.id
@@ -140,17 +146,39 @@ export const useCartStore = create<ICartStore>((set) => ({
         return { cartProducts: [...state.cartProducts, product] };
       }
       return state;
-    }),
-  removeCartProduct: (id: string) =>
+    });
+
+    const storedCartProductsString = localStorage.getItem('cartProducts');
+    const storedCartProducts: ICartProduct[] =
+      storedCartProductsString !== null ? JSON.parse(storedCartProductsString) : [];
+    storedCartProducts.push(product);
+    localStorage.setItem('cartProducts', JSON.stringify(storedCartProducts));
+  },
+  removeCartProduct: (id: string) => {
     set((state) => ({
       cartProducts: [...state.cartProducts.filter((item) => item.cartProduct.id !== id)],
-    })),
-  updateCartProduct: (updatedCartProduct: ICartProduct) =>
+    }));
+
+    const storedCartProductsString = localStorage.getItem('cartProducts');
+    const storedCartProducts: ICartProduct[] =
+      storedCartProductsString !== null ? JSON.parse(storedCartProductsString) : [];
+    const newCartProducts = storedCartProducts.filter((item) => item.cartProduct.id !== id);
+    localStorage.setItem('cartProducts', JSON.stringify(newCartProducts));
+  },
+  updateCartProduct: (updatedCartProduct: ICartProduct) => {
     set((state) => ({
       cartProducts: state.cartProducts.map((item) => {
         return item.cartProduct.id === updatedCartProduct.cartProduct.id
           ? updatedCartProduct
           : item;
       }),
-    })),
+    }));
+    const storedCartProductsString = localStorage.getItem('cartProducts');
+    const storedCartProducts: ICartProduct[] =
+      storedCartProductsString !== null ? JSON.parse(storedCartProductsString) : [];
+    const newCartProducts = storedCartProducts.map((item) => {
+      return item.cartProduct.id === updatedCartProduct.cartProduct.id ? updatedCartProduct : item;
+    });
+    localStorage.setItem('cartProducts', JSON.stringify(newCartProducts));
+  },
 }));
