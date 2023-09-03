@@ -72,19 +72,43 @@ interface IFavoriteStore {
   addProduct: (product: IDataProduct) => void;
   removeProduct: (product: string) => void;
 }
+const getInitialFavoriteProducts = (): IDataProduct[] => {
+  const favoriteProductsString = localStorage.getItem('favoriteProducts');
+  const initialFavoriteProducts: IDataProduct[] = favoriteProductsString
+    ? JSON.parse(favoriteProductsString)
+    : [];
+  console.log('initialFavoriteProducts', initialFavoriteProducts);
+  return initialFavoriteProducts;
+};
 
 export const useFavoriteStore = create<IFavoriteStore>((set) => ({
-  favoriteProducts: [],
+  favoriteProducts: getInitialFavoriteProducts(),
 
-  addProduct: (product: IDataProduct) =>
+  addProduct: (product: IDataProduct) => {
     set((state) => ({
       favoriteProducts: [...state.favoriteProducts, product],
-    })),
+    }));
+    console.log('начинаем сохранять в localStorage');
+    const storedFavoriteProductsString = localStorage.getItem('favoriteProducts');
 
-  removeProduct: (productId: string) =>
+    const storedFavoriteProducts: IDataProduct[] =
+      storedFavoriteProductsString !== null ? JSON.parse(storedFavoriteProductsString) : [];
+    console.log('до сохранения localStorage', storedFavoriteProducts);
+    storedFavoriteProducts.push(product);
+    localStorage.setItem('favoriteProducts', JSON.stringify(storedFavoriteProducts));
+  },
+
+  removeProduct: (productId: string) => {
     set((state) => ({
       favoriteProducts: state.favoriteProducts.filter((p) => p.id !== productId),
-    })),
+    }));
+    console.log('начинаем сохранять в localStorage');
+    const storedFavoriteProductsString = localStorage.getItem('favoriteProducts');
+    const storedFavoriteProducts: IDataProduct[] =
+      storedFavoriteProductsString !== null ? JSON.parse(storedFavoriteProductsString) : [];
+    const newFavoriteProducts = storedFavoriteProducts.filter((item) => item.id !== productId);
+    localStorage.setItem('favoriteProducts', JSON.stringify(newFavoriteProducts));
+  },
 }));
 
 export interface ICartProduct {
