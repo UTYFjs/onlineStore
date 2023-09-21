@@ -22,10 +22,10 @@ function Accordion({ title, customStyles, children = null }: IAccordionProps) {
           setIsActive(!isActive);
         }}
       >
-        <p className={styles.title} style={{ ...customStyles, fontWeight: 500, fontSize: '1.2em' }}>
+        <p className={styles.title} style={{ ...customStyles }}>
           {title}
         </p>
-        <ExpandMoreIcon className={styles['icon']} style={customStyles} />
+        <ExpandMoreIcon className={styles['icon']} fontSize={'large'} />
       </div>
       <div className={classActive}> {children}</div>
     </div>

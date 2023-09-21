@@ -3,9 +3,10 @@ enum Category {
   BAG = 'bag',
   WALLET = 'wallet',
   BELT = 'belt',
-  COINBOX = 'coinbox',
+  COINBOX = 'coinBox',
   CARDHOLDER = 'cardholder',
   NOTEBOOK = 'notebook',
+  FORDOCUMENT = 'forDocument',
 }
 
 enum Color {

@@ -12,6 +12,8 @@ import Checkbox from '../../../../components/Checkbox/Checkbox';
 import { ICartProduct, useCartStore, useFavoriteStore } from '../../../../store/zustandStore';
 import Heart from '../../../../components/Heart/Heart';
 import { ruColors } from '../../../../data/data';
+import Accordion from '../../../../components/Accordeon/Accordion';
+import { nanoid } from 'nanoid';
 
 function ProductPage() {
   const { product: currentProductId } = useParams();
@@ -225,48 +227,67 @@ function ProductPage() {
           }
         />
         <div className={styles.description}>
-          <h4>
-            {' '}
-            <b>Характеристики:</b> {currentProduct.description.ru}
-          </h4>
-          <p>
+          <Accordion title="Описание" customStyles={{ fontSize: '1.4rem', fontWeight: 'bold' }}>
+            <>
+              {Array.isArray(currentProduct.description.ru) &&
+                currentProduct.description.ru.map((item) => (
+                  <p className={styles['description-text']} key={nanoid()}>
+                    {item}
+                  </p>
+                ))}
+              {typeof currentProduct.description.ru === 'string' && currentProduct.description.ru}
+            </>
+          </Accordion>
+
+          {currentProduct.category === 'notebook' && (
+            <p className={styles['description-characteristics']}>
+              {' '}
+              <b>Формат листов:</b> А5
+            </p>
+          )}
+          <p className={styles['description-characteristics']}>
             {' '}
             <b>Цвет:</b> {ruColors[currentProduct.color as keyof typeof ruColors] || ''}
           </p>
-          <p>
+          <p className={styles['description-characteristics']}>
             {' '}
             <b>Материал:</b> Натуральная кожа
           </p>
-          <p>
-            {' '}
-            <b>Размеры:</b>{' '}
-          </p>
+          {currentProduct.category !== 'belt' && (
+            <p className={styles['description-characteristics']}>
+              <b>Размеры:</b>{' '}
+            </p>
+          )}
+          {currentProduct.category === 'belt' && (
+            <>
+              <p className={styles['description-characteristics']}>
+                <b>Ширина:</b> 40 мм
+              </p>
+              <p className={styles['description-characteristics']}>
+                <b>Толщина кожи:</b> 3,5-4,2 мм
+              </p>
+            </>
+          )}
         </div>
-        <div>
-          <h4>
-            {' '}
-            <b>Функциональность:</b>{' '}
-          </h4>
-          <p>
-            {' '}
-            <b>Купюры:</b> {currentProduct?.cash}
-          </p>
-          <p>
-            {' '}
-            <b>Пластиковые карты:</b> {currentProduct.cardCapacity}
-          </p>
-          <p>
-            {' '}
-            <b>Монеты:</b> {currentProduct?.coinbox}
-          </p>
-        </div>
-        <div>
-          <h4>
-            {' '}
-            <b>Описание:</b> {currentProduct.description.ru}
-          </h4>
-          <p></p>
-        </div>
+        {(currentProduct.category === 'wallet' || currentProduct.category === 'cardholder') && (
+          <div className={styles.description}>
+            <h4 className={styles['description-title']}>
+              <b>Функциональность:</b>{' '}
+            </h4>
+            <p className={styles['description-characteristics']}>
+              {' '}
+              <b>Купюры:</b> {currentProduct?.cash}
+            </p>
+            <p className={styles['description-characteristics']}>
+              {' '}
+              <b>Карты:</b> {currentProduct.cardCapacity}
+            </p>
+            <p className={styles['description-characteristics']}>
+              {' '}
+              <b>Монеты:</b> {currentProduct?.coinbox}
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

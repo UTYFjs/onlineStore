@@ -18,11 +18,14 @@
   align-self: baseline;
   justify-content: baseline;
   min-width: 220px;
+  max-width: 500px;
   cursor: pointer;
 }
 .title{
     margin-block-start: .2em;
     margin-block-end: .2em;
+    font-size: 1.2em;
+    font-weight: 500;
 }
 .icon{
 

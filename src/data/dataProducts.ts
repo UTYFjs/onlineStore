@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import { description } from './data';
 
 export interface IDataProduct {
   id: string;
@@ -10,7 +11,7 @@ export interface IDataProduct {
   price: number;
   discountPersentage: number;
   stock: number;
-  description: { ru: string; en: string };
+  description: { ru: string | Array<string>; en: string | Array<string> };
   countSales: number;
   productionTime: string;
   bestseller: boolean;
@@ -175,10 +176,7 @@ export const dataProducts: Array<IDataProduct> = [
     price: 190,
     discountPersentage: 0,
     stock: 2,
-    description: {
-      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
-      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
-    },
+    description: description.belt,
     countSales: 0,
     productionTime: '5',
     bestseller: true,
@@ -223,10 +221,7 @@ export const dataProducts: Array<IDataProduct> = [
     price: 75,
     discountPersentage: 0,
     stock: 2,
-    description: {
-      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
-      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
-    },
+    description: description.woodenNotebook,
     countSales: 0,
     productionTime: '14',
     bestseller: true,
@@ -262,10 +257,7 @@ export const dataProducts: Array<IDataProduct> = [
     price: 75,
     discountPersentage: 0,
     stock: 2,
-    description: {
-      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
-      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
-    },
+    description: description.woodenNotebook,
     countSales: 0,
     productionTime: '14',
     bestseller: true,
@@ -299,10 +291,7 @@ export const dataProducts: Array<IDataProduct> = [
     price: 75,
     discountPersentage: 0,
     stock: 2,
-    description: {
-      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
-      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
-    },
+    description: description.woodenNotebook,
     countSales: 0,
     productionTime: '14',
     bestseller: true,
@@ -579,10 +568,7 @@ export const dataProducts: Array<IDataProduct> = [
     price: 140,
     discountPersentage: 0,
     stock: 1,
-    description: {
-      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
-      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
-    },
+    description: description.walletM3x,
     countSales: 0,
     productionTime: '5',
     bestseller: false,
@@ -617,10 +603,7 @@ export const dataProducts: Array<IDataProduct> = [
     price: 130,
     discountPersentage: 0,
     stock: 3,
-    description: {
-      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
-      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
-    },
+    description: description.walletM3x,
     countSales: 0,
     productionTime: '4',
     bestseller: false,
@@ -655,10 +638,7 @@ export const dataProducts: Array<IDataProduct> = [
     price: 130,
     discountPersentage: 0,
     stock: 1,
-    description: {
-      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
-      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
-    },
+    description: description.walletM3x,
     countSales: 0,
     productionTime: '5',
     bestseller: false,
@@ -1256,10 +1236,7 @@ export const dataProducts: Array<IDataProduct> = [
     price: 280,
     discountPersentage: 0,
     stock: 1,
-    description: {
-      ru: 'Здесь должно быть описание товара со всеми его преимуществами и особенностями ',
-      en: 'Red vintage belt. Natural leather, strong furniture. Leather thickness - 4-4.2 mm',
-    },
+    description: description.woodenNotebook,
     countSales: 0,
     productionTime: '14',
     bestseller: false,
