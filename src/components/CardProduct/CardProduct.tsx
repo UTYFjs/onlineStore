@@ -49,7 +49,7 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
       count: 1,
       // to do remove || 1000
       price: data.price,
-      priceCurrency: 'GEL',
+      priceCurrency: 'BYN',
       discount: 0,
       isGiftBox: false,
       isEmbossing: false,
@@ -70,7 +70,7 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
             <Heart onClick={handleToggleFavorite} isActive={isFavorite} isTransparentHover={true} />
           </div>
           <h4 className={styles['card-title']}>{title}</h4>
-          <p className={styles['card-price']}>{price + ' gel'}</p>
+          <p className={styles['card-price']}>{price + ' byn'}</p>
         </div>
 
         <div className={styles['fake-nav']} onClick={(e) => e.stopPropagation()}>
@@ -100,7 +100,7 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
         <Heart onClick={handleToggleFavorite} isActive={isFavorite} />
       </div>
       <h4 className={styles['card-title']}>{title}</h4>
-      <p className={styles['card-price']}>{price + ' gel'}</p>
+      <p className={styles['card-price']}>{price + ' byn'}</p>
     </div>
   );
 }

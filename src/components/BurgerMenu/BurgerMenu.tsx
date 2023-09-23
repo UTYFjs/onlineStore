@@ -31,7 +31,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
     type === 'cart' ? styles.right : '',
     isBurgerOpen && styles.active
   );
-
+  console.log('nanoid', nanoid());
   const classesBurgerTitle = cn(styles['burger-title'], type === 'cart' ? styles.right : '');
 
   /*const Typography = styled('a')(({ theme }) => ({

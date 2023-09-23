@@ -66,7 +66,7 @@ function ProductPage() {
     count: 1,
     // to do remove || 1000
     price: currentPrice || currentProduct.price,
-    priceCurrency: 'GEL',
+    priceCurrency: 'BYN',
     discount: 0,
     isGiftBox: isCheckedGiftBox,
     isEmbossing: isCheckedEmbossing,
@@ -215,7 +215,7 @@ function ProductPage() {
           value={embossingValue}
           onChange={handleChangeEmbossingInput}
         />
-        <p className={styles.price}>{currentPrice + ' gel'}</p>
+        <p className={styles.price}>{currentPrice + ' byn'}</p>
         <Button
           className="full-width"
           content={isInCart ? 'Убрать из корзины' : 'В корзину'}
