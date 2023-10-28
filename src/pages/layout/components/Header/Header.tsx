@@ -92,20 +92,23 @@ function Header({ setMenu }: IHeaderProps) {
             //<SearchBarCustom />
           }
         </div>
+        <div className={styles.title}>
+          <Typography
+            className={classLogo}
+            component={Link}
+            href={'/'}
+            underline={'none'}
+            sx={{
+              fontSize: { xs: '24px', sm: '38px', md: '38px', lg: '48px' },
+              fontWeight: 600,
+              color: 'black',
+            }}
+          >
+            @SUGAKOVGENNADII
+          </Typography>
+          <h3 className={styles.title_h3}>Каталог изделий из натуральной кожи</h3>
+        </div>
 
-        <Typography
-          className={classLogo}
-          component={Link}
-          href={'/'}
-          underline={'none'}
-          sx={{
-            fontSize: { xs: '33px', sm: '38px', md: '38px', lg: '48px' },
-            fontWeight: 600,
-            color: 'black',
-          }}
-        >
-          GENOLI
-        </Typography>
         <Box className={styles.icons}>
           <FavoriteIcon
             className={styles.favorite}

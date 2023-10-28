@@ -11,6 +11,7 @@ import Button from '../Button/Button';
 import ImgLazy from '../ImgLazy/ImgLazy';
 import styles from './CardProduct.module.scss';
 import Heart from '../Heart/Heart';
+import Marker from '../Marker/Marker';
 
 interface ICardProductProps {
   data: IDataProduct;
@@ -98,6 +99,7 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
       <div className={styles['img-wrapper']} onClick={handleToProductPage}>
         <ImgLazy src={thumbnailSrc} alt={title} />
         <Heart onClick={handleToggleFavorite} isActive={isFavorite} />
+        {data.stock > 0 && <Marker />}
       </div>
       <h4 className={styles['card-title']}>{title}</h4>
       <p className={styles['card-price']}>{price + ' byn'}</p>

@@ -1,0 +1,15 @@
+@use '../../styles/style.scss' as *;
+.marker{
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  width:fit-content;
+  height: 1.4rem;
+  //background-color: #e3001c;
+  background-color: #ffb533;
+  color: $grey-black-90;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 3px;
+
+}

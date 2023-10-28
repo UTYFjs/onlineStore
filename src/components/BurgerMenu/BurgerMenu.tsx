@@ -239,7 +239,7 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
                 </div>
               </div>
             )}
-            <Button content={'Заказать'} customStyles={{ width: '100%' }} />
+            <Button content={'Не является интернет-магазином'} customStyles={{ width: '100%' }} />
           </div>
         </div>
       );

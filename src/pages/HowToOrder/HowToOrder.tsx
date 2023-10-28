@@ -6,7 +6,7 @@ function HowToOrder() {
     <div className={styles['how-to']}>
       <h2 className={styles.title}> Часто задаваемые вопросы</h2>
       <Accordion title="Как заказать?">
-        <p> Напишите нам</p>
+        <p> </p>
       </Accordion>
       <Accordion title="Как оплатить? и когда?">
         <p>
@@ -24,10 +24,11 @@ function HowToOrder() {
         </p>
       </Accordion>
       <Accordion title="Как с вами связаться для оформления заказа?">
-        <p>
+        <p></p>
+        {/*<p>
           Для оформления заказа вы можете связаться с нами в instagram либо одном из мессенджером
           (telegram/whatsApp){' '}
-        </p>
+        </p>*/}
       </Accordion>
       <Accordion title="Могу ли я заказать полностью индивидуальное изделие?">
         <p>

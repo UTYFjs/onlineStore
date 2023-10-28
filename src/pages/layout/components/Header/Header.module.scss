@@ -132,3 +132,16 @@ background-color: $color-burgundy;
    
   }
 }
+.title{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+ 
+    @include for-phone {
+    font-size: 13px;
+  }
+
+  .title_h3{
+    font-weight: 600;
+  }
+}
