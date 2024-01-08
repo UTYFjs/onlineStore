@@ -118,12 +118,12 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
           href={'/'}
           underline={'none'}
           sx={{
-            fontSize: '2rem',
+            fontSize: '1rem',
             fontWeight: 600,
             color: 'black',
           }}
         >
-          GENOLI
+          @SUGAKOVGENNADII
         </Typography>
       );
       content = (

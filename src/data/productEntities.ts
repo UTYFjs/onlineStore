@@ -1,5 +1,5 @@
 // working variant
-enum Category {
+export enum Category {
   BAG = 'bag',
   WALLET = 'wallet',
   BELT = 'belt',
@@ -7,6 +7,7 @@ enum Category {
   CARDHOLDER = 'cardholder',
   NOTEBOOK = 'notebook',
   FORDOCUMENT = 'forDocument',
+  PHOTOALBUM = 'photoAlbum',
 }
 
 enum Color {

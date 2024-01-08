@@ -14,7 +14,7 @@ function Footer() {
         }
         <Social iconSize="large" />
       </div>
-      <p>Genoli 2023</p>
+      <p>SUGAKOVGENNADII 2023</p>
     </footer>
   );
 }

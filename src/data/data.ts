@@ -4,10 +4,11 @@ export const routerPagesData = [
   { url: '/collection', content: 'ВЕСЬ КАТАЛОГ' },
   { url: '/collection/wallets', content: 'Кошельки' },
   { url: '/collection/belts', content: 'Ремни' },
-  { url: '/collection/bags', content: 'Сумки' },
   { url: '/collection/cardholders', content: 'Картхолдеры' },
-  { url: '/collection/notebooks', content: 'Блокноты' },
   { url: '/collection/fordocuments', content: 'Для документов' },
+  { url: '/collection/bags', content: 'Сумки' },
+  { url: '/collection/notebooks', content: 'Блокноты' },
+
   { url: '/favorites', content: 'ИЗБРАННОЕ' },
 ];
 
