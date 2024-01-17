@@ -4,7 +4,7 @@ import Button from '../../../components/Button/Button';
 import FiltersMenu from '../../../components/FiltersMenu/FiltersMenu';
 import ListProducts from '../../../components/ListProducts/ListProducts';
 import Select from '../../../components/Select/Select';
-import { sortingRules } from '../../../data/data';
+import { routerPagesData, sortingRules } from '../../../data/data';
 import { dataProducts } from '../../../data/dataProducts';
 import { useUtilityStore, useZustandStore } from '../../../store/zustandStore';
 import { getProducts } from '../../../utility/getProducts';
@@ -39,7 +39,10 @@ function SelectProducts() {
   return (
     <div>
       <FiltersMenu />
-      <h3 className={styles.title}>Hello World</h3>
+      <h3 className={styles.title}>
+        {' '}
+        {routerPagesData.find((item) => item.url === '/collection/' + currentCategory)?.content}
+      </h3>
       <ListProducts
         customProducts={products}
         deepPath={'./.'}

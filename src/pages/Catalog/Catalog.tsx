@@ -8,7 +8,7 @@ function Catalog() {
   return (
     <div>
       <FiltersMenu />
-      <h3 className={styles.title}>Hello World</h3>
+      <h3 className={styles.title}>ВЕСЬ КАТАЛОГ</h3>
       <ListProducts deepPath={'./.'} notFoundText={notFoundText.notFoundProducts.ru} />
     </div>
   );

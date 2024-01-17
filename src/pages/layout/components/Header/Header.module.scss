@@ -201,10 +201,15 @@ background-color: $color-burgundy;
   text-align: center;
  
     @include for-phone {
-    font-size: 13px;
+    font-size: 0.8rem;
   }
 
-  .title_h3{
+  .title_h2{
+    font-size: 1rem;
     font-weight: 600;
+    
+        @include for-phone {
+    font-size: 0.8rem;
+  }
   }
 }

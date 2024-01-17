@@ -117,7 +117,7 @@ function Header({ setMenu }: IHeaderProps) {
           >
             @SUGAKOVGENNADII
           </Typography>
-          <h3 className={styles.title_h3}>Каталог изделий из натуральной кожи</h3>
+          <h2 className={styles.title_h2}>Каталог изделий из натуральной кожи</h2>
         </div>
 
         <Box className={styles.icons}>
