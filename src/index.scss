@@ -9,7 +9,9 @@ $color-burgundy: #682d2d;
 *{
   box-sizing: border-box;
 }
-
+html{
+  scrollbar-gutter: stable;
+}
 h1{
   text-align: center;
   font-size: 2rem;
@@ -24,10 +26,6 @@ body {
 }
 .lock { 
   overflow: hidden;
-  margin-right: 17px;
-
-  //
- scrollbar-gutter: stable both-edges;
 }
 
 code {
