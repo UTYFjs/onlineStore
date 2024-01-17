@@ -42,7 +42,7 @@ function FiltersMenu() {
                   border: '1px solid #a7a7a7',
                 }
           }
-        ></Button>
+        />
         <BubbleFilterList />
       </div>
 

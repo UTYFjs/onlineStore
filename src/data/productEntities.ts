@@ -1,13 +1,20 @@
 // working variant
 export enum Category {
-  BAG = 'bag',
   WALLET = 'wallet',
   BELT = 'belt',
-  COINBOX = 'coinBox',
   CARDHOLDER = 'cardholder',
-  NOTEBOOK = 'notebook',
   FORDOCUMENT = 'forDocument',
+  BAG = 'bag',
+  NOTEBOOK = 'notebook',
+
+  COINBOX = 'coinBox',
+  KEYCHAIN = 'keyChain',
+  LONGER = 'longer',
+  GLASSESCASE = 'glacesCase',
   PHOTOALBUM = 'photoAlbum',
+  BACKPACK = 'backPack',
+  BRACELETE = 'bracelete',
+  GIFTBOX = 'giftBox',
 }
 
 enum Color {

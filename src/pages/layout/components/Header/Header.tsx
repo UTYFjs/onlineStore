@@ -1,5 +1,6 @@
 import { AppBar, Box, Link, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { useClickOutside } from '../../../../hooks/useClickOutside';
 import styles from './Header.module.scss';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
@@ -22,10 +23,19 @@ interface IHeaderProps {
 function Header({ setMenu }: IHeaderProps) {
   const navigate = useNavigate();
   const [isSearch, setIsSearch] = useState(false);
+  const [isNavVertical, setIsNavVertical] = useState(false);
+  const verticalMenuRef = useRef(null);
+  useClickOutside(verticalMenuRef, () => {
+    if (isNavVertical) setIsNavVertical(false);
+  });
   const location = useLocation();
   const isCollectionLocation = location.pathname.split('/')[1] === 'collection';
   const iconsFontSize = { xs: '33px', sm: '33px', md: '35px', lg: '38px' };
   const classLogo = classNames(styles.logo, isSearch && styles.hide);
+  const classNavVertical = classNames(
+    styles.navigation__list_vertical,
+    !isNavVertical && styles.hide
+  );
 
   const { searchText, setSearchText } = useUtilityStore();
   const handleSetSearchText = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,6 +69,7 @@ function Header({ setMenu }: IHeaderProps) {
             sx={{ display: { xs: 'block', md: 'none', lg: 'none' }, fontSize: iconsFontSize }}
             color={'action'}
             onClick={() => setMenu('menu')}
+            onMouseDown={(e) => {}}
           />
           {
             !isSearch && isCollectionLocation && (
@@ -129,27 +140,61 @@ function Header({ setMenu }: IHeaderProps) {
         </Box>
       </nav>
       <nav className={styles.navigation}>
-        {routerPagesData.map((item) => (
-          <NavLinkCustom
-            key={item.url + item.content}
-            url={item.url}
-            content={item.content}
-            color={'#000'}
-          />
-        ))}
+        <ul className={styles.navigation__list}>
+          {routerPagesData.slice(0, 5).map((item) => (
+            <li className={styles.navigation__list_item} key={item.url + item.content}>
+              <NavLinkCustom url={item.url} content={item.content} color={'#000'} />
+            </li>
+          ))}
+          <li
+            className={styles.navigation__list_item}
+            onClick={(e) => {
+              //console.log('button event');
+              e.stopPropagation();
+              setIsNavVertical(!isNavVertical);
+            }}
+          >
+            <button type="button" className={styles.navigation__button}>
+              Еще{' '}
+              <svg
+                className={
+                  !isNavVertical
+                    ? styles['navigation__button_icon-rotate']
+                    : styles['navigation__button_icon']
+                }
+                width="15px"
+                height="15px"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill="currentColor"
+                  d="M5.64645 8.64645c.19526-.19527.51184-.19527.7071 0L12 14.2929l5.6464-5.64645c.1953-.19527.5119-.19527.7072 0 .1952.19526.1952.51184 0 .7071L12 15.7071 5.64645 9.35355c-.19527-.19526-.19527-.51184 0-.7071Z"
+                ></path>
+              </svg>
+            </button>
+            <ul className={classNavVertical} ref={verticalMenuRef}>
+              {routerPagesData.slice(6, routerPagesData.length - 1).map((item) => (
+                <li className={styles.navigation__list_item} key={item.url + item.content}>
+                  <NavLinkCustom url={item.url} content={item.content} color={'#000'} />
+                </li>
+              ))}
+            </ul>
+          </li>
 
-        {/*<NavLink
-          to="/collection"
-          className={({ isActive }) =>
-            styles['nav-link'] + ' ' + (isActive ? styles['active-link'] : '')
-          }
-        >
-          Весь каталог
-        </NavLink>
-
-        <Typography className={styles['nav-link']} component={Link} href="about" underline="none">
-          About
-        </Typography>*/}
+          <li
+            className={styles.navigation__list_item}
+            key={
+              routerPagesData[routerPagesData.length - 1].url +
+              routerPagesData[routerPagesData.length - 1].content
+            }
+          >
+            <NavLinkCustom
+              url={routerPagesData[routerPagesData.length - 1].url}
+              content={routerPagesData[routerPagesData.length - 1].content}
+              color={'#000'}
+            />
+          </li>
+        </ul>
       </nav>
     </AppBar>
   );

@@ -39,7 +39,7 @@ function SelectProducts() {
   return (
     <div>
       <FiltersMenu />
-
+      <h3 className={styles.title}>Hello World</h3>
       <ListProducts
         customProducts={products}
         deepPath={'./.'}

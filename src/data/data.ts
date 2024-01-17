@@ -8,6 +8,14 @@ export const routerPagesData = [
   { url: '/collection/fordocuments', content: 'Для документов' },
   { url: '/collection/bags', content: 'Сумки' },
   { url: '/collection/notebooks', content: 'Блокноты' },
+  { url: '/collection/photoAlbums', content: 'Фотоальбомы' },
+  { url: '/collection/coinBoxes', content: 'Монетницы' },
+  { url: '/collection/keyChains', content: 'Для ключей' },
+  { url: '/collection/longers', content: 'Лонгеры' },
+  { url: '/collection/glassesCases', content: 'Футляры для очков' },
+  { url: '/collection/backPacks', content: 'Рюкзаки' },
+  { url: '/collection/bracelets', content: 'Браслеты' },
+  { url: '/collection/giftBoxes', content: 'Подарочные наборы' },
 
   { url: '/favorites', content: 'ИЗБРАННОЕ' },
 ];

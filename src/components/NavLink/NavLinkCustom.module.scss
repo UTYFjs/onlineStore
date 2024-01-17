@@ -13,7 +13,10 @@
     width: 100%;
   }
 }
-.active-link{
-  color: $color-myred;
-  
+.nav-link.active-link{
+  font-weight: bold;
+    &::before{
+    width: 100%;
+  }
+
 }
