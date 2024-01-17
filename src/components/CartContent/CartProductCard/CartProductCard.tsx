@@ -15,7 +15,6 @@ export default function CartProductCard({ data }: ICartProductCardProps) {
   const handleShaded = useZustandStore((state) => state.handleShaded);
 
   const handleGoToProductPage = () => {
-    console.log('go to product page');
     navigate(`/collection/${data.cartProduct.category}/${data.cartProduct.id}`);
     handleShaded();
   };
@@ -25,7 +24,6 @@ export default function CartProductCard({ data }: ICartProductCardProps) {
       case 'add':
         newCount += 1;
         updateCartProduct({ ...data, count: newCount });
-        console.log('add');
         break;
       case 'remove':
         newCount = data.count - 1;
@@ -35,14 +33,12 @@ export default function CartProductCard({ data }: ICartProductCardProps) {
           updateCartProduct({ ...data, count: newCount });
         }
 
-        console.log('remove');
         break;
     }
   };
 
   const handleRemoveFromCart = () => {
     removeCartProduct(data.cartProduct.id);
-    console.log('removefrom cart');
   };
   return (
     <div className={styles.card}>

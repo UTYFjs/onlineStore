@@ -20,10 +20,9 @@ export default function SliderSwiper({ images }: ISwaperProps) {
 
   const [isPhone, setIsPhone] = useState(phoneMediaQuery.matches);
   phoneMediaQuery.addEventListener('change', (e) => {
-    console.log('e.matches', e.matches);
     setIsPhone(e.matches);
   });
-  //const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
   return (
     <>
       <Swiper

@@ -85,8 +85,6 @@ function getFilteringProducts(
     const filteredProducts: IDataProduct[] = [];
 
     if (selectedFilters[filter.name].length > 0) {
-      console.log('selectedFilters[filter.name]', selectedFilters[filter.name]);
-
       selectedFilters[filter.name].forEach((filterValue) => {
         currentProducts.forEach((product) => {
           if (product[filter.name] === filterValue) {
@@ -96,36 +94,6 @@ function getFilteringProducts(
       });
       currentProducts = filteredProducts;
     }
-
-    /*if (selectedFilters[filter.name].length > 0) {
-      
-      console.log('выбранные фильтры', filter.selectedOptions.length);
-      currentProducts = currentProducts.filter((product) => {
-        if (product[filter.name] === ) {
-          return filter.selectedOptions.includes(product[filter.name] || '');
-        }
-        return false;
-      });
-    }*/
   });
   return currentProducts;
 }
-
-/* filters.forEach((filter) => {
-    const filteredProducts: IDataProduct[] = [];
-
-    if (selectedFilters[filter.name].length > 0) {
-      console.log('selectedFilters[filter.name]', selectedFilters[filter.name]);
-
-      selectedFilters[filter.name].forEach((filterValue) => {
-        currentProducts.forEach((product) => {
-          if (product[filter.name] === filterValue) {
-            filteredProducts.push(product);
-          }
-        });
-      });
-      currentProducts = filteredProducts;
-    }
-
-
-  }); */

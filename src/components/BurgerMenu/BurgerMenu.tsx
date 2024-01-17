@@ -31,15 +31,8 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
     type === 'cart' ? styles.right : '',
     isBurgerOpen && styles.active
   );
-  console.log('nanoid', nanoid());
-  const classesBurgerTitle = cn(styles['burger-title'], type === 'cart' ? styles.right : '');
 
-  /*const Typography = styled('a')(({ theme }) => ({
-    fontSize: '2rem',
-    fontWeight: 600,
-    color: 'black',
-    textDecoration: 'none',
-  }));*/
+  const classesBurgerTitle = cn(styles['burger-title'], type === 'cart' ? styles.right : '');
 
   // сделать чтобы фильтры применялись при клике на тень или не делать
   const handleCloseBurger = () => {
@@ -58,10 +51,8 @@ function BurgerMenu({ data, type }: IBurgerMenuProps) {
   const newSelectedFilters = JSON.parse(JSON.stringify(selectedFilters));
 
   const handleSetFilter = () => {
-    //console.log('текущие', e.currentTarget.value, e.currentTarget.checked);
     setAllSelectedFilters(newSelectedFilters, 0);
     handleCloseBurger();
-    /*setSelectedFilters({ [name]: [value] });*/
   };
   const handleDefaultFilters = () => {
     console.log('defaultFilters', selectedFilters);

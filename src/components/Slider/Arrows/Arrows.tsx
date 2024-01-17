@@ -20,7 +20,6 @@ export default function Arrows({ handleLeft, handleRight }: IArrowProps) {
         className={styles['arrow-left']}
         onClick={() => {
           handleLeft();
-          console.log('arrow-left');
         }}
       />
       <SvgArrow
@@ -29,7 +28,6 @@ export default function Arrows({ handleLeft, handleRight }: IArrowProps) {
         className={styles['arrow-right']}
         onClick={() => {
           handleRight();
-          console.log('arrow-right');
         }}
       />
     </div>

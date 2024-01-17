@@ -7,7 +7,7 @@ interface IColorProduct {
   images: string[];
 }
 
-// add 
+// add
 export interface IDataProductNew {
   id: string;
   title: string;

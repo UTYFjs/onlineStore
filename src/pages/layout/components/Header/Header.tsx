@@ -149,7 +149,6 @@ function Header({ setMenu }: IHeaderProps) {
           <li
             className={styles.navigation__list_item}
             onClick={(e) => {
-              //console.log('button event');
               e.stopPropagation();
               setIsNavVertical(!isNavVertical);
             }}

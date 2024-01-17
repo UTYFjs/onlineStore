@@ -29,7 +29,6 @@ function ProductPage() {
     } else {
       productInCart = cartProducts.find((item) => item.cartProduct.id === currentProduct.id);
     }
-    console.log('useEffect');
   }, [currentProduct, navigate]);
 
   const [isCheckedGiftBox, setIsCheckedGiftBox] = useState(false);
@@ -52,7 +51,6 @@ function ProductPage() {
         setIsCheckedGiftBox(true);
       }
       setCurrentPrice(productInCart.price);
-      console.log('useEffect Product in cart', 'isCheckedEmbossing', isCheckedEmbossing);
     }
   }, [productInCart]);
   if (!currentProduct) return null;
@@ -74,21 +72,12 @@ function ProductPage() {
   };
 
   const imagesSrc = currentProduct.images.map((image) => './../.' + image);
-  console.log('imagesSrc', imagesSrc);
-  //const { currentProduct, setCurrentProduct } = useUtilityStore((state) => state);
-  /*useEffect(() => {
-    return () => {
-      console.log('unmount');
-      setCurrentProduct(null);
-    };
-  }, [setCurrentProduct]);*/
 
   const handleChangeColor = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newColor = e.target.value;
     setColor(newColor);
     newCartProduct.color = newColor;
     if (isInCart) {
-      console.log('update color', color, newCartProduct, cartProducts);
       updateCartProduct(newCartProduct);
     }
   };
@@ -129,8 +118,6 @@ function ProductPage() {
     }
 
     updateCartProduct(newCartProduct);
-    //console.log('isDisabled', isDisabled, e.currentTarget.checked);
-    console.log(isCheckedEmbossing);
   };
   const handleChangeEmbossingInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value;
@@ -141,18 +128,14 @@ function ProductPage() {
   };
   const handleAddProductToCart = () => {
     addCartProduct(newCartProduct);
-
-    console.log('add Product to cart', isInCart);
   };
   const handleRemoveProductFromCart = () => {
     removeCartProduct(currentProduct.id);
-    console.log('isInCart', isInCart);
-    console.log('remove Product from cart', isInCart);
   };
   const handleAddToFavorite = () => {
     isFavorite ? removeProduct(currentProduct.id) : addProduct(currentProduct);
   };
-  //console.log('PRODUCT FROM PRODUCT PAGE', currentProduct);
+
   return (
     <div className={styles.grid}>
       <div className={styles['image-wrapper']}>
@@ -185,25 +168,11 @@ function ProductPage() {
           />
         </div>
         <div className={styles['flex-row']}>
-          <p
-            className={styles.spacing}
-            onClick={() => {
-              console.log(isCheckedEmbossing);
-            }}
-          >
-            Добавить подарочную коробочку
-          </p>
+          <p className={styles.spacing}>Добавить подарочную коробочку</p>
           <Checkbox isChecked={isCheckedGiftBox} name="embossing" onChange={handleAddGiftBox} />
         </div>
         <div className={styles['flex-row']}>
-          <p
-            className={styles.spacing}
-            onClick={() => {
-              console.log(cartProducts, isInCart);
-            }}
-          >
-            Добавить инициалы
-          </p>
+          <p className={styles.spacing}>Добавить инициалы</p>
           {
             //todo checkbox инициалы
           }

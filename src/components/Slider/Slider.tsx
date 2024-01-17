@@ -35,7 +35,6 @@ export default function Slider({ slides, autoPlay, autoPlayTime, width, height }
     }
     const currentPosition = e.touches[0].clientX;
     const direction = touchPosition - currentPosition;
-    console.log('direction', direction);
     if (direction > 10) {
       changeSlide(currentSlide + 1);
     }
@@ -49,12 +48,9 @@ export default function Slider({ slides, autoPlay, autoPlayTime, width, height }
     <div
       className={styles.slider}
       onTouchStart={(e) => {
-        console.log('touchStart', e.touches[0].clientX);
-        //console.log(e);
         handleTouchStart(e);
       }}
       onTouchMove={(e) => {
-        console.log('touchMove');
         handleTouchMove(e);
       }}
     >

@@ -10,7 +10,6 @@ export default function Dot({ indexSlide, onClick }: IDotProps) {
       className={styles.dot}
       onClick={() => {
         onClick(indexSlide);
-        console.log('indexSlide', indexSlide);
       }}
     ></div>
   );
