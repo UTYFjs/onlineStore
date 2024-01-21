@@ -15,7 +15,7 @@ export const routerPagesData = [
   { url: '/collection/glassesCases', content: 'Футляры для очков' },
   { url: '/collection/backPacks', content: 'Рюкзаки' },
   { url: '/collection/bracelets', content: 'Браслеты' },
-  { url: '/collection/giftBoxes', content: 'Подарочные наборы' },
+  { url: '/collection/giftBoxes', content: 'Наборы' },
 
   { url: '/favorites', content: 'ИЗБРАННОЕ' },
 ];

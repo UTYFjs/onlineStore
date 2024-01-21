@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Button from '../Button/Button';
 import ImgLazy from '../ImgLazy/ImgLazy';
 import cn from 'classnames';
@@ -14,13 +14,17 @@ interface ICardCategoryProps {
 
 function CardCategory({ textContent, buttonContent, srcImg, className, to }: ICardCategoryProps) {
   const classNamesCard = className ? cn(styles.category, styles[className]) : styles.category;
+  const navigate = useNavigate();
+  const handleButton = () => {
+    navigate(to);
+  };
   return (
     <div className={classNamesCard}>
       <NavLink className={styles['link-ghost']} to={to} />
       <ImgLazy src={srcImg} />
       <div className={styles['grid-content']}>
         <h3 className={styles['content-title']}>{textContent}</h3>
-        <Button content={buttonContent} />
+        <Button content={buttonContent} onClick={handleButton} />
       </div>
     </div>
   );
