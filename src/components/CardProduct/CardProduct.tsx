@@ -12,6 +12,7 @@ import ImgLazy from '../ImgLazy/ImgLazy';
 import styles from './CardProduct.module.scss';
 import Heart from '../Heart/Heart';
 import Marker from '../Marker/Marker';
+import { sendMetrik } from '../../utility/metrics';
 
 interface ICardProductProps {
   data: IDataProduct;
@@ -36,6 +37,7 @@ function CardProduct({ data, deepPath }: ICardProductProps) {
 
   const isFavorite = favoriteProducts.some((p) => p.id === data.id);
   const handleToggleFavorite = () => {
+    sendMetrik('reachGoal', 'testJSEvent');
     isFavorite ? removeProduct(data.id) : addProduct(data);
   };
 
